@@ -1,0 +1,2646 @@
+{
+ "obec": "Ostopovice",
+ "ic": "00282294",
+ "pop": 1751,
+ "posledni_rok": 2025,
+ "years": [
+  {
+   "rok": 2010,
+   "obdobi": 1012,
+   "prijmy": {
+    "schv": 12765500,
+    "uprav": 13228600,
+    "skut": 14922890
+   },
+   "vydaje": {
+    "schv": 17816100,
+    "uprav": 18299200,
+    "skut": 13274050
+   }
+  },
+  {
+   "rok": 2011,
+   "obdobi": 1112,
+   "prijmy": {
+    "schv": 12427000,
+    "uprav": 19932100,
+    "skut": 19896001
+   },
+   "vydaje": {
+    "schv": 34090800,
+    "uprav": 43688900,
+    "skut": 40433208
+   }
+  },
+  {
+   "rok": 2012,
+   "obdobi": 1212,
+   "prijmy": {
+    "schv": 13760300,
+    "uprav": 22307200,
+    "skut": 22576045
+   },
+   "vydaje": {
+    "schv": 21548600,
+    "uprav": 23003800,
+    "skut": 20722463
+   }
+  },
+  {
+   "rok": 2013,
+   "obdobi": 1312,
+   "prijmy": {
+    "schv": 14651100,
+    "uprav": 15340400,
+    "skut": 16578360
+   },
+   "vydaje": {
+    "schv": 14787900,
+    "uprav": 20170300,
+    "skut": 18496911
+   }
+  },
+  {
+   "rok": 2014,
+   "obdobi": 1412,
+   "prijmy": {
+    "schv": 19231000,
+    "uprav": 22403600,
+    "skut": 23343250
+   },
+   "vydaje": {
+    "schv": 20950000,
+    "uprav": 23812700,
+    "skut": 23655814
+   }
+  },
+  {
+   "rok": 2015,
+   "obdobi": 1512,
+   "prijmy": {
+    "schv": 18220000,
+    "uprav": 22413700,
+    "skut": 26290565
+   },
+   "vydaje": {
+    "schv": 16561000,
+    "uprav": 20754700,
+    "skut": 16669070
+   }
+  },
+  {
+   "rok": 2016,
+   "obdobi": 1612,
+   "prijmy": {
+    "schv": 17449000,
+    "uprav": 22696000,
+    "skut": 25080600
+   },
+   "vydaje": {
+    "schv": 20956000,
+    "uprav": 23703000,
+    "skut": 18399500
+   }
+  },
+  {
+   "rok": 2017,
+   "obdobi": 1712,
+   "prijmy": {
+    "schv": 18530000,
+    "uprav": 30158700,
+    "skut": 33688657
+   },
+   "vydaje": {
+    "schv": 26138000,
+    "uprav": 39504200,
+    "skut": 31744367
+   }
+  },
+  {
+   "rok": 2018,
+   "obdobi": 1812,
+   "prijmy": {
+    "schv": 22426000,
+    "uprav": 22369200,
+    "skut": 24507979
+   },
+   "vydaje": {
+    "schv": 30408000,
+    "uprav": 30351200,
+    "skut": 19661374
+   }
+  },
+  {
+   "rok": 2019,
+   "obdobi": 1912,
+   "prijmy": {
+    "schv": 26022000,
+    "uprav": 28772700,
+    "skut": 32952266
+   },
+   "vydaje": {
+    "schv": 35546000,
+    "uprav": 41874700,
+    "skut": 33793083
+   }
+  },
+  {
+   "rok": 2020,
+   "obdobi": 2012,
+   "prijmy": {
+    "schv": 31926000,
+    "uprav": 37822800,
+    "skut": 38699508
+   },
+   "vydaje": {
+    "schv": 30592000,
+    "uprav": 32092100,
+    "skut": 25630823
+   }
+  },
+  {
+   "rok": 2021,
+   "obdobi": 2112,
+   "prijmy": {
+    "schv": 24946000,
+    "uprav": 34295400,
+    "skut": 31904741
+   },
+   "vydaje": {
+    "schv": 33560000,
+    "uprav": 44809400,
+    "skut": 30172560
+   }
+  },
+  {
+   "rok": 2022,
+   "obdobi": 2212,
+   "prijmy": {
+    "schv": 26061000,
+    "uprav": 35707700,
+    "skut": 42362579
+   },
+   "vydaje": {
+    "schv": 34776000,
+    "uprav": 51370000,
+    "skut": 31106128
+   }
+  },
+  {
+   "rok": 2023,
+   "obdobi": 2312,
+   "prijmy": {
+    "schv": 31847000,
+    "uprav": 47418600,
+    "skut": 52759209
+   },
+   "vydaje": {
+    "schv": 49885000,
+    "uprav": 66747600,
+    "skut": 61133496
+   }
+  },
+  {
+   "rok": 2024,
+   "obdobi": 2412,
+   "prijmy": {
+    "schv": 60545000,
+    "uprav": 62695100,
+    "skut": 42047026
+   },
+   "vydaje": {
+    "schv": 72137000,
+    "uprav": 77317100,
+    "skut": 54144701
+   }
+  },
+  {
+   "rok": 2025,
+   "obdobi": 2512,
+   "prijmy": {
+    "schv": 117741000,
+    "uprav": 122665000,
+    "skut": 67694709
+   },
+   "vydaje": {
+    "schv": 141044000,
+    "uprav": 180031600,
+    "skut": 140052799
+   }
+  }
+ ],
+ "struktura": {
+  "2010": {
+   "prijmy_druh": [
+    {
+     "name": "Daňové příjmy",
+     "schv": 10162000,
+     "uprav": 10162000,
+     "skut": 11610430
+    },
+    {
+     "name": "Nedaňové příjmy",
+     "schv": 462500,
+     "uprav": 616500,
+     "skut": 829470
+    },
+    {
+     "name": "Kapitálové příjmy",
+     "schv": 30000,
+     "uprav": 96000,
+     "skut": 129000
+    },
+    {
+     "name": "Přijaté transfery",
+     "schv": 2111000,
+     "uprav": 2354100,
+     "skut": 2353990
+    }
+   ],
+   "vydaje_druh": [
+    {
+     "name": "Běžné výdaje",
+     "schv": 7665300,
+     "uprav": 10208900,
+     "skut": 9235880
+    },
+    {
+     "name": "Kapitálové výdaje",
+     "schv": 10150800,
+     "uprav": 8090300,
+     "skut": 4038170
+    }
+   ],
+   "vydaje_oblast": [
+    {
+     "name": "Vzdělávání a školské služby",
+     "schv": 9052000,
+     "uprav": 9052000,
+     "skut": 5473180
+    },
+    {
+     "name": "Státní moc, státní správa, územní samospráva a politické strany",
+     "schv": 2408500,
+     "uprav": 2469200,
+     "skut": 2275160
+    },
+    {
+     "name": "Vodní hospodářství",
+     "schv": 2079800,
+     "uprav": 2079900,
+     "skut": 2079340
+    },
+    {
+     "name": "Ochrana životního prostředí",
+     "schv": 2087000,
+     "uprav": 2184600,
+     "skut": 1689010
+    },
+    {
+     "name": "Doprava",
+     "schv": 848000,
+     "uprav": 950100,
+     "skut": 650280
+    },
+    {
+     "name": "Bydlení, komunální služby a územní rozvoj",
+     "schv": 723000,
+     "uprav": 820600,
+     "skut": 570380
+    },
+    {
+     "name": "Kultura, církve a sdělovací prostředky",
+     "schv": 433000,
+     "uprav": 528000,
+     "skut": 390960
+    },
+    {
+     "name": "Tělovýchova a zájmová činnost",
+     "schv": 58000,
+     "uprav": 88000,
+     "skut": 77420
+    },
+    {
+     "name": "Finanční operace",
+     "schv": 56000,
+     "uprav": 56000,
+     "skut": 31050
+    },
+    {
+     "name": "Požární ochrana a integrovaný záchranný systém",
+     "schv": 17800,
+     "uprav": 17800,
+     "skut": 17800
+    },
+    {
+     "name": "Sociální služby a společné činnosti v sociálním zabezpečení a politice zaměstnanosti",
+     "schv": 40000,
+     "uprav": 40000,
+     "skut": 15000
+    },
+    {
+     "name": "Zemědělství, lesní hospodářství a rybářství",
+     "schv": 13000,
+     "uprav": 13000,
+     "skut": 4470
+    }
+   ]
+  },
+  "2011": {
+   "prijmy_druh": [
+    {
+     "name": "Daňové příjmy",
+     "schv": 11400000,
+     "uprav": 11400000,
+     "skut": 11236940
+    },
+    {
+     "name": "Nedaňové příjmy",
+     "schv": 433800,
+     "uprav": 3626000,
+     "skut": 3697185
+    },
+    {
+     "name": "Kapitálové příjmy",
+     "schv": 5000,
+     "uprav": 120000,
+     "skut": 175950
+    },
+    {
+     "name": "Přijaté transfery",
+     "schv": 588200,
+     "uprav": 4786100,
+     "skut": 4785926
+    }
+   ],
+   "vydaje_druh": [
+    {
+     "name": "Běžné výdaje",
+     "schv": 7090800,
+     "uprav": 9069000,
+     "skut": 8664038
+    },
+    {
+     "name": "Kapitálové výdaje",
+     "schv": 27000000,
+     "uprav": 34619900,
+     "skut": 31769170
+    }
+   ],
+   "vydaje_oblast": [
+    {
+     "name": "Vzdělávání a školské služby",
+     "schv": 27775000,
+     "uprav": 36715700,
+     "skut": 33895019
+    },
+    {
+     "name": "Ochrana životního prostředí",
+     "schv": 1993500,
+     "uprav": 2216600,
+     "skut": 2187984
+    },
+    {
+     "name": "Státní moc, státní správa, územní samospráva a politické strany",
+     "schv": 2150500,
+     "uprav": 2158500,
+     "skut": 2000174
+    },
+    {
+     "name": "Bydlení, komunální služby a územní rozvoj",
+     "schv": 971000,
+     "uprav": 1031300,
+     "skut": 990249
+    },
+    {
+     "name": "Doprava",
+     "schv": 517000,
+     "uprav": 752000,
+     "skut": 711544
+    },
+    {
+     "name": "Kultura, církve a sdělovací prostředky",
+     "schv": 452000,
+     "uprav": 497000,
+     "skut": 388100
+    },
+    {
+     "name": "Tělovýchova a zájmová činnost",
+     "schv": 93000,
+     "uprav": 138000,
+     "skut": 111339
+    },
+    {
+     "name": "Vodní hospodářství",
+     "schv": 27000,
+     "uprav": 57000,
+     "skut": 53866
+    },
+    {
+     "name": "Finanční operace",
+     "schv": 32000,
+     "uprav": 43000,
+     "skut": 38402
+    },
+    {
+     "name": "Sociální služby a společné činnosti v sociálním zabezpečení a politice zaměstnanosti",
+     "schv": 40000,
+     "uprav": 40000,
+     "skut": 20000
+    },
+    {
+     "name": "Požární ochrana a integrovaný záchranný systém",
+     "schv": 17800,
+     "uprav": 17800,
+     "skut": 17800
+    },
+    {
+     "name": "Ostatní činnosti",
+     "schv": 17000,
+     "uprav": 17000,
+     "skut": 16028
+    },
+    {
+     "name": "Zemědělství, lesní hospodářství a rybářství",
+     "schv": 5000,
+     "uprav": 5000,
+     "skut": 2705
+    }
+   ]
+  },
+  "2012": {
+   "prijmy_druh": [
+    {
+     "name": "Daňové příjmy",
+     "schv": 10911300,
+     "uprav": 10911400,
+     "skut": 11648048
+    },
+    {
+     "name": "Nedaňové příjmy",
+     "schv": 507000,
+     "uprav": 617000,
+     "skut": 950601
+    },
+    {
+     "name": "Kapitálové příjmy",
+     "schv": 95000,
+     "uprav": 319000,
+     "skut": 319870
+    },
+    {
+     "name": "Přijaté transfery",
+     "schv": 2247000,
+     "uprav": 10459800,
+     "skut": 9657526
+    }
+   ],
+   "vydaje_druh": [
+    {
+     "name": "Běžné výdaje",
+     "schv": 7752600,
+     "uprav": 9819900,
+     "skut": 9376982
+    },
+    {
+     "name": "Kapitálové výdaje",
+     "schv": 13796000,
+     "uprav": 13183900,
+     "skut": 11345481
+    }
+   ],
+   "vydaje_oblast": [
+    {
+     "name": "Ochrana životního prostředí",
+     "schv": 9500800,
+     "uprav": 9302300,
+     "skut": 8923216
+    },
+    {
+     "name": "Vzdělávání a školské služby",
+     "schv": 7539500,
+     "uprav": 8284900,
+     "skut": 6862236
+    },
+    {
+     "name": "Státní moc, státní správa, územní samospráva a politické strany",
+     "schv": 2192000,
+     "uprav": 2852000,
+     "skut": 2790721
+    },
+    {
+     "name": "Kultura, církve a sdělovací prostředky",
+     "schv": 547600,
+     "uprav": 647300,
+     "skut": 584673
+    },
+    {
+     "name": "Bydlení, komunální služby a územní rozvoj",
+     "schv": 591000,
+     "uprav": 607000,
+     "skut": 488383
+    },
+    {
+     "name": "Doprava",
+     "schv": 639000,
+     "uprav": 677500,
+     "skut": 486294
+    },
+    {
+     "name": "Vodní hospodářství",
+     "schv": 250000,
+     "uprav": 330000,
+     "skut": 329084
+    },
+    {
+     "name": "Tělovýchova a zájmová činnost",
+     "schv": 152000,
+     "uprav": 142200,
+     "skut": 135490
+    },
+    {
+     "name": "Finanční operace",
+     "schv": 58300,
+     "uprav": 74200,
+     "skut": 71100
+    },
+    {
+     "name": "Sociální služby a společné činnosti v sociálním zabezpečení a politice zaměstnanosti",
+     "schv": 42500,
+     "uprav": 47500,
+     "skut": 27500
+    },
+    {
+     "name": "Požární ochrana a integrovaný záchranný systém",
+     "schv": 17800,
+     "uprav": 17800,
+     "skut": 17800
+    },
+    {
+     "name": "Ostatní činnosti",
+     "schv": 3100,
+     "uprav": 6100,
+     "skut": 5966
+    },
+    {
+     "name": "Zemědělství, lesní hospodářství a rybářství",
+     "schv": 5000,
+     "uprav": 5000,
+     "skut": 0
+    },
+    {
+     "name": "Civilní připravenost na krizové stavy",
+     "schv": 10000,
+     "uprav": 10000,
+     "skut": 0
+    }
+   ]
+  },
+  "2013": {
+   "prijmy_druh": [
+    {
+     "name": "Daňové příjmy",
+     "schv": 13049000,
+     "uprav": 13094900,
+     "skut": 14795161
+    },
+    {
+     "name": "Nedaňové příjmy",
+     "schv": 397600,
+     "uprav": 419600,
+     "skut": 447131
+    },
+    {
+     "name": "Kapitálové příjmy",
+     "schv": 0,
+     "uprav": 52400,
+     "skut": 54360
+    },
+    {
+     "name": "Přijaté transfery",
+     "schv": 1204500,
+     "uprav": 1773500,
+     "skut": 1281709
+    }
+   ],
+   "vydaje_druh": [
+    {
+     "name": "Běžné výdaje",
+     "schv": 8987900,
+     "uprav": 11262100,
+     "skut": 10871914
+    },
+    {
+     "name": "Kapitálové výdaje",
+     "schv": 5800000,
+     "uprav": 8908200,
+     "skut": 7624998
+    }
+   ],
+   "vydaje_oblast": [
+    {
+     "name": "Vzdělávání a školské služby",
+     "schv": 3642000,
+     "uprav": 5117900,
+     "skut": 5117831
+    },
+    {
+     "name": "Ochrana životního prostředí",
+     "schv": 2381900,
+     "uprav": 5774200,
+     "skut": 4661603
+    },
+    {
+     "name": "Doprava",
+     "schv": 4375000,
+     "uprav": 4225000,
+     "skut": 3970802
+    },
+    {
+     "name": "Státní moc, státní správa, územní samospráva a politické strany",
+     "schv": 2328200,
+     "uprav": 2441600,
+     "skut": 2332188
+    },
+    {
+     "name": "Bydlení, komunální služby a územní rozvoj",
+     "schv": 882000,
+     "uprav": 841600,
+     "skut": 804282
+    },
+    {
+     "name": "Zemědělství, lesní hospodářství a rybářství",
+     "schv": 5000,
+     "uprav": 588900,
+     "skut": 579850
+    },
+    {
+     "name": "Kultura, církve a sdělovací prostředky",
+     "schv": 534600,
+     "uprav": 479600,
+     "skut": 383723
+    },
+    {
+     "name": "Tělovýchova a zájmová činnost",
+     "schv": 232000,
+     "uprav": 255000,
+     "skut": 250055
+    },
+    {
+     "name": "Finanční operace",
+     "schv": 186000,
+     "uprav": 172800,
+     "skut": 158747
+    },
+    {
+     "name": "Vodní hospodářství",
+     "schv": 120000,
+     "uprav": 121000,
+     "skut": 120950
+    },
+    {
+     "name": "Ostatní činnosti",
+     "schv": 8400,
+     "uprav": 71100,
+     "skut": 71079
+    },
+    {
+     "name": "Sociální služby a společné činnosti v sociálním zabezpečení a politice zaměstnanosti",
+     "schv": 25000,
+     "uprav": 25000,
+     "skut": 25000
+    },
+    {
+     "name": "Požární ochrana a integrovaný záchranný systém",
+     "schv": 17800,
+     "uprav": 17800,
+     "skut": 17800
+    },
+    {
+     "name": "Ostatní činnosti související se službami pro obyvatelstvo",
+     "schv": 0,
+     "uprav": 3000,
+     "skut": 3000
+    },
+    {
+     "name": "Civilní připravenost na krizové stavy",
+     "schv": 50000,
+     "uprav": 35800,
+     "skut": 0
+    }
+   ]
+  },
+  "2014": {
+   "prijmy_druh": [
+    {
+     "name": "Daňové příjmy",
+     "schv": 14875000,
+     "uprav": 14926100,
+     "skut": 16240331
+    },
+    {
+     "name": "Nedaňové příjmy",
+     "schv": 433600,
+     "uprav": 973900,
+     "skut": 1089218
+    },
+    {
+     "name": "Přijaté transfery",
+     "schv": 3922400,
+     "uprav": 6503600,
+     "skut": 6013701
+    }
+   ],
+   "vydaje_druh": [
+    {
+     "name": "Běžné výdaje",
+     "schv": 10225500,
+     "uprav": 10490200,
+     "skut": 10335066
+    },
+    {
+     "name": "Kapitálové výdaje",
+     "schv": 10724500,
+     "uprav": 13322500,
+     "skut": 13320748
+    }
+   ],
+   "vydaje_oblast": [
+    {
+     "name": "Ochrana životního prostředí",
+     "schv": 7996500,
+     "uprav": 7774800,
+     "skut": 7760975
+    },
+    {
+     "name": "Vzdělávání a školské služby",
+     "schv": 2425000,
+     "uprav": 6005600,
+     "skut": 6004587
+    },
+    {
+     "name": "Bydlení, komunální služby a územní rozvoj",
+     "schv": 4268500,
+     "uprav": 4554200,
+     "skut": 4543422
+    },
+    {
+     "name": "Státní moc, státní správa, územní samospráva a politické strany",
+     "schv": 2509000,
+     "uprav": 2351600,
+     "skut": 2336929
+    },
+    {
+     "name": "Doprava",
+     "schv": 2242200,
+     "uprav": 1816500,
+     "skut": 1808991
+    },
+    {
+     "name": "Kultura, církve a sdělovací prostředky",
+     "schv": 683500,
+     "uprav": 521600,
+     "skut": 508117
+    },
+    {
+     "name": "Tělovýchova a zájmová činnost",
+     "schv": 309000,
+     "uprav": 341000,
+     "skut": 339339
+    },
+    {
+     "name": "Finanční operace",
+     "schv": 235000,
+     "uprav": 310100,
+     "skut": 296167
+    },
+    {
+     "name": "Sociální služby a společné činnosti v sociálním zabezpečení a politice zaměstnanosti",
+     "schv": 25000,
+     "uprav": 25000,
+     "skut": 25000
+    },
+    {
+     "name": "Požární ochrana a integrovaný záchranný systém",
+     "schv": 17800,
+     "uprav": 17800,
+     "skut": 17800
+    },
+    {
+     "name": "Ostatní činnosti",
+     "schv": 8500,
+     "uprav": 8500,
+     "skut": 8487
+    },
+    {
+     "name": "Vodní hospodářství",
+     "schv": 150000,
+     "uprav": 6000,
+     "skut": 6000
+    },
+    {
+     "name": "Zemědělství, lesní hospodářství a rybářství",
+     "schv": 30000,
+     "uprav": 30000,
+     "skut": 0
+    },
+    {
+     "name": "Civilní připravenost na krizové stavy",
+     "schv": 50000,
+     "uprav": 50000,
+     "skut": 0
+    }
+   ]
+  },
+  "2015": {
+   "prijmy_druh": [
+    {
+     "name": "Daňové příjmy",
+     "schv": 14483400,
+     "uprav": 15528800,
+     "skut": 18530619
+    },
+    {
+     "name": "Nedaňové příjmy",
+     "schv": 3453600,
+     "uprav": 3507600,
+     "skut": 4281395
+    },
+    {
+     "name": "Kapitálové příjmy",
+     "schv": 0,
+     "uprav": 0,
+     "skut": 102620
+    },
+    {
+     "name": "Přijaté transfery",
+     "schv": 283000,
+     "uprav": 3377300,
+     "skut": 3375932
+    }
+   ],
+   "vydaje_druh": [
+    {
+     "name": "Běžné výdaje",
+     "schv": 11161000,
+     "uprav": 13899200,
+     "skut": 12221129
+    },
+    {
+     "name": "Kapitálové výdaje",
+     "schv": 5400000,
+     "uprav": 6855500,
+     "skut": 4447940
+    }
+   ],
+   "vydaje_oblast": [
+    {
+     "name": "Vzdělávání a školské služby",
+     "schv": 2431000,
+     "uprav": 5558900,
+     "skut": 5470029
+    },
+    {
+     "name": "Ochrana životního prostředí",
+     "schv": 4296800,
+     "uprav": 4302000,
+     "skut": 4209650
+    },
+    {
+     "name": "Státní moc, státní správa, územní samospráva a politické strany",
+     "schv": 2934000,
+     "uprav": 3003200,
+     "skut": 2503251
+    },
+    {
+     "name": "Doprava",
+     "schv": 2047000,
+     "uprav": 2122000,
+     "skut": 1565006
+    },
+    {
+     "name": "Finanční operace",
+     "schv": 300000,
+     "uprav": 1190400,
+     "skut": 1187870
+    },
+    {
+     "name": "Bydlení, komunální služby a územní rozvoj",
+     "schv": 2791000,
+     "uprav": 2615000,
+     "skut": 816028
+    },
+    {
+     "name": "Kultura, církve a sdělovací prostředky",
+     "schv": 732700,
+     "uprav": 864700,
+     "skut": 651281
+    },
+    {
+     "name": "Tělovýchova a zájmová činnost",
+     "schv": 235000,
+     "uprav": 305000,
+     "skut": 220495
+    },
+    {
+     "name": "Sociální služby a společné činnosti v sociálním zabezpečení a politice zaměstnanosti",
+     "schv": 27000,
+     "uprav": 27000,
+     "skut": 25000
+    },
+    {
+     "name": "Požární ochrana a integrovaný záchranný systém",
+     "schv": 17800,
+     "uprav": 17800,
+     "skut": 17800
+    },
+    {
+     "name": "Ostatní činnosti",
+     "schv": 9700,
+     "uprav": 9700,
+     "skut": 2660
+    },
+    {
+     "name": "Zemědělství, lesní hospodářství a rybářství",
+     "schv": 30000,
+     "uprav": 30000,
+     "skut": 0
+    },
+    {
+     "name": "Vodní hospodářství",
+     "schv": 450000,
+     "uprav": 450000,
+     "skut": 0
+    },
+    {
+     "name": "Civilní připravenost na krizové stavy",
+     "schv": 259000,
+     "uprav": 259000,
+     "skut": 0
+    }
+   ]
+  },
+  "2016": {
+   "prijmy_druh": [
+    {
+     "name": "Daňové příjmy",
+     "schv": 16030000,
+     "uprav": 16086000,
+     "skut": 18858051
+    },
+    {
+     "name": "Nedaňové příjmy",
+     "schv": 1124500,
+     "uprav": 1347500,
+     "skut": 956099
+    },
+    {
+     "name": "Kapitálové příjmy",
+     "schv": 0,
+     "uprav": 4841000,
+     "skut": 4844950
+    },
+    {
+     "name": "Přijaté transfery",
+     "schv": 294500,
+     "uprav": 421500,
+     "skut": 421500
+    }
+   ],
+   "vydaje_druh": [
+    {
+     "name": "Běžné výdaje",
+     "schv": 17080000,
+     "uprav": 15121000,
+     "skut": 11222514
+    },
+    {
+     "name": "Kapitálové výdaje",
+     "schv": 3876000,
+     "uprav": 8582000,
+     "skut": 7176986
+    }
+   ],
+   "vydaje_oblast": [
+    {
+     "name": "Státní moc, státní správa, územní samospráva a politické strany",
+     "schv": 2966000,
+     "uprav": 4718000,
+     "skut": 4644463
+    },
+    {
+     "name": "Bydlení, komunální služby a územní rozvoj",
+     "schv": 4362000,
+     "uprav": 5823000,
+     "skut": 4096396
+    },
+    {
+     "name": "Doprava",
+     "schv": 6488000,
+     "uprav": 5523000,
+     "skut": 2979084
+    },
+    {
+     "name": "Ochrana životního prostředí",
+     "schv": 2172700,
+     "uprav": 2669700,
+     "skut": 2570375
+    },
+    {
+     "name": "Vzdělávání a školské služby",
+     "schv": 2380000,
+     "uprav": 2380000,
+     "skut": 2263695
+    },
+    {
+     "name": "Kultura, církve a sdělovací prostředky",
+     "schv": 729500,
+     "uprav": 742500,
+     "skut": 536489
+    },
+    {
+     "name": "Finanční operace",
+     "schv": 465000,
+     "uprav": 541000,
+     "skut": 523374
+    },
+    {
+     "name": "Spoje",
+     "schv": 300000,
+     "uprav": 300000,
+     "skut": 264690
+    },
+    {
+     "name": "Tělovýchova a zájmová činnost",
+     "schv": 422000,
+     "uprav": 422000,
+     "skut": 229674
+    },
+    {
+     "name": "Vodní hospodářství",
+     "schv": 308000,
+     "uprav": 308000,
+     "skut": 183822
+    },
+    {
+     "name": "Zemědělství, lesní hospodářství a rybářství",
+     "schv": 45000,
+     "uprav": 56000,
+     "skut": 49638
+    },
+    {
+     "name": "Sociální služby a společné činnosti v sociálním zabezpečení a politice zaměstnanosti",
+     "schv": 50000,
+     "uprav": 50000,
+     "skut": 30000
+    },
+    {
+     "name": "Požární ochrana a integrovaný záchranný systém",
+     "schv": 17800,
+     "uprav": 17800,
+     "skut": 17800
+    },
+    {
+     "name": "Bezpečnost a veřejný pořádek",
+     "schv": 0,
+     "uprav": 10000,
+     "skut": 10000
+    },
+    {
+     "name": "Civilní připravenost na krizové stavy",
+     "schv": 250000,
+     "uprav": 142000,
+     "skut": 0
+    }
+   ]
+  },
+  "2017": {
+   "prijmy_druh": [
+    {
+     "name": "Daňové příjmy",
+     "schv": 16753000,
+     "uprav": 18068300,
+     "skut": 21414297
+    },
+    {
+     "name": "Nedaňové příjmy",
+     "schv": 1466300,
+     "uprav": 1807300,
+     "skut": 1991450
+    },
+    {
+     "name": "Kapitálové příjmy",
+     "schv": 0,
+     "uprav": 1005500,
+     "skut": 1005428
+    },
+    {
+     "name": "Přijaté transfery",
+     "schv": 310700,
+     "uprav": 9277600,
+     "skut": 9277482
+    }
+   ],
+   "vydaje_druh": [
+    {
+     "name": "Běžné výdaje",
+     "schv": 11339000,
+     "uprav": 15264200,
+     "skut": 12410526
+    },
+    {
+     "name": "Kapitálové výdaje",
+     "schv": 14799000,
+     "uprav": 24240000,
+     "skut": 19333842
+    }
+   ],
+   "vydaje_oblast": [
+    {
+     "name": "Doprava",
+     "schv": 8877000,
+     "uprav": 12557000,
+     "skut": 10964005
+    },
+    {
+     "name": "Vodní hospodářství",
+     "schv": 4132000,
+     "uprav": 8978500,
+     "skut": 6178679
+    },
+    {
+     "name": "Státní moc, státní správa, územní samospráva a politické strany",
+     "schv": 2974200,
+     "uprav": 3104000,
+     "skut": 2961078
+    },
+    {
+     "name": "Ochrana životního prostředí",
+     "schv": 2444000,
+     "uprav": 2869000,
+     "skut": 2784215
+    },
+    {
+     "name": "Bydlení, komunální služby a územní rozvoj",
+     "schv": 2815000,
+     "uprav": 3661800,
+     "skut": 2764527
+    },
+    {
+     "name": "Vzdělávání a školské služby",
+     "schv": 2370000,
+     "uprav": 2815300,
+     "skut": 2676781
+    },
+    {
+     "name": "Finanční operace",
+     "schv": 485000,
+     "uprav": 1711500,
+     "skut": 1077659
+    },
+    {
+     "name": "Kultura, církve a sdělovací prostředky",
+     "schv": 835500,
+     "uprav": 993500,
+     "skut": 958879
+    },
+    {
+     "name": "Tělovýchova a zájmová činnost",
+     "schv": 423500,
+     "uprav": 990800,
+     "skut": 821640
+    },
+    {
+     "name": "Spoje",
+     "schv": 449000,
+     "uprav": 490000,
+     "skut": 489275
+    },
+    {
+     "name": "Sociální služby a společné činnosti v sociálním zabezpečení a politice zaměstnanosti",
+     "schv": 35000,
+     "uprav": 35000,
+     "skut": 35000
+    },
+    {
+     "name": "Požární ochrana a integrovaný záchranný systém",
+     "schv": 17800,
+     "uprav": 17800,
+     "skut": 17800
+    },
+    {
+     "name": "Zemědělství, lesní hospodářství a rybářství",
+     "schv": 30000,
+     "uprav": 30000,
+     "skut": 14828
+    },
+    {
+     "name": "Civilní připravenost na krizové stavy",
+     "schv": 250000,
+     "uprav": 1250000,
+     "skut": 0
+    }
+   ]
+  },
+  "2018": {
+   "prijmy_druh": [
+    {
+     "name": "Daňové příjmy",
+     "schv": 20573000,
+     "uprav": 20573000,
+     "skut": 22670696
+    },
+    {
+     "name": "Nedaňové příjmy",
+     "schv": 1524000,
+     "uprav": 944000,
+     "skut": 983752
+    },
+    {
+     "name": "Kapitálové příjmy",
+     "schv": 0,
+     "uprav": 45000,
+     "skut": 46500
+    },
+    {
+     "name": "Přijaté transfery",
+     "schv": 329000,
+     "uprav": 807200,
+     "skut": 807031
+    }
+   ],
+   "vydaje_druh": [
+    {
+     "name": "Běžné výdaje",
+     "schv": 12623000,
+     "uprav": 14151200,
+     "skut": 12406520
+    },
+    {
+     "name": "Kapitálové výdaje",
+     "schv": 17785000,
+     "uprav": 16200000,
+     "skut": 7254854
+    }
+   ],
+   "vydaje_oblast": [
+    {
+     "name": "Doprava",
+     "schv": 10395000,
+     "uprav": 10142000,
+     "skut": 3831746
+    },
+    {
+     "name": "Ochrana životního prostředí",
+     "schv": 3641300,
+     "uprav": 4515300,
+     "skut": 3810987
+    },
+    {
+     "name": "Státní moc, státní správa, územní samospráva a politické strany",
+     "schv": 3300100,
+     "uprav": 3422900,
+     "skut": 3082799
+    },
+    {
+     "name": "Vzdělávání a školské služby",
+     "schv": 2930000,
+     "uprav": 2626900,
+     "skut": 2621507
+    },
+    {
+     "name": "Bydlení, komunální služby a územní rozvoj",
+     "schv": 2785000,
+     "uprav": 3105000,
+     "skut": 2099429
+    },
+    {
+     "name": "Vodní hospodářství",
+     "schv": 4115000,
+     "uprav": 3156000,
+     "skut": 1902929
+    },
+    {
+     "name": "Kultura, církve a sdělovací prostředky",
+     "schv": 807000,
+     "uprav": 1108500,
+     "skut": 928441
+    },
+    {
+     "name": "Spoje",
+     "schv": 520000,
+     "uprav": 521000,
+     "skut": 520835
+    },
+    {
+     "name": "Finanční operace",
+     "schv": 1105000,
+     "uprav": 912900,
+     "skut": 477889
+    },
+    {
+     "name": "Tělovýchova a zájmová činnost",
+     "schv": 455000,
+     "uprav": 455000,
+     "skut": 282023
+    },
+    {
+     "name": "Sociální služby a společné činnosti v sociálním zabezpečení a politice zaměstnanosti",
+     "schv": 45000,
+     "uprav": 60000,
+     "skut": 58900
+    },
+    {
+     "name": "Požární ochrana a integrovaný záchranný systém",
+     "schv": 17800,
+     "uprav": 17800,
+     "skut": 17800
+    },
+    {
+     "name": "Ostatní činnosti",
+     "schv": 5800,
+     "uprav": 11900,
+     "skut": 11164
+    },
+    {
+     "name": "Zemědělství, lesní hospodářství a rybářství",
+     "schv": 36000,
+     "uprav": 41000,
+     "skut": 9924
+    },
+    {
+     "name": "Ostatní činnosti související se službami pro obyvatelstvo",
+     "schv": 0,
+     "uprav": 5000,
+     "skut": 5000
+    },
+    {
+     "name": "Civilní připravenost na krizové stavy",
+     "schv": 250000,
+     "uprav": 250000,
+     "skut": 0
+    }
+   ]
+  },
+  "2019": {
+   "prijmy_druh": [
+    {
+     "name": "Daňové příjmy",
+     "schv": 21275000,
+     "uprav": 21275000,
+     "skut": 25439606
+    },
+    {
+     "name": "Nedaňové příjmy",
+     "schv": 1536700,
+     "uprav": 1701700,
+     "skut": 1751398
+    },
+    {
+     "name": "Kapitálové příjmy",
+     "schv": 0,
+     "uprav": 665000,
+     "skut": 630415
+    },
+    {
+     "name": "Přijaté transfery",
+     "schv": 3210300,
+     "uprav": 5131000,
+     "skut": 5130848
+    }
+   ],
+   "vydaje_druh": [
+    {
+     "name": "Běžné výdaje",
+     "schv": 13877000,
+     "uprav": 18370700,
+     "skut": 16962730
+    },
+    {
+     "name": "Kapitálové výdaje",
+     "schv": 21669000,
+     "uprav": 23504000,
+     "skut": 16830353
+    }
+   ],
+   "vydaje_oblast": [
+    {
+     "name": "Doprava",
+     "schv": 10656000,
+     "uprav": 10217000,
+     "skut": 7540107
+    },
+    {
+     "name": "Bydlení, komunální služby a územní rozvoj",
+     "schv": 2752000,
+     "uprav": 6652000,
+     "skut": 5463359
+    },
+    {
+     "name": "Vodní hospodářství",
+     "schv": 8354000,
+     "uprav": 7664000,
+     "skut": 5333354
+    },
+    {
+     "name": "Vzdělávání a školské služby",
+     "schv": 3110000,
+     "uprav": 4723700,
+     "skut": 4666535
+    },
+    {
+     "name": "Ochrana životního prostředí",
+     "schv": 2534000,
+     "uprav": 4434000,
+     "skut": 3785867
+    },
+    {
+     "name": "Státní moc, státní správa, územní samospráva a politické strany",
+     "schv": 3445000,
+     "uprav": 3652500,
+     "skut": 3640777
+    },
+    {
+     "name": "Ostatní činnosti",
+     "schv": 1698000,
+     "uprav": 1698000,
+     "skut": 1697237
+    },
+    {
+     "name": "Kultura, církve a sdělovací prostředky",
+     "schv": 760000,
+     "uprav": 1178500,
+     "skut": 897167
+    },
+    {
+     "name": "Spoje",
+     "schv": 530000,
+     "uprav": 530000,
+     "skut": 514423
+    },
+    {
+     "name": "Sport a zájmová činnost",
+     "schv": 825000,
+     "uprav": 850500,
+     "skut": 327978
+    },
+    {
+     "name": "Sociální služby a společné činnosti v sociálním zabezpečení a politice zaměstnanosti",
+     "schv": 60000,
+     "uprav": 81000,
+     "skut": 81000
+    },
+    {
+     "name": "Požární ochrana a integrovaný záchranný systém",
+     "schv": 18000,
+     "uprav": 18000,
+     "skut": 17800
+    },
+    {
+     "name": "Zemědělství, lesní hospodářství a rybářství",
+     "schv": 59000,
+     "uprav": 61500,
+     "skut": 11095
+    },
+    {
+     "name": "Civilní připravenost na krizové stavy",
+     "schv": 300000,
+     "uprav": 300000,
+     "skut": 0
+    },
+    {
+     "name": "Finanční operace",
+     "schv": 445000,
+     "uprav": -186000,
+     "skut": -183617
+    }
+   ]
+  },
+  "2020": {
+   "prijmy_druh": [
+    {
+     "name": "Daňové příjmy",
+     "schv": 25538300,
+     "uprav": 23288300,
+     "skut": 24707669
+    },
+    {
+     "name": "Nedaňové příjmy",
+     "schv": 1721500,
+     "uprav": 1721500,
+     "skut": 2091807
+    },
+    {
+     "name": "Kapitálové příjmy",
+     "schv": 0,
+     "uprav": 107700,
+     "skut": 194940
+    },
+    {
+     "name": "Přijaté transfery",
+     "schv": 4666200,
+     "uprav": 12705300,
+     "skut": 11705091
+    }
+   ],
+   "vydaje_druh": [
+    {
+     "name": "Běžné výdaje",
+     "schv": 17042000,
+     "uprav": 17568900,
+     "skut": 14042282
+    },
+    {
+     "name": "Kapitálové výdaje",
+     "schv": 13550000,
+     "uprav": 14523200,
+     "skut": 11588542
+    }
+   ],
+   "vydaje_oblast": [
+    {
+     "name": "Vodní hospodářství",
+     "schv": 8175000,
+     "uprav": 8337500,
+     "skut": 8312116
+    },
+    {
+     "name": "Ochrana životního prostředí",
+     "schv": 4204000,
+     "uprav": 5403000,
+     "skut": 4466922
+    },
+    {
+     "name": "Státní moc, státní správa, územní samospráva a politické strany",
+     "schv": 4645000,
+     "uprav": 4686500,
+     "skut": 3850618
+    },
+    {
+     "name": "Vzdělávání a školské služby",
+     "schv": 3750000,
+     "uprav": 4321100,
+     "skut": 3428896
+    },
+    {
+     "name": "Bydlení, komunální služby a územní rozvoj",
+     "schv": 3646300,
+     "uprav": 3722300,
+     "skut": 3313331
+    },
+    {
+     "name": "Sport a zájmová činnost",
+     "schv": 1430000,
+     "uprav": 1460000,
+     "skut": 760046
+    },
+    {
+     "name": "Spoje",
+     "schv": 631000,
+     "uprav": 711000,
+     "skut": 603887
+    },
+    {
+     "name": "Kultura, církve a sdělovací prostředky",
+     "schv": 795700,
+     "uprav": 795700,
+     "skut": 533031
+    },
+    {
+     "name": "Doprava",
+     "schv": 2127000,
+     "uprav": 2127000,
+     "skut": 520117
+    },
+    {
+     "name": "Sociální služby a společné činnosti v sociálním zabezpečení a politice zaměstnanosti",
+     "schv": 85000,
+     "uprav": 85000,
+     "skut": 69700
+    },
+    {
+     "name": "Civilní připravenost na krizové stavy",
+     "schv": 300000,
+     "uprav": 300000,
+     "skut": 66808
+    },
+    {
+     "name": "Zemědělství, lesní hospodářství a rybářství",
+     "schv": 162000,
+     "uprav": 162000,
+     "skut": 53750
+    },
+    {
+     "name": "Požární ochrana a integrovaný záchranný systém",
+     "schv": 18000,
+     "uprav": 18000,
+     "skut": 17800
+    },
+    {
+     "name": "Ostatní činnosti",
+     "schv": 303000,
+     "uprav": 303000,
+     "skut": 3457
+    },
+    {
+     "name": "Ostatní činnosti související se službami pro obyvatelstvo",
+     "schv": 5000,
+     "uprav": 5000,
+     "skut": 0
+    },
+    {
+     "name": "Finanční operace",
+     "schv": 315000,
+     "uprav": -345000,
+     "skut": -369655
+    }
+   ]
+  },
+  "2021": {
+   "prijmy_druh": [
+    {
+     "name": "Daňové příjmy",
+     "schv": 23097000,
+     "uprav": 23324500,
+     "skut": 27154279
+    },
+    {
+     "name": "Nedaňové příjmy",
+     "schv": 1458500,
+     "uprav": 1557500,
+     "skut": 1819647
+    },
+    {
+     "name": "Kapitálové příjmy",
+     "schv": 0,
+     "uprav": 100000,
+     "skut": 102200
+    },
+    {
+     "name": "Přijaté transfery",
+     "schv": 390500,
+     "uprav": 9313400,
+     "skut": 2828614
+    }
+   ],
+   "vydaje_druh": [
+    {
+     "name": "Běžné výdaje",
+     "schv": 24835000,
+     "uprav": 31650900,
+     "skut": 22874098
+    },
+    {
+     "name": "Kapitálové výdaje",
+     "schv": 8725000,
+     "uprav": 13158500,
+     "skut": 7298463
+    }
+   ],
+   "vydaje_oblast": [
+    {
+     "name": "Doprava",
+     "schv": 10150000,
+     "uprav": 13593200,
+     "skut": 8027949
+    },
+    {
+     "name": "Vzdělávání a školské služby",
+     "schv": 4102000,
+     "uprav": 5002400,
+     "skut": 4904315
+    },
+    {
+     "name": "Bydlení, komunální služby a územní rozvoj",
+     "schv": 2439000,
+     "uprav": 5483400,
+     "skut": 4250709
+    },
+    {
+     "name": "Státní moc, státní správa, územní samospráva a politické strany",
+     "schv": 4208000,
+     "uprav": 4515000,
+     "skut": 3880664
+    },
+    {
+     "name": "Ochrana životního prostředí",
+     "schv": 3373000,
+     "uprav": 3617700,
+     "skut": 3433275
+    },
+    {
+     "name": "Sport a zájmová činnost",
+     "schv": 5580000,
+     "uprav": 8096800,
+     "skut": 2425961
+    },
+    {
+     "name": "Kultura, církve a sdělovací prostředky",
+     "schv": 804000,
+     "uprav": 1127600,
+     "skut": 857835
+    },
+    {
+     "name": "Finanční operace",
+     "schv": 595000,
+     "uprav": 685000,
+     "skut": 660948
+    },
+    {
+     "name": "Spoje",
+     "schv": 719000,
+     "uprav": 719000,
+     "skut": 635893
+    },
+    {
+     "name": "Vodní hospodářství",
+     "schv": 725000,
+     "uprav": 788000,
+     "skut": 421204
+    },
+    {
+     "name": "Ostatní činnosti",
+     "schv": 300000,
+     "uprav": 300000,
+     "skut": 279154
+    },
+    {
+     "name": "Civilní připravenost na krizové stavy",
+     "schv": 300000,
+     "uprav": 511000,
+     "skut": 233079
+    },
+    {
+     "name": "Sociální služby a společné činnosti v sociálním zabezpečení a politice zaměstnanosti",
+     "schv": 80000,
+     "uprav": 183000,
+     "skut": 135454
+    },
+    {
+     "name": "Požární ochrana a integrovaný záchranný systém",
+     "schv": 18000,
+     "uprav": 17800,
+     "skut": 17800
+    },
+    {
+     "name": "Ostatní činnosti související se službami pro obyvatelstvo",
+     "schv": 5000,
+     "uprav": 7500,
+     "skut": 7500
+    },
+    {
+     "name": "Zemědělství, lesní hospodářství a rybářství",
+     "schv": 162000,
+     "uprav": 162000,
+     "skut": 820
+    }
+   ]
+  },
+  "2022": {
+   "prijmy_druh": [
+    {
+     "name": "Daňové příjmy",
+     "schv": 23927000,
+     "uprav": 24368000,
+     "skut": 30703465
+    },
+    {
+     "name": "Nedaňové příjmy",
+     "schv": 1719000,
+     "uprav": 2254700,
+     "skut": 2437627
+    },
+    {
+     "name": "Kapitálové příjmy",
+     "schv": 0,
+     "uprav": 0,
+     "skut": 136672
+    },
+    {
+     "name": "Přijaté transfery",
+     "schv": 415000,
+     "uprav": 9085000,
+     "skut": 9084815
+    }
+   ],
+   "vydaje_druh": [
+    {
+     "name": "Běžné výdaje",
+     "schv": 17846000,
+     "uprav": 20676000,
+     "skut": 16580182
+    },
+    {
+     "name": "Kapitálové výdaje",
+     "schv": 16930000,
+     "uprav": 30694000,
+     "skut": 14525946
+    }
+   ],
+   "vydaje_oblast": [
+    {
+     "name": "Bydlení, komunální služby a územní rozvoj",
+     "schv": 11955300,
+     "uprav": 23655800,
+     "skut": 8295251
+    },
+    {
+     "name": "Vzdělávání a školské služby",
+     "schv": 4865000,
+     "uprav": 4865000,
+     "skut": 4558238
+    },
+    {
+     "name": "Doprava",
+     "schv": 1820000,
+     "uprav": 5412300,
+     "skut": 4278371
+    },
+    {
+     "name": "Státní moc, státní správa, územní samospráva a politické strany",
+     "schv": 4614000,
+     "uprav": 4842200,
+     "skut": 4151138
+    },
+    {
+     "name": "Ochrana životního prostředí",
+     "schv": 4441000,
+     "uprav": 4461000,
+     "skut": 3791707
+    },
+    {
+     "name": "Sport a zájmová činnost",
+     "schv": 2920000,
+     "uprav": 3798000,
+     "skut": 3598973
+    },
+    {
+     "name": "Kultura, církve a sdělovací prostředky",
+     "schv": 925000,
+     "uprav": 1066000,
+     "skut": 946725
+    },
+    {
+     "name": "Finanční operace",
+     "schv": 775000,
+     "uprav": 775000,
+     "skut": 648661
+    },
+    {
+     "name": "Spoje",
+     "schv": 743900,
+     "uprav": 743900,
+     "skut": 627248
+    },
+    {
+     "name": "Jiné veřejné služby a činnosti",
+     "schv": 0,
+     "uprav": 100000,
+     "skut": 100000
+    },
+    {
+     "name": "Vodní hospodářství",
+     "schv": 260000,
+     "uprav": 260000,
+     "skut": 33880
+    },
+    {
+     "name": "Požární ochrana a integrovaný záchranný systém",
+     "schv": 17800,
+     "uprav": 30000,
+     "skut": 30000
+    },
+    {
+     "name": "Ostatní činnosti",
+     "schv": 933700,
+     "uprav": 955500,
+     "skut": 24287
+    },
+    {
+     "name": "Sociální služby a společné činnosti v sociálním zabezpečení a politice zaměstnanosti",
+     "schv": 80000,
+     "uprav": 80000,
+     "skut": 8900
+    },
+    {
+     "name": "Ostatní činnosti související se službami pro fyzické osoby",
+     "schv": 8000,
+     "uprav": 8000,
+     "skut": 7500
+    },
+    {
+     "name": "Civilní připravenost na krizové stavy",
+     "schv": 305000,
+     "uprav": 205000,
+     "skut": 5250
+    },
+    {
+     "name": "Zemědělství, lesní hospodářství a rybářství",
+     "schv": 112300,
+     "uprav": 112300,
+     "skut": 0
+    }
+   ]
+  },
+  "2023": {
+   "prijmy_druh": [
+    {
+     "name": "Daňové příjmy",
+     "schv": 29785000,
+     "uprav": 29942500,
+     "skut": 34482806
+    },
+    {
+     "name": "Nedaňové příjmy",
+     "schv": 1641800,
+     "uprav": 2904700,
+     "skut": 4267340
+    },
+    {
+     "name": "Kapitálové příjmy",
+     "schv": 0,
+     "uprav": 53000,
+     "skut": 55330
+    },
+    {
+     "name": "Přijaté transfery",
+     "schv": 420200,
+     "uprav": 14518400,
+     "skut": 13953733
+    }
+   ],
+   "vydaje_druh": [
+    {
+     "name": "Běžné výdaje",
+     "schv": 19527000,
+     "uprav": 26146000,
+     "skut": 23241990
+    },
+    {
+     "name": "Kapitálové výdaje",
+     "schv": 30358000,
+     "uprav": 40601600,
+     "skut": 37891506
+    }
+   ],
+   "vydaje_oblast": [
+    {
+     "name": "Bydlení, komunální služby a územní rozvoj",
+     "schv": 19309500,
+     "uprav": 33691400,
+     "skut": 32022913
+    },
+    {
+     "name": "Ochrana životního prostředí",
+     "schv": 5975500,
+     "uprav": 7385600,
+     "skut": 6157859
+    },
+    {
+     "name": "Státní moc, státní správa, územní samospráva a politické strany",
+     "schv": 5271000,
+     "uprav": 5408600,
+     "skut": 5192527
+    },
+    {
+     "name": "Vzdělávání a školské služby",
+     "schv": 3435000,
+     "uprav": 5294700,
+     "skut": 4995165
+    },
+    {
+     "name": "Sport a zájmová činnost",
+     "schv": 4873000,
+     "uprav": 4908600,
+     "skut": 4151328
+    },
+    {
+     "name": "Doprava",
+     "schv": 4948000,
+     "uprav": 3123400,
+     "skut": 2743141
+    },
+    {
+     "name": "Kultura, církve a sdělovací prostředky",
+     "schv": 954000,
+     "uprav": 2079100,
+     "skut": 2057435
+    },
+    {
+     "name": "Spoje",
+     "schv": 2200000,
+     "uprav": 1536000,
+     "skut": 1225332
+    },
+    {
+     "name": "Ostatní činnosti",
+     "schv": 936000,
+     "uprav": 1089300,
+     "skut": 1088898
+    },
+    {
+     "name": "Finanční operace",
+     "schv": 680000,
+     "uprav": 733500,
+     "skut": 717801
+    },
+    {
+     "name": "Vodní hospodářství",
+     "schv": 810000,
+     "uprav": 1003000,
+     "skut": 656942
+    },
+    {
+     "name": "Zemědělství, lesní hospodářství a rybářství",
+     "schv": 70000,
+     "uprav": 70000,
+     "skut": 60215
+    },
+    {
+     "name": "Požární ochrana a integrovaný záchranný systém",
+     "schv": 30000,
+     "uprav": 30000,
+     "skut": 30000
+    },
+    {
+     "name": "Sociální služby a společné činnosti v sociálním zabezpečení a politice zaměstnanosti",
+     "schv": 80000,
+     "uprav": 80000,
+     "skut": 24600
+    },
+    {
+     "name": "Ostatní činnosti související se službami pro fyzické osoby",
+     "schv": 8000,
+     "uprav": 9400,
+     "skut": 9340
+    },
+    {
+     "name": "Civilní připravenost na krizové stavy",
+     "schv": 305000,
+     "uprav": 305000,
+     "skut": 0
+    }
+   ]
+  },
+  "2024": {
+   "prijmy_druh": [
+    {
+     "name": "Daňové příjmy",
+     "schv": 32037000,
+     "uprav": 33082000,
+     "skut": 34751200
+    },
+    {
+     "name": "Nedaňové příjmy",
+     "schv": 2129100,
+     "uprav": 2635200,
+     "skut": 2766209
+    },
+    {
+     "name": "Kapitálové příjmy",
+     "schv": 0,
+     "uprav": 190000,
+     "skut": 263600
+    },
+    {
+     "name": "Přijaté transfery",
+     "schv": 26378900,
+     "uprav": 26787900,
+     "skut": 4266016
+    }
+   ],
+   "vydaje_druh": [
+    {
+     "name": "Běžné výdaje",
+     "schv": 21638000,
+     "uprav": 24473200,
+     "skut": 23806618
+    },
+    {
+     "name": "Kapitálové výdaje",
+     "schv": 50499000,
+     "uprav": 52843900,
+     "skut": 30338083
+    }
+   ],
+   "vydaje_oblast": [
+    {
+     "name": "Vzdělávání a školské služby",
+     "schv": 31540000,
+     "uprav": 31540000,
+     "skut": 21461614
+    },
+    {
+     "name": "Ochrana životního prostředí",
+     "schv": 6864000,
+     "uprav": 9848000,
+     "skut": 9793507
+    },
+    {
+     "name": "Státní moc, státní správa, územní samospráva a politické strany",
+     "schv": 5406000,
+     "uprav": 6310000,
+     "skut": 6274148
+    },
+    {
+     "name": "Bydlení, komunální služby a územní rozvoj",
+     "schv": 4537000,
+     "uprav": 6184500,
+     "skut": 5122396
+    },
+    {
+     "name": "Spoje",
+     "schv": 2285000,
+     "uprav": 3108000,
+     "skut": 2875418
+    },
+    {
+     "name": "Sport a zájmová činnost",
+     "schv": 1120000,
+     "uprav": 2501600,
+     "skut": 2458930
+    },
+    {
+     "name": "Kultura, církve a sdělovací prostředky",
+     "schv": 1570000,
+     "uprav": 2031500,
+     "skut": 1991748
+    },
+    {
+     "name": "Doprava",
+     "schv": 16285000,
+     "uprav": 12893400,
+     "skut": 1961147
+    },
+    {
+     "name": "Finanční operace",
+     "schv": 740000,
+     "uprav": 1110200,
+     "skut": 1079394
+    },
+    {
+     "name": "Vodní hospodářství",
+     "schv": 1310000,
+     "uprav": 1310000,
+     "skut": 1019351
+    },
+    {
+     "name": "Požární ochrana a integrovaný záchranný systém",
+     "schv": 30000,
+     "uprav": 30000,
+     "skut": 30000
+    },
+    {
+     "name": "Sociální služby a společné činnosti v sociálním zabezpečení a politice zaměstnanosti",
+     "schv": 55000,
+     "uprav": 35000,
+     "skut": 24500
+    },
+    {
+     "name": "Zemědělství, lesní hospodářství a rybářství",
+     "schv": 80000,
+     "uprav": 80000,
+     "skut": 22942
+    },
+    {
+     "name": "Ostatní činnosti související se službami pro fyzické osoby",
+     "schv": 8000,
+     "uprav": 12500,
+     "skut": 12500
+    },
+    {
+     "name": "Civilní připravenost na krizové stavy",
+     "schv": 305000,
+     "uprav": 315600,
+     "skut": 10535
+    },
+    {
+     "name": "Ostatní činnosti",
+     "schv": 2000,
+     "uprav": 6800,
+     "skut": 6569
+    }
+   ]
+  },
+  "2025": {
+   "prijmy_druh": [
+    {
+     "name": "Daňové příjmy",
+     "schv": 34202200,
+     "uprav": 34500700,
+     "skut": 36646478
+    },
+    {
+     "name": "Nedaňové příjmy",
+     "schv": 2666400,
+     "uprav": 3223400,
+     "skut": 2653192
+    },
+    {
+     "name": "Přijaté transfery",
+     "schv": 80872400,
+     "uprav": 84940900,
+     "skut": 28395038
+    }
+   ],
+   "vydaje_druh": [
+    {
+     "name": "Běžné výdaje",
+     "schv": 27221000,
+     "uprav": 31559500,
+     "skut": 28603480
+    },
+    {
+     "name": "Kapitálové výdaje",
+     "schv": 113823000,
+     "uprav": 148472100,
+     "skut": 111449319
+    }
+   ],
+   "vydaje_oblast": [
+    {
+     "name": "Vzdělávání a školské služby",
+     "schv": 97390000,
+     "uprav": 127390500,
+     "skut": 92277011
+    },
+    {
+     "name": "Doprava",
+     "schv": 14330000,
+     "uprav": 20862100,
+     "skut": 19396465
+    },
+    {
+     "name": "Ochrana životního prostředí",
+     "schv": 7775000,
+     "uprav": 8974000,
+     "skut": 8318667
+    },
+    {
+     "name": "Bydlení, komunální služby a územní rozvoj",
+     "schv": 9393500,
+     "uprav": 8773700,
+     "skut": 7708085
+    },
+    {
+     "name": "Státní moc, státní správa, územní samospráva a politické strany",
+     "schv": 7455000,
+     "uprav": 7443300,
+     "skut": 6540165
+    },
+    {
+     "name": "Kultura, církve a sdělovací prostředky",
+     "schv": 1944000,
+     "uprav": 3205000,
+     "skut": 3019970
+    },
+    {
+     "name": "Finanční operace",
+     "schv": 1040300,
+     "uprav": 1182800,
+     "skut": 1176121
+    },
+    {
+     "name": "Spoje",
+     "schv": 680000,
+     "uprav": 716000,
+     "skut": 715083
+    },
+    {
+     "name": "Sport a zájmová činnost",
+     "schv": 419600,
+     "uprav": 519600,
+     "skut": 455776
+    },
+    {
+     "name": "Vodní hospodářství",
+     "schv": 110000,
+     "uprav": 448000,
+     "skut": 385171
+    },
+    {
+     "name": "Požární ochrana a integrovaný záchranný systém",
+     "schv": 30000,
+     "uprav": 30000,
+     "skut": 30000
+    },
+    {
+     "name": "Ostatní činnosti související se službami pro fyzické osoby",
+     "schv": 40500,
+     "uprav": 50500,
+     "skut": 18980
+    },
+    {
+     "name": "Zemědělství, lesní hospodářství a rybářství",
+     "schv": 80000,
+     "uprav": 80000,
+     "skut": 10266
+    },
+    {
+     "name": "Ostatní činnosti",
+     "schv": 1100,
+     "uprav": 1100,
+     "skut": 1040
+    },
+    {
+     "name": "Sociální služby a společné činnosti v sociálním zabezpečení a politice zaměstnanosti",
+     "schv": 50000,
+     "uprav": 50000,
+     "skut": 0
+    },
+    {
+     "name": "Civilní připravenost na krizové stavy",
+     "schv": 305000,
+     "uprav": 305000,
+     "skut": 0
+    }
+   ]
+  }
+ },
+ "aktualni": {
+  "rok": 2026,
+  "obdobi": 2608,
+  "mesic": "srpnu",
+  "prijmy": {
+   "schv": 106159700,
+   "uprav": 106544500,
+   "skut": 64109279
+  },
+  "vydaje": {
+   "schv": 94065000,
+   "uprav": 94449800,
+   "skut": 58049651
+  },
+  "prijmy_druh": [
+   {
+    "name": "Daňové příjmy",
+    "schv": 41138000,
+    "uprav": 41138000,
+    "skut": 28067096
+   },
+   {
+    "name": "Nedaňové příjmy",
+    "schv": 6030400,
+    "uprav": 6391300,
+    "skut": 3548789
+   },
+   {
+    "name": "Přijaté transfery",
+    "schv": 58991300,
+    "uprav": 59015200,
+    "skut": 32493394
+   }
+  ],
+  "vydaje_druh": [
+   {
+    "name": "Běžné výdaje",
+    "schv": 34942000,
+    "uprav": 35691800,
+    "skut": 25814555
+   },
+   {
+    "name": "Kapitálové výdaje",
+    "schv": 59123000,
+    "uprav": 58758000,
+    "skut": 32235096
+   }
+  ],
+  "vydaje_oblast": [
+   {
+    "name": "Vzdělávání a školské služby",
+    "schv": 54710000,
+    "uprav": 54729700,
+    "skut": 38908423
+   },
+   {
+    "name": "Ochrana životního prostředí",
+    "schv": 9528000,
+    "uprav": 9528000,
+    "skut": 6598879
+   },
+   {
+    "name": "Státní moc, státní správa, územní samospráva a politické strany",
+    "schv": 7657000,
+    "uprav": 7661200,
+    "skut": 4498715
+   },
+   {
+    "name": "Bydlení, komunální služby a územní rozvoj",
+    "schv": 7995600,
+    "uprav": 8035600,
+    "skut": 2303938
+   },
+   {
+    "name": "Kultura, církve a sdělovací prostředky",
+    "schv": 3064000,
+    "uprav": 3334000,
+    "skut": 1821806
+   },
+   {
+    "name": "Doprava",
+    "schv": 4550000,
+    "uprav": 4175000,
+    "skut": 1337432
+   },
+   {
+    "name": "Finanční operace",
+    "schv": 1241300,
+    "uprav": 1541300,
+    "skut": 1136658
+   },
+   {
+    "name": "Spoje",
+    "schv": 829000,
+    "uprav": 829000,
+    "skut": 507520
+   },
+   {
+    "name": "Sport a zájmová činnost",
+    "schv": 527000,
+    "uprav": 642000,
+    "skut": 457117
+   },
+   {
+    "name": "Vodní hospodářství",
+    "schv": 2800000,
+    "uprav": 2810000,
+    "skut": 355849
+   },
+   {
+    "name": "Sociální služby a společné činnosti v sociálním zabezpečení a politice zaměstnanosti",
+    "schv": 50000,
+    "uprav": 50000,
+    "skut": 50000
+   },
+   {
+    "name": "Požární ochrana a integrovaný záchranný systém",
+    "schv": 30000,
+    "uprav": 30000,
+    "skut": 30000
+   },
+   {
+    "name": "Bezpečnost a veřejný pořádek",
+    "schv": 250000,
+    "uprav": 250000,
+    "skut": 24425
+   },
+   {
+    "name": "Ostatní činnosti související se službami pro fyzické osoby",
+    "schv": 45000,
+    "uprav": 45000,
+    "skut": 15000
+   },
+   {
+    "name": "Ostatní činnosti",
+    "schv": 3100,
+    "uprav": 4000,
+    "skut": 3888
+   },
+   {
+    "name": "Zemědělství, lesní hospodářství a rybářství",
+    "schv": 80000,
+    "uprav": 80000,
+    "skut": 0
+   },
+   {
+    "name": "Civilní připravenost na krizové stavy",
+    "schv": 705000,
+    "uprav": 705000,
+    "skut": 0
+   }
+  ]
+ },
+ "prijmy_druh": [
+  {
+   "name": "Daňové příjmy",
+   "schv": 34202200,
+   "uprav": 34500700,
+   "skut": 36646478
+  },
+  {
+   "name": "Nedaňové příjmy",
+   "schv": 2666400,
+   "uprav": 3223400,
+   "skut": 2653192
+  },
+  {
+   "name": "Přijaté transfery",
+   "schv": 80872400,
+   "uprav": 84940900,
+   "skut": 28395038
+  }
+ ],
+ "vydaje_druh": [
+  {
+   "name": "Běžné výdaje",
+   "schv": 27221000,
+   "uprav": 31559500,
+   "skut": 28603480
+  },
+  {
+   "name": "Kapitálové výdaje",
+   "schv": 113823000,
+   "uprav": 148472100,
+   "skut": 111449319
+  }
+ ],
+ "vydaje_oblast": [
+  {
+   "name": "Vzdělávání a školské služby",
+   "schv": 97390000,
+   "uprav": 127390500,
+   "skut": 92277011
+  },
+  {
+   "name": "Doprava",
+   "schv": 14330000,
+   "uprav": 20862100,
+   "skut": 19396465
+  },
+  {
+   "name": "Ochrana životního prostředí",
+   "schv": 7775000,
+   "uprav": 8974000,
+   "skut": 8318667
+  },
+  {
+   "name": "Bydlení, komunální služby a územní rozvoj",
+   "schv": 9393500,
+   "uprav": 8773700,
+   "skut": 7708085
+  },
+  {
+   "name": "Státní moc, státní správa, územní samospráva a politické strany",
+   "schv": 7455000,
+   "uprav": 7443300,
+   "skut": 6540165
+  },
+  {
+   "name": "Kultura, církve a sdělovací prostředky",
+   "schv": 1944000,
+   "uprav": 3205000,
+   "skut": 3019970
+  },
+  {
+   "name": "Finanční operace",
+   "schv": 1040300,
+   "uprav": 1182800,
+   "skut": 1176121
+  },
+  {
+   "name": "Spoje",
+   "schv": 680000,
+   "uprav": 716000,
+   "skut": 715083
+  },
+  {
+   "name": "Sport a zájmová činnost",
+   "schv": 419600,
+   "uprav": 519600,
+   "skut": 455776
+  },
+  {
+   "name": "Vodní hospodářství",
+   "schv": 110000,
+   "uprav": 448000,
+   "skut": 385171
+  },
+  {
+   "name": "Požární ochrana a integrovaný záchranný systém",
+   "schv": 30000,
+   "uprav": 30000,
+   "skut": 30000
+  },
+  {
+   "name": "Ostatní činnosti související se službami pro fyzické osoby",
+   "schv": 40500,
+   "uprav": 50500,
+   "skut": 18980
+  },
+  {
+   "name": "Zemědělství, lesní hospodářství a rybářství",
+   "schv": 80000,
+   "uprav": 80000,
+   "skut": 10266
+  },
+  {
+   "name": "Ostatní činnosti",
+   "schv": 1100,
+   "uprav": 1100,
+   "skut": 1040
+  },
+  {
+   "name": "Sociální služby a společné činnosti v sociálním zabezpečení a politice zaměstnanosti",
+   "schv": 50000,
+   "uprav": 50000,
+   "skut": 0
+  },
+  {
+   "name": "Civilní připravenost na krizové stavy",
+   "schv": 305000,
+   "uprav": 305000,
+   "skut": 0
+  }
+ ],
+ "zdroj": "MONITOR Státní pokladny (MF ČR), výkaz FIN 2-12 M"
+}

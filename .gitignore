@@ -1,0 +1,13 @@
+# složka sestavená při deployi (generuje ji workflow)
+public/
+# python cache
+__pycache__/
+*.pyc
+# lokální náhled / scratch
+.preview/
+_*.html
+.ftp-deploy-sync-state.json
+.DS_Store
+Thumbs.db
+# souhrn auto-aktualizace (jen pro Issue)
+.update_summary.md

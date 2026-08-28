@@ -1,0 +1,67 @@
+{
+  "obec": "Ostopovice",
+  "kod_obce": "583596",
+  "zdroj": "Český statistický úřad — volby.cz",
+  "komunalni": {
+    "rok": 2022,
+    "ucast": 58.53,
+    "mandaty_celkem": 15,
+    "strany": [
+      {"nazev": "Společně pro Ostopovice", "zkratka": "Společně pro Ostopovice", "hlasy": 6543, "pct": 61.85, "mandaty": 9, "barva": "--c0"},
+      {"nazev": "Pro lidi", "zkratka": "Pro lidi", "hlasy": 4035, "pct": 38.14, "mandaty": 6, "barva": "--c3"}
+    ],
+    "zastupitele": [
+      {"jmeno": "doc. MVDr. Radka Dobšíková, Ph.D.", "hlasy": 495, "strana": "Společně pro Ostopovice"},
+      {"jmeno": "MgA. Jan Symon", "hlasy": 486, "strana": "Společně pro Ostopovice"},
+      {"jmeno": "Viktor Bečka", "hlasy": 463, "strana": "Společně pro Ostopovice"},
+      {"jmeno": "Ondřej Tomašovič", "hlasy": 451, "strana": "Společně pro Ostopovice"},
+      {"jmeno": "Ing. arch. Boris Canov", "hlasy": 445, "strana": "Společně pro Ostopovice"},
+      {"jmeno": "Ing. Petr Vlach", "hlasy": 443, "strana": "Společně pro Ostopovice"},
+      {"jmeno": "Mgr. Jana Trčková", "hlasy": 442, "strana": "Společně pro Ostopovice"},
+      {"jmeno": "Mgr. Ilona Paulíková", "hlasy": 437, "strana": "Společně pro Ostopovice"},
+      {"jmeno": "Bc. Jan Kubíček", "hlasy": 415, "strana": "Společně pro Ostopovice"},
+      {"jmeno": "Mgr. Jaroslav Šebánek", "hlasy": 379, "strana": "Pro lidi"},
+      {"jmeno": "Ing. Libor Kožik", "hlasy": 299, "strana": "Pro lidi"},
+      {"jmeno": "Ing. Michaela Loupová", "hlasy": 290, "strana": "Pro lidi"},
+      {"jmeno": "Petr Coufal", "hlasy": 279, "strana": "Pro lidi"},
+      {"jmeno": "Ing. Jiří Ochvat", "hlasy": 265, "strana": "Pro lidi"},
+      {"jmeno": "Ing. Igor Bílovský", "hlasy": 263, "strana": "Pro lidi"}
+    ]
+  },
+  "snemovna": [
+    {
+      "rok": 2025, "ucast": 75.42,
+      "strany": [
+        {"n": "SPOLU", "pct": 36.55, "hlasy": 378},
+        {"n": "ANO", "pct": 26.11, "hlasy": 270},
+        {"n": "STAN", "pct": 10.44, "hlasy": 108},
+        {"n": "Piráti", "pct": 9.18, "hlasy": 95},
+        {"n": "AUTO", "pct": 6.38, "hlasy": 66},
+        {"n": "SPD", "pct": 5.51, "hlasy": 57},
+        {"n": "Stačilo!", "pct": 3.38, "hlasy": 35},
+        {"n": "PŘÍSAHA", "pct": 1.16, "hlasy": 12}
+      ]
+    },
+    {
+      "rok": 2021, "ucast": 77.55,
+      "strany": [
+        {"n": "SPOLU", "pct": 40.03, "hlasy": 412},
+        {"n": "ANO", "pct": 23.71, "hlasy": 244},
+        {"n": "Piráti+STAN", "pct": 13.41, "hlasy": 138},
+        {"n": "SPD", "pct": 6.80, "hlasy": 70},
+        {"n": "PŘÍSAHA", "pct": 5.15, "hlasy": 53}
+      ]
+    }
+  ],
+  "prezident": {
+    "rok": 2023,
+    "pozn": "Zobrazeno 2. kolo.",
+    "kolo2": {
+      "ucast": 78.25,
+      "kandidati": [
+        {"n": "Petr Pavel", "pct": 68.12, "hlasy": 699},
+        {"n": "Andrej Babiš", "pct": 31.87, "hlasy": 327}
+      ]
+    }
+  }
+}

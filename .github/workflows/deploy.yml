@@ -1,0 +1,48 @@
+name: Deploy na Wedos (ostopovice.jakzijistrelice.cz)
+
+# Při pushi do main se statické HTML stránky portálu nahrají přes FTP na Wedos.
+# Spustit lze i ručně (workflow_dispatch).
+#
+# Vyžaduje tajné hodnoty (Settings → Secrets and variables → Actions):
+#   FTP_SERVER    – např. wfilesXX.wedos.net (stejný účet jako pro jakzijistrelice.cz)
+#   FTP_USERNAME  – FTP login z Wedosu
+#   FTP_PASSWORD  – FTP heslo z Wedosu
+# a existující subdoménu ostopovice.jakzijistrelice.cz s docrootem /www/domains/ostopovice.jakzijistrelice.cz/
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-ostopovice
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Sestavit složku k nasazení (portálové HTML)
+        run: |
+          mkdir -p public
+          # všechny portálové stránky v kořeni kromě dočasných "_*.html"
+          # (Chart.js i favikona jsou vložené přímo v HTML; navíc jen sdílecí og-image.png)
+          find . -maxdepth 1 -name '*.html' ! -name '_*' -exec cp {} public/ \;
+          cp og-image.png public/ 2>/dev/null || true
+          echo "Nasazované soubory:"
+          ls -la public/
+
+      - name: Deploy přes FTP na Wedos
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server:   ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps                     # když FTPS nepojede, zkus "ftp"
+          port: 21
+          server-dir: /www/domains/ostopovice.jakzijistrelice.cz/   # docroot subdomény (musí končit lomítkem)
+          local-dir: ./public/
+          # pozn.: akce dělá inkrementální sync; docroot subdomény vyhraď JEN tomuto webu.

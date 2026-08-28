@@ -1,0 +1,86 @@
+name: Automatická aktualizace portálu (nové zápisy ZO, rozpočet, zakázky)
+
+# Každý den v 6:00 UTC; lze spustit ručně (workflow_dispatch).
+# Push přes GITHUB_TOKEN nespouští jiné workflow, proto se při změně
+# nasazuje rovnou tady (stejný krok jako v deploy.yml).
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: update-ostopovice
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # git push
+      issues: write     # upozornění na nová zasedání (→ e-mail)
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Závislosti
+        run: pip install --quiet requests beautifulsoup4 pdfplumber
+
+      - name: Aktualizace dat a stránek
+        run: python scripts/update_portal.py
+        env:
+          PYTHONIOENCODING: utf-8
+
+      - name: Commit a push (pokud se něco změnilo)
+        id: push
+        run: |
+          git config user.name  "portal-bot"
+          git config user.email "portal-bot@users.noreply.github.com"
+          # samotné datum v patičce není změna dat → necommitovat
+          git add -A ':!.update_summary.md'
+          if git diff --cached --quiet -- dataset_ZO.json data/; then
+            echo "Data beze změny."
+            git reset -q
+            echo "new=false" >> $GITHUB_OUTPUT
+          else
+            git commit -q -m "Auto: aktualizace dat portálu"
+            git push origin main
+            echo "new=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Sestavit složku k nasazení
+        if: steps.push.outputs.new == 'true'
+        run: |
+          mkdir -p public
+          find . -maxdepth 1 -name '*.html' ! -name '_*' -exec cp {} public/ \;
+          cp og-image.png public/ 2>/dev/null || true
+
+      - name: Deploy přes FTP na Wedos
+        if: steps.push.outputs.new == 'true'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server:   ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          server-dir: /www/domains/ostopovice.jakzijistrelice.cz/
+          local-dir: ./public/
+
+      - name: Issue s přehledem nových zasedání
+        if: hashFiles('.update_summary.md') != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = require('fs').readFileSync('.update_summary.md', 'utf8');
+            await github.rest.issues.create({
+              owner: context.repo.owner, repo: context.repo.repo,
+              title: '📋 Ostopovice: nové zasedání zastupitelstva',
+              body: body + '\n\n---\n_Workflow: check_web.yml_',
+            });
