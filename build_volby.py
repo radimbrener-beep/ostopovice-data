@@ -147,6 +147,13 @@ render(); bindTheme(render);
 window.addEventListener('load',()=>{Object.values(charts).forEach(c=>{try{c.resize();}catch(e){}});});
 </script>'''.replace("DATA_JSON", data_json)
 
+DONUT_CSS = """<style>
+.donutwrap{position:relative;display:grid;place-items:center}
+.donut-center{position:absolute;text-align:center;pointer-events:none}
+.donut-center .t{font-size:11.5px;color:var(--muted)}
+.donut-center .v{font-size:22px;font-weight:680;letter-spacing:-.02em}
+</style>"""
+
 open("volby.html", "w", encoding="utf-8").write(
-    pc.page("Volby", "Volby — Jak žijí Ostopovice", body, body_scripts=scripts))
+    pc.page("Volby", "Volby — Jak žijí Ostopovice", body, head_scripts=DONUT_CSS, body_scripts=scripts))
 print(f"HOTOVO -> volby.html (komunál {kv['rok']}, sněmovna {[p['rok'] for p in DATA['snemovna']]}, prezident {DATA['prezident']['rok']})")

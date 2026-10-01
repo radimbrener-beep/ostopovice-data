@@ -161,7 +161,12 @@ section{margin-top:30px;scroll-margin-top:74px}
 .chartbox:not(:has(canvas[style])){border-radius:10px;background:linear-gradient(90deg,transparent 0,var(--inset) 40%,transparent 80%);background-size:800px 100%;animation:skel 1.3s linear infinite}
 @media(prefers-reduced-motion:reduce){.skel,.chartbox{animation:none!important}}
 </style>
-
+<style>
+.donutwrap{position:relative;display:grid;place-items:center}
+.donut-center{position:absolute;text-align:center;pointer-events:none}
+.donut-center .t{font-size:11.5px;color:var(--muted)}
+.donut-center .v{font-size:22px;font-weight:680;letter-spacing:-.02em}
+</style>
 </head>
 <body>
 <div class="ptop"><div class="in">
