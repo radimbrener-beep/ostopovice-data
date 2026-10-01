@@ -70,7 +70,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           port: 21
-          server-dir: /www/domains/ostopovice.jakzijistrelice.cz/
+          server-dir: /www/subdom/ostopovice/
           local-dir: ./public/
 
       - name: Issue s přehledem nových zasedání

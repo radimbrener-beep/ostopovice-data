@@ -7,7 +7,7 @@ name: Deploy na Wedos (ostopovice.jakzijistrelice.cz)
 #   FTP_SERVER    – např. wfilesXX.wedos.net (stejný účet jako pro jakzijistrelice.cz)
 #   FTP_USERNAME  – FTP login z Wedosu
 #   FTP_PASSWORD  – FTP heslo z Wedosu
-# a existující subdoménu ostopovice.jakzijistrelice.cz s docrootem /www/domains/ostopovice.jakzijistrelice.cz/
+# a existující subdoménu ostopovice.jakzijistrelice.cz s docrootem /www/subdom/ostopovice/
 
 on:
   push:
@@ -43,6 +43,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps                     # když FTPS nepojede, zkus "ftp"
           port: 21
-          server-dir: /www/domains/ostopovice.jakzijistrelice.cz/   # docroot subdomény (musí končit lomítkem)
+          server-dir: /www/subdom/ostopovice/   # docroot subdomény (musí končit lomítkem)
           local-dir: ./public/
           # pozn.: akce dělá inkrementální sync; docroot subdomény vyhraď JEN tomuto webu.
