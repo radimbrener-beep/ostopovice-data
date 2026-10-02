@@ -117,7 +117,7 @@ UPD_CSS = '''<style>
 </style>'''
 
 body = f'''<header class="hero">
-  <h1>Jak žijí Ostopovice <span style="font-size:17px;font-weight:500;color:var(--muted)">· obec v datech</span></h1>
+  <h1>Jak žijí Ostopovice <span style="font-size:17px;font-weight:500;color:var(--muted)">· občanský datový portál</span></h1>
   <p>Datový portál obce Ostopovice u Brna — jak obec hospodaří, roste a žije, srozumitelně v číslech. Veřejná data z oficiálních zdrojů, přehledně a pro každého.</p>
   <div class="chips"><span class="chip">obec Ostopovice · IČO 00282294</span><span class="chip">≈ {pop_fmt} obyvatel</span><span class="chip">zdroje: MONITOR SP · ČSÚ · volby.cz · ostopovice.cz</span></div>
 </header>
