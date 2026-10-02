@@ -32,6 +32,9 @@ jobs:
           # (Chart.js i favikona jsou vložené přímo v HTML; navíc jen sdílecí og-image.png)
           find . -maxdepth 1 -name '*.html' ! -name '_*' -exec cp {} public/ \;
           cp og-image.png public/ 2>/dev/null || true
+          # písma značky (stránky je načítají relativně z fonts/) + favikony a manifest do kořene
+          cp -r fonts public/
+          cp brand/favicon/* public/
           echo "Nasazované soubory:"
           ls -la public/
 

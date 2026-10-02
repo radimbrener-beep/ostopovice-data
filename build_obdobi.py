@@ -179,7 +179,7 @@ body = f'''<header class="hero">
 <div class="cards">
   <div class="kpi"><div class="lab">Zasedání zastupitelstva</div><div class="val">{n_meet}</div><div class="delta" style="color:var(--muted)">{n_items} usnesení</div></div>
   <div class="kpi" style="--bar:#16a34a"><div class="lab">Jednomyslná hlasování</div><div class="val">{unan:.0f} %</div><div class="delta" style="color:var(--muted)">{n_unan} z {len(votes)} věcných hlasování</div></div>
-  <div class="kpi" style="--bar:#a855f7"><div class="lab">Investice 2022–2025</div><div class="val">{mil(kap_done)} <span style="font-size:14px;color:var(--muted)">mil. Kč</span></div><div class="delta" style="color:var(--muted)">kapitálové výdaje, skutečnost</div></div>
+  <div class="kpi" style="--bar:var(--amber)"><div class="lab">Investice 2022–2025</div><div class="val">{mil(kap_done)} <span style="font-size:14px;color:var(--muted)">mil. Kč</span></div><div class="delta" style="color:var(--muted)">kapitálové výdaje, skutečnost</div></div>
   <div class="kpi" style="--bar:#e11d48"><div class="lab">Nové úvěry</div><div class="val">121 <span style="font-size:14px;color:var(--muted)">mil. Kč</span></div><div class="delta" style="color:var(--muted)">105 mil. (2024) + 16 mil. (2025)</div></div>
 </div>
 
@@ -278,7 +278,7 @@ const D=DATA_JSON, M=D.members;
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 let charts={};
 function mk(id,cfg){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),cfg);}
-function axis(){return {grid:{color:isDark()?'#1f2a40':'#eef2f7'},ticks:{color:cssv('--muted')}};}
+function axis(){return {grid:{color:cssv('--line')},ticks:{color:cssv('--muted')}};}
 function drawCharts(){
   const H=D.hosp;
   mk('hospCh',{type:'bar',data:{labels:H.map(h=>h.y+(h.plan?' (plán)':'')),datasets:[
@@ -289,7 +289,7 @@ function drawCharts(){
       tooltip:{callbacks:{label:c=>c.dataset.label+': '+c.parsed.y.toLocaleString('cs-CZ',{maximumFractionDigits:1})+' mil. Kč'}}},
       scales:{x:axis(),y:Object.assign(axis(),{beginAtZero:true})}}});
   const T=D.tema;
-  mk('temaCh',{type:'bar',data:{labels:T.map(t=>(TICO[t[0]]||'')+' '+t[0]),datasets:[{data:T.map(t=>t[1]),backgroundColor:T.map(t=>temaRGB(t[0])),borderRadius:4}]},
+  mk('temaCh',{type:'bar',data:{labels:T.map(t=>t[0]),datasets:[{data:T.map(t=>t[1]),backgroundColor:T.map(t=>temaRGB(t[0])),borderRadius:4}]},
     options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
       scales:{x:axis(),y:Object.assign(axis(),{grid:{display:false}})}}});
 }

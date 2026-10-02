@@ -187,7 +187,7 @@ const D=DATA_JSON, Y=D.years;
 const nf=new Intl.NumberFormat('cs-CZ');
 const charts={};
 const PAL=['--c0','--c1','--c2','--c3','--c4','--c5','--c6','--c7','--c8','--c9'];
-function axis(){return {grid:{color:isDark()?'#1f2a40':'#eef2f7'},ticks:{color:cssv('--muted')}};}
+function axis(){return {grid:{color:cssv('--line')},ticks:{color:cssv('--muted')}};}
 function mk(id,cfg){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),cfg);}
 const M=v=>(v/1e6);
 const milTxt=v=>M(v).toLocaleString('cs-CZ',{maximumFractionDigits:1})+' mil. Kč';
@@ -201,7 +201,7 @@ function kpis(){
     ['Příjmy '+L.rok, milTxt(L.prijmy.skut), (dd(L.prijmy.skut,P.prijmy.skut)>=0?'▲ ':'▼ ')+Math.abs(dd(L.prijmy.skut,P.prijmy.skut)).toFixed(0)+' % r/r','var(--prijmy)'],
     ['Výdaje '+L.rok, milTxt(L.vydaje.skut), (dd(L.vydaje.skut,P.vydaje.skut)>=0?'▲ ':'▼ ')+Math.abs(dd(L.vydaje.skut,P.vydaje.skut)).toFixed(0)+' % r/r','var(--vydaje)'],
     ['Saldo '+L.rok, (s>=0?'+':'')+milTxt(s), s>=0?'přebytek':'schodek (dostavba školy)', s>=0?'var(--pos)':'var(--neg)'],
-    ['Kapitálové výdaje '+L.rok, milTxt(kap?kap.skut:0), 'investice (z toho škola)','#a855f7'],
+    ['Kapitálové výdaje '+L.rok, milTxt(kap?kap.skut:0), 'investice (z toho škola)','var(--amber)'],
   ];
   document.getElementById('kpis').innerHTML=C.map(c=>`<div class="kpi" style="--bar:${c[3]}"><div class="lab">${c[0]}</div><div class="val" style="font-size:22px">${c[1]}</div><div class="delta" style="color:var(--muted)">${c[2]}</div></div>`).join('');
 }

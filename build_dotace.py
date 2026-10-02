@@ -115,7 +115,7 @@ const nf=new Intl.NumberFormat('cs-CZ');
 const kc=v=>v>=1e6?(v/1e6).toLocaleString('cs-CZ',{maximumFractionDigits:2})+' mil. Kč':nf.format(v)+' Kč';
 const PAL=['--c0','--c1','--c2','--c3','--c4','--c5','--c6','--c7'];
 const charts={};
-function axis(){return {grid:{color:isDark()?'#1f2a40':'#eef2f7'},ticks:{color:cssv('--muted')}};}
+function axis(){return {grid:{color:cssv('--line')},ticks:{color:cssv('--muted')}};}
 function mk(id,cfg){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),cfg);}
 
 function kpis(){

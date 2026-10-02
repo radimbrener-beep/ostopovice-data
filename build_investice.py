@@ -127,7 +127,7 @@ const mil=v=>(v/1e6).toLocaleString('cs-CZ',{maximumFractionDigits:2});
 const kc=v=>v>=1e6?mil(v)+' mil. Kč':nf.format(v)+' Kč';
 const PAL=['--c0','--c1','--c2','--c3','--c4','--c5','--c6','--c7'];
 const charts={};
-function axis(){return {grid:{color:isDark()?'#1f2a40':'#eef2f7'},ticks:{color:cssv('--muted')}};}
+function axis(){return {grid:{color:cssv('--line')},ticks:{color:cssv('--muted')}};}
 function mk(id,cfg){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),cfg);}
 
 function kpis(){
@@ -138,7 +138,7 @@ function kpis(){
     ['Objem zakázek', mil(objem)+' mil. Kč', ZAK.length+' zakázek (rada / výběrko)','var(--c0)'],
     ['Do školy (MŠ+ZŠ)', mil(skola)+' mil. Kč', Math.round(skola/objem*100)+' % objemu zakázek','var(--c1)'],
     ['Přímá rozhodnutí ZO', mil(objPoz)+' mil. Kč', POZ.length+'× financování + pozemky','var(--c3)'],
-    (()=>{const k=KAP.filter(x=>x.rok>=2022);const s=k.reduce((a,x)=>a+x.kap,0);return ['Kapitálové výdaje '+k[0].rok+'–'+k[k.length-1].rok, mil(s)+' mil. Kč', 'skutečně zaplaceno (MONITOR)','#a855f7'];})(),
+    (()=>{const k=KAP.filter(x=>x.rok>=2022);const s=k.reduce((a,x)=>a+x.kap,0);return ['Kapitálové výdaje '+k[0].rok+'–'+k[k.length-1].rok, mil(s)+' mil. Kč', 'skutečně zaplaceno (MONITOR)','var(--amber)'];})(),
   ];
   document.getElementById('kpis').innerHTML=C.map(c=>`<div class="kpi" style="--bar:${c[3]}"><div class="lab">${c[0]}</div><div class="val" style="font-size:21px">${c[1]}</div><div class="delta" style="color:var(--muted)">${c[2]}</div></div>`).join('');
 }
@@ -161,7 +161,7 @@ function yearChart(){
 }
 function kapChart(){
   mk('kapChart',{type:'bar',data:{labels:KAP.map(x=>x.rok),datasets:[
-    {label:'Kapitálové výdaje',data:KAP.map(x=>x.kap/1e6),backgroundColor:'#a855f7',borderRadius:5},
+    {label:'Kapitálové výdaje',data:KAP.map(x=>x.kap/1e6),backgroundColor:cssv('--amber'),borderRadius:5},
     {label:'Běžné výdaje',data:KAP.map(x=>(x.vydaje-x.kap)/1e6),backgroundColor:cssv('--c5'),borderRadius:5}]},
     options:{responsive:true,maintainAspectRatio:false,animation:{duration:600},interaction:{mode:'index',intersect:false},
       plugins:{legend:{display:true,labels:{color:cssv('--muted'),boxWidth:12}},tooltip:{callbacks:{label:c=>c.dataset.label+': '+c.parsed.y.toLocaleString('cs-CZ',{maximumFractionDigits:1})+' mil. Kč'}}},

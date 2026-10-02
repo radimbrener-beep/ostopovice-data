@@ -108,7 +108,7 @@ function render(){
           ${cast}
         </div>
         <div class="usn-t">${esc(b.text)}</div>
-        ${hlTxt?`<div class="usn-hl">🗳 ${hlTxt}${split?' · <b>nejednomyslně</b>':''}</div>`:''}
+        ${hlTxt?`<div class="usn-hl">${hlTxt}${split?' · <b>nejednomyslně</b>':''}</div>`:''}
       </div>`;}).join('');
     html+=`<div class="zas ${open?'open':''}" data-id="${id}">
       <div class="zas-h" onclick="toggle('${id}')">

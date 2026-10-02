@@ -73,7 +73,7 @@ const norm=s=>(s||'').normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toLowerC
 const mil=v=>(v/1e6).toLocaleString('cs-CZ',{maximumFractionDigits:2});
 const kc=v=>v==null?'—':(v>=1e6?mil(v)+' mil. Kč':nf.format(v)+' Kč');
 const charts={};
-function axis(){return {grid:{color:isDark()?'#1f2a40':'#eef2f7'},ticks:{color:cssv('--muted')}};}
+function axis(){return {grid:{color:cssv('--line')},ticks:{color:cssv('--muted')}};}
 function mk(id,cfg){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),cfg);}
 
 function kpis(){

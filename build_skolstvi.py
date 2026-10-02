@@ -54,7 +54,7 @@ scripts = '<script>' + CHARTJS + '''</script>
 const D=DATA_JSON, POP=D.pop, YRS=POP.map(d=>d.rok);
 const nf=new Intl.NumberFormat('cs-CZ');
 const charts={};
-function axis(){return {grid:{color:isDark()?'#1f2a40':'#eef2f7'},ticks:{color:cssv('--muted')}};}
+function axis(){return {grid:{color:cssv('--line')},ticks:{color:cssv('--muted')}};}
 function mk(id,cfg){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),cfg);}
 function skoly(){
   document.getElementById('skoly').innerHTML=D.skoly.map(s=>`<div class="kpi" style="--bar:${s.bar}"><div class="lab">${s.nazev}</div>
