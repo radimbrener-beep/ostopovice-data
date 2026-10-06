@@ -1,4 +1,4 @@
-name: Deploy na Wedos (ostopovice.jakzijistrelice.cz)
+name: Deploy na Wedos (ostopovice.jaksemame.cz + ostopovice.jakzijistrelice.cz)
 
 # Při pushi do main se statické HTML stránky portálu nahrají přes FTP na Wedos.
 # Spustit lze i ručně (workflow_dispatch).
@@ -46,6 +46,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps                     # když FTPS nepojede, zkus "ftp"
           port: 21
-          server-dir: /www/subdom/ostopovice/   # docroot subdomény (musí končit lomítkem)
+          server-dir: /www/subdom/ostopovice/   # docroot subdomény ostopovice — slouží pro ostopovice.jaksemame.cz i ostopovice.jakzijistrelice.cz
           local-dir: ./public/
           # pozn.: akce dělá inkrementální sync; docroot subdomény vyhraď JEN tomuto webu.
