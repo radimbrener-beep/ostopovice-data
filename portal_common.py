@@ -332,7 +332,7 @@ function dlCSV(name,header,rows){
 """
 
 # --- Open Graph / náhled odkazu na sociálních sítích (FB apod.) ---
-SITE = "https://ostopovice.jakzijistrelice.cz"  # → https://ostopovice.jaksemame.cz, až bude mít SSL
+SITE = "https://ostopovice.jaksemame.cz"
 OG_DESC = ("Otevřená data obce Ostopovice u Brna srozumitelně: rozpočet, investice, "
            "zakázky, dotace, školství, volby a usnesení zastupitelstva — interaktivně a pro každého.")
 
