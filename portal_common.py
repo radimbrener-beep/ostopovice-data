@@ -287,8 +287,9 @@ def inject_chart_font(html):
     return html[:j] + CHART_FONT_JS + html[j:]
 
 
-# analytika zatím vypnutá (žádné externí skripty)
-ANALYTICS = ""
+# Cloudflare Web Analytics (bez cookies) — web ostopovice.jaksemame.cz; token je veřejný (je v HTML každé stránky)
+ANALYTICS = ("<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js'"
+             " data-cf-beacon='{\"token\": \"dfbbe32247e24b7fb22edd2f35831010\"}'></script>")
 
 # patička: občanský portál, bez loga
 BRANDFOOT = ('<div style="margin-top:34px;padding-top:20px;border-top:1px solid var(--line);'

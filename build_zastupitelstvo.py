@@ -22,7 +22,11 @@ for m in zo:
     m["shrnuti"] = SHRNUTI.get(f'{m["rok"]}-{m["cislo_zasedani"]}', "")
     m.pop("raw_text", None)
 
-DATA = {"obec": "Ostopovice", "zasedani": zo, "roky": roky, "temata": temata}
+# polohy parcel (k.ú. Ostopovice) pro prokliky do katastrální mapy — cache z geocode_parcely.py
+GEO_PATH = os.path.join("data", "parcely_geo.json")
+parcely_geo = json.load(open(GEO_PATH, encoding="utf-8")) if os.path.exists(GEO_PATH) else {}
+
+DATA = {"obec": "Ostopovice", "zasedani": zo, "roky": roky, "temata": temata, "pgeo": parcely_geo}
 data_json = json.dumps(DATA, ensure_ascii=False, separators=(",", ":"))
 
 body = f'''<header class="hero">
@@ -50,11 +54,23 @@ body = f'''<header class="hero">
     <div id="pocet" class="note" style="margin:0 0 10px"></div>
     <div id="list">''' + pc.skel(7) + '''</div>
   </div>
-  <p class="note">U každého usnesení je uveden výsledek hlasování (pro · proti · zdržel se), je-li v zápise k dispozici; zvýrazněná jsou usnesení, kde někdo hlasoval proti nebo se zdržel. Témata i částky jsou přiřazeny automaticky; shrnutí „V kostce" napsal jazykový model (AI) z textu usnesení — rozhoduje vždy text usnesení a originální PDF. Jména soukromých osob jsou zkrácena na iniciály, adresy a data narození vynechány.</p>
+  <p class="note">U každého usnesení je uveden výsledek hlasování (pro · proti · zdržel se), je-li v zápise k dispozici; zvýrazněná jsou usnesení, kde někdo hlasoval proti nebo se zdržel. Témata i částky jsou přiřazeny automaticky; shrnutí „V kostce" napsal jazykový model (AI) z textu usnesení — rozhoduje vždy text usnesení a originální PDF. Čísla parcel v k. ú. Ostopovice jsou proklikávací do katastrální mapy (iKatastr). Jména soukromých osob jsou zkrácena na iniciály, adresy a data narození vynechány.</p>
 </section>'''
 
 scripts = '''<script>
 const D=DATA_JSON, Z=D.zasedani;
+// čísla parcel → odkaz do katastrální mapy (souřadnice z data/parcely_geo.json; jen k.ú. Ostopovice)
+const PGEO=D.pgeo||{};
+const PARC_RE=/((?:p(?:arc)?\\.?\\s*č\\.?|parcel\\w*\\s*č\\.?)\\s*)(\\d{1,5}(?:\\/\\d{1,4})?)/gi;
+const OTHER_KU=/k\\.?\\s*ú\\.?\\s*(Střelic|Troubsk|Nebovid|Moravan|Bohunic|Lískov|Želešic|Modřic|Popůvk|Bosonoh|Brno)/i;
+function linkifyParc(html, allow){
+  if(!allow) return html;
+  return html.replace(PARC_RE,(m,pre,num)=>{
+    const g=PGEO[num]; if(!g) return m;
+    const u=`https://www.ikatastr.cz/#kde=${g[0]},${g[1]},18&mapa=zakladni&vrstvy=parcelybudovy&info=${g[0]},${g[1]}`;
+    return pre+`<a class="parc" href="${u}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Parcela č. ${num} v katastrální mapě (k.ú. Ostopovice)">${num}</a>`;
+  });
+}
 const nf=new Intl.NumberFormat('cs-CZ');
 const norm=s=>(s||'').normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toLowerCase();
 const KAT_COL={'schvaluje':'var(--pos)','neschvaluje':'var(--neg)','bere na vědomí':'var(--c5)',
@@ -107,7 +123,7 @@ function render(){
           ${b.tema?`<span class="tema"><i style="background:${temaVar(b.tema)}"></i>${temaIco(b.tema)}${esc(b.tema)}</span>`:''}
           ${cast}
         </div>
-        <div class="usn-t">${esc(b.text)}</div>
+        <div class="usn-t">${linkifyParc(esc(b.text), !OTHER_KU.test(b.text))}</div>
         ${hlTxt?`<div class="usn-hl">${hlTxt}${split?' · <b>nejednomyslně</b>':''}</div>`:''}
       </div>`;}).join('');
     html+=`<div class="zas ${open?'open':''}" data-id="${id}">
@@ -161,6 +177,9 @@ CSS = '''<style>
 .tema{font-size:11px;color:var(--muted);background:var(--inset);border:1px solid var(--line);padding:2px 8px;border-radius:999px}
 .pill{font-size:11px;font-weight:600;padding:2px 9px;border-radius:999px}
 .usn-t{font-size:13.5px;line-height:1.55}
+.parc{color:var(--accent);text-decoration:none;border-bottom:1px dashed var(--accent);white-space:nowrap}
+.parc:hover{background:var(--accent-soft);border-bottom-style:solid}
+.parc::after{content:"";display:inline-block;width:.72em;height:.72em;margin-left:2px;vertical-align:.25em;background:currentColor;opacity:.75;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 21s-6-5.5-6-11a6 6 0 0 1 12 0c0 5.5-6 11-6 11z'/%3E%3Ccircle cx='12' cy='10' r='2'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 21s-6-5.5-6-11a6 6 0 0 1 12 0c0 5.5-6 11-6 11z'/%3E%3Ccircle cx='12' cy='10' r='2'/%3E%3C/svg%3E") center/contain no-repeat}
 .usn-hl{font-size:12px;color:var(--muted);margin-top:4px;font-variant-numeric:tabular-nums}
 select,input[type=text]{font:inherit;font-size:13.5px;padding:7px 11px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text);outline:none}
 select:focus,input[type=text]:focus{border-color:var(--accent)}
