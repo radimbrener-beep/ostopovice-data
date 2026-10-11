@@ -41,7 +41,7 @@ tiles = [
      "Vývoj počtu obyvatel obce od roku 2004 podle Českého statistického úřadu.",
      "Otevřít demografii →", None),
     ("volby.html", "Volby", "vo", True,
-     "Jak Ostopovice volí — složení zastupitelstva z komunálních voleb 2022, zvolení zastupitelé, sněmovní i prezidentské volby v obci.",
+     "Komunální volby 2026 — nové zastupitelstvo, zvolení zastupitelé, srovnání s rokem 2022, preferenční hlasy a výpočet mandátů.",
      "Otevřít volby →", None),
     ("zastupitelstvo.html", "Zastupitelstvo", "zo", True,
      f"Usnesení zastupitelstva ({zo[-1]['rok']}–{zo[0]['rok']}) — shrnutí každého zasedání, výsledky hlasování, témata a částky, s odkazem na originální PDF zápis.",

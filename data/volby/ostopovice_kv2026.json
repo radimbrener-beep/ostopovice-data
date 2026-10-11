@@ -1,0 +1,731 @@
+{
+ "rok": 2026,
+ "datum": "9.–10. 10. 2026",
+ "obec": "Ostopovice",
+ "generovano": "2026-10-11T08:35:13",
+ "zdroj": "https://volby.gov.cz/appdata/kv2026/20261009/vysled/6203/583596.json",
+ "mandaty": 15,
+ "ucast": {
+  "volici": 1394,
+  "obalky": 758,
+  "pct": 54.38,
+  "odevzdane": 758,
+  "platne_obalky": 753,
+  "pct_platnych": 99.34,
+  "platne_hlasy": 10612
+ },
+ "strany": [
+  {
+   "c": 1,
+   "nazev": "Pro lidi",
+   "hlasy": 2860,
+   "pct": 26.95,
+   "mandaty": 4,
+   "hranice": 209,
+   "podily": [
+    2860,
+    1430,
+    953.33,
+    715,
+    572,
+    476.66,
+    408.57,
+    357.5,
+    317.77,
+    286,
+    260,
+    238.33,
+    220,
+    204.28,
+    190.66
+   ],
+   "kandidatu": 15
+  },
+  {
+   "c": 2,
+   "nazev": "Společně pro Ostopovice",
+   "hlasy": 7752,
+   "pct": 73.05,
+   "mandaty": 11,
+   "hranice": 567.6,
+   "podily": [
+    7752,
+    3876,
+    2584,
+    1938,
+    1550.4,
+    1292,
+    1107.42,
+    969,
+    861.33,
+    775.2,
+    704.72,
+    646,
+    596.3,
+    553.71,
+    516.8
+   ],
+   "kandidatu": 15
+  }
+ ],
+ "kandidati": [
+  {
+   "strana": 1,
+   "poradi": 1,
+   "jmeno": "Ing. Michaela Loupová",
+   "vek": 41,
+   "hlasy": 206,
+   "pct": 7.2,
+   "zvolen": true,
+   "poradi_vysl": 4,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "ekonomka",
+   "zena": true,
+   "pokracuje": true,
+   "okrsky": [
+    206
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 2,
+   "jmeno": "Ing. Libor Kožik",
+   "vek": 40,
+   "hlasy": 231,
+   "pct": 8.07,
+   "zvolen": true,
+   "poradi_vysl": 1,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "ředitel projekční firmy",
+   "zena": false,
+   "pokracuje": true,
+   "okrsky": [
+    231
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 3,
+   "jmeno": "Jaroslav Černý",
+   "vek": 47,
+   "hlasy": 182,
+   "pct": 6.36,
+   "zvolen": false,
+   "poradi_vysl": 1,
+   "navrh": "NK",
+   "prislusnost": "KDU-ČSL",
+   "povolani": "podnikatel",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    182
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 4,
+   "jmeno": "Radek Janata",
+   "vek": 47,
+   "hlasy": 213,
+   "pct": 7.44,
+   "zvolen": true,
+   "poradi_vysl": 2,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "IT specialista",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    213
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 5,
+   "jmeno": "David Kolínek",
+   "vek": 46,
+   "hlasy": 185,
+   "pct": 6.46,
+   "zvolen": false,
+   "poradi_vysl": 2,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "jednatel společnosti",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    185
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 6,
+   "jmeno": "Martin Kukla",
+   "vek": 25,
+   "hlasy": 193,
+   "pct": 6.74,
+   "zvolen": false,
+   "poradi_vysl": 3,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "tesař",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    193
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 7,
+   "jmeno": "Hana Repková",
+   "vek": 44,
+   "hlasy": 200,
+   "pct": 6.99,
+   "zvolen": false,
+   "poradi_vysl": 4,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "učitelka v MŠ",
+   "zena": true,
+   "pokracuje": false,
+   "okrsky": [
+    200
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 8,
+   "jmeno": "Jaroslav Varmuža",
+   "vek": 36,
+   "hlasy": 195,
+   "pct": 6.81,
+   "zvolen": false,
+   "poradi_vysl": 5,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "řidič senior taxi",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    195
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 9,
+   "jmeno": "Mgr. Karolina Janatová",
+   "vek": 46,
+   "hlasy": 204,
+   "pct": 7.13,
+   "zvolen": false,
+   "poradi_vysl": 6,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "zubní instrumentářka",
+   "zena": true,
+   "pokracuje": false,
+   "okrsky": [
+    204
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 10,
+   "jmeno": "Lukáš Kraus",
+   "vek": 41,
+   "hlasy": 180,
+   "pct": 6.29,
+   "zvolen": false,
+   "poradi_vysl": 7,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "geodet",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    180
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 11,
+   "jmeno": "Kristina Navrátilová",
+   "vek": 52,
+   "hlasy": 213,
+   "pct": 7.44,
+   "zvolen": true,
+   "poradi_vysl": 3,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "účetní",
+   "zena": true,
+   "pokracuje": false,
+   "okrsky": [
+    213
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 12,
+   "jmeno": "Jaroslav Černý",
+   "vek": 70,
+   "hlasy": 151,
+   "pct": 5.27,
+   "zvolen": false,
+   "poradi_vysl": 8,
+   "navrh": "NK",
+   "prislusnost": "KDU-ČSL",
+   "povolani": "důchodce",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    151
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 13,
+   "jmeno": "Ing. Igor Bílovský",
+   "vek": 51,
+   "hlasy": 177,
+   "pct": 6.18,
+   "zvolen": false,
+   "poradi_vysl": 9,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "pojišťovací specialista",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    177
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 14,
+   "jmeno": "Marcela Liptáková",
+   "vek": 58,
+   "hlasy": 172,
+   "pct": 6.01,
+   "zvolen": false,
+   "poradi_vysl": 10,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "provozní v MŠ",
+   "zena": true,
+   "pokracuje": false,
+   "okrsky": [
+    172
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 15,
+   "jmeno": "Mgr. Miroslava Doležalová",
+   "vek": 39,
+   "hlasy": 158,
+   "pct": 5.52,
+   "zvolen": false,
+   "poradi_vysl": 11,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "finanční analytička",
+   "zena": true,
+   "pokracuje": false,
+   "okrsky": [
+    158
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 1,
+   "jmeno": "MgA. Jan Symon",
+   "vek": 50,
+   "hlasy": 535,
+   "pct": 6.9,
+   "zvolen": true,
+   "poradi_vysl": 1,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "starosta obce",
+   "zena": false,
+   "pokracuje": true,
+   "okrsky": [
+    535
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 2,
+   "jmeno": "Ing. Petr Vlach",
+   "vek": 61,
+   "hlasy": 527,
+   "pct": 6.79,
+   "zvolen": true,
+   "poradi_vysl": 2,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "místostarosta obce",
+   "zena": false,
+   "pokracuje": true,
+   "okrsky": [
+    527
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 3,
+   "jmeno": "doc. MVDr. Radka Dobšíková, Ph.D.",
+   "vek": 53,
+   "hlasy": 553,
+   "pct": 7.13,
+   "zvolen": true,
+   "poradi_vysl": 3,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "vysokoškolská pedagožka",
+   "zena": true,
+   "pokracuje": true,
+   "okrsky": [
+    553
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 4,
+   "jmeno": "Ing. arch. Boris Canov",
+   "vek": 50,
+   "hlasy": 530,
+   "pct": 6.83,
+   "zvolen": true,
+   "poradi_vysl": 4,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "projektant",
+   "zena": false,
+   "pokracuje": true,
+   "okrsky": [
+    530
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 5,
+   "jmeno": "Viktor Bečka",
+   "vek": 68,
+   "hlasy": 565,
+   "pct": 7.28,
+   "zvolen": true,
+   "poradi_vysl": 5,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "důchodce",
+   "zena": false,
+   "pokracuje": true,
+   "okrsky": [
+    565
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 6,
+   "jmeno": "Mgr. Kristina Horáková",
+   "vek": 45,
+   "hlasy": 504,
+   "pct": 6.5,
+   "zvolen": true,
+   "poradi_vysl": 6,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "generální sekretář Orel ČR",
+   "zena": true,
+   "pokracuje": false,
+   "okrsky": [
+    504
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 7,
+   "jmeno": "Jiří Soukup",
+   "vek": 54,
+   "hlasy": 501,
+   "pct": 6.46,
+   "zvolen": true,
+   "poradi_vysl": 7,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "technický manažer",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    501
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 8,
+   "jmeno": "Bc. Lucie Pokorová",
+   "vek": 41,
+   "hlasy": 482,
+   "pct": 6.21,
+   "zvolen": true,
+   "poradi_vysl": 8,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "účetní",
+   "zena": true,
+   "pokracuje": false,
+   "okrsky": [
+    482
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 9,
+   "jmeno": "Ondřej Tomašovič",
+   "vek": 50,
+   "hlasy": 539,
+   "pct": 6.95,
+   "zvolen": true,
+   "poradi_vysl": 9,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "produktový manažer",
+   "zena": false,
+   "pokracuje": true,
+   "okrsky": [
+    539
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 10,
+   "jmeno": "Miroslav Krapka",
+   "vek": 47,
+   "hlasy": 500,
+   "pct": 6.44,
+   "zvolen": true,
+   "poradi_vysl": 10,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "specialista montáže a integračního testování",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    500
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 11,
+   "jmeno": "Ing. Kryštof Lebeda",
+   "vek": 28,
+   "hlasy": 516,
+   "pct": 6.65,
+   "zvolen": true,
+   "poradi_vysl": 11,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "výzkumný pracovník",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    516
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 12,
+   "jmeno": "Mgr. Petra Vérostová",
+   "vek": 48,
+   "hlasy": 495,
+   "pct": 6.38,
+   "zvolen": false,
+   "poradi_vysl": 1,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "speciální pedagožka",
+   "zena": true,
+   "pokracuje": false,
+   "okrsky": [
+    495
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 13,
+   "jmeno": "Jana Bartoňková",
+   "vek": 53,
+   "hlasy": 526,
+   "pct": 6.78,
+   "zvolen": false,
+   "poradi_vysl": 2,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "zdravotní sestra",
+   "zena": true,
+   "pokracuje": false,
+   "okrsky": [
+    526
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 14,
+   "jmeno": "Ing. David Šmídek",
+   "vek": 51,
+   "hlasy": 511,
+   "pct": 6.59,
+   "zvolen": false,
+   "poradi_vysl": 3,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "obchodní zástupce",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    511
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 15,
+   "jmeno": "Ing. arch. Petr Řehořka",
+   "vek": 59,
+   "hlasy": 468,
+   "pct": 6.03,
+   "zvolen": false,
+   "poradi_vysl": 4,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "architekt a stavitel",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    468
+   ]
+  }
+ ],
+ "okrsky": [
+  {
+   "c": 1,
+   "volici": 1394,
+   "obalky": 758,
+   "ucast": 54.38,
+   "platne_hlasy": 10612,
+   "strany": {
+    "1": [
+     2860,
+     26.95
+    ],
+    "2": [
+     7752,
+     73.04
+    ]
+   }
+  }
+ ],
+ "prev": {
+  "rok": 2022,
+  "ucast": 58.53,
+  "strany": [
+   {
+    "nazev": "Společně pro Ostopovice",
+    "zkratka": "Společně pro Ostopovice",
+    "hlasy": 6543,
+    "pct": 61.85,
+    "mandaty": 9,
+    "barva": "--c0"
+   },
+   {
+    "nazev": "Pro lidi",
+    "zkratka": "Pro lidi",
+    "hlasy": 4035,
+    "pct": 38.14,
+    "mandaty": 6,
+    "barva": "--c3"
+   }
+  ],
+  "zastupitele": [
+   {
+    "jmeno": "doc. MVDr. Radka Dobšíková, Ph.D.",
+    "hlasy": 495,
+    "strana": "Společně pro Ostopovice"
+   },
+   {
+    "jmeno": "MgA. Jan Symon",
+    "hlasy": 486,
+    "strana": "Společně pro Ostopovice"
+   },
+   {
+    "jmeno": "Viktor Bečka",
+    "hlasy": 463,
+    "strana": "Společně pro Ostopovice"
+   },
+   {
+    "jmeno": "Ondřej Tomašovič",
+    "hlasy": 451,
+    "strana": "Společně pro Ostopovice"
+   },
+   {
+    "jmeno": "Ing. arch. Boris Canov",
+    "hlasy": 445,
+    "strana": "Společně pro Ostopovice"
+   },
+   {
+    "jmeno": "Ing. Petr Vlach",
+    "hlasy": 443,
+    "strana": "Společně pro Ostopovice"
+   },
+   {
+    "jmeno": "Mgr. Jana Trčková",
+    "hlasy": 442,
+    "strana": "Společně pro Ostopovice"
+   },
+   {
+    "jmeno": "Mgr. Ilona Paulíková",
+    "hlasy": 437,
+    "strana": "Společně pro Ostopovice"
+   },
+   {
+    "jmeno": "Bc. Jan Kubíček",
+    "hlasy": 415,
+    "strana": "Společně pro Ostopovice"
+   },
+   {
+    "jmeno": "Mgr. Jaroslav Šebánek",
+    "hlasy": 379,
+    "strana": "Pro lidi"
+   },
+   {
+    "jmeno": "Ing. Libor Kožik",
+    "hlasy": 299,
+    "strana": "Pro lidi"
+   },
+   {
+    "jmeno": "Ing. Michaela Loupová",
+    "hlasy": 290,
+    "strana": "Pro lidi"
+   },
+   {
+    "jmeno": "Petr Coufal",
+    "hlasy": 279,
+    "strana": "Pro lidi"
+   },
+   {
+    "jmeno": "Ing. Jiří Ochvat",
+    "hlasy": 265,
+    "strana": "Pro lidi"
+   },
+   {
+    "jmeno": "Ing. Igor Bílovský",
+    "hlasy": 263,
+    "strana": "Pro lidi"
+   }
+  ]
+ }
+}

@@ -1,0 +1,584 @@
+{
+ "id": "20261009/vysled/6203/583596.json",
+ "param": {
+  "typ": "VYSL_ZASTUP",
+  "datumvoleb": 20261009,
+  "kodzastup": 583596,
+  "cobvodu": 1,
+  "okres": 6203,
+  "okres_nuts": 6203
+ },
+ "generovano": "2026-10-11T08:35:13",
+ "popis": "Výsledek za zastupitelstvo obce",
+ "obecNazev": "Ostopovice",
+ "dz": 1,
+ "prehled": [
+  15,
+  1,
+  1,
+  1,
+  100,
+  1394,
+  758,
+  54.38,
+  0,
+  758,
+  753,
+  99.34,
+  10612
+ ],
+ "zvoleno": true,
+ "existujePdf": true,
+ "velikostPdf": 77,
+ "vysledky": [
+  [
+   1,
+   "Pro lidi",
+   2860,
+   26.95,
+   15,
+   10612,
+   26.95,
+   4,
+   26.67,
+   true
+  ],
+  [
+   2,
+   "Společně pro Ostopovice",
+   7752,
+   73.05,
+   15,
+   10612,
+   73.04,
+   11,
+   73.33,
+   true
+  ]
+ ],
+ "hlasy": {
+  "1": [
+   [
+    1,
+    "Loupová Michaela Ing.",
+    41,
+    206,
+    7.2,
+    true,
+    4
+   ],
+   [
+    2,
+    "Kožik Libor Ing.",
+    40,
+    231,
+    8.07,
+    true,
+    1
+   ],
+   [
+    3,
+    "Černý Jaroslav",
+    47,
+    182,
+    6.36,
+    false,
+    1
+   ],
+   [
+    4,
+    "Janata Radek",
+    47,
+    213,
+    7.44,
+    true,
+    2
+   ],
+   [
+    5,
+    "Kolínek David",
+    46,
+    185,
+    6.46,
+    false,
+    2
+   ],
+   [
+    6,
+    "Kukla Martin",
+    25,
+    193,
+    6.74,
+    false,
+    3
+   ],
+   [
+    7,
+    "Repková Hana",
+    44,
+    200,
+    6.99,
+    false,
+    4
+   ],
+   [
+    8,
+    "Varmuža Jaroslav",
+    36,
+    195,
+    6.81,
+    false,
+    5
+   ],
+   [
+    9,
+    "Janatová Karolina Mgr.",
+    46,
+    204,
+    7.13,
+    false,
+    6
+   ],
+   [
+    10,
+    "Kraus Lukáš",
+    41,
+    180,
+    6.29,
+    false,
+    7
+   ],
+   [
+    11,
+    "Navrátilová Kristina",
+    52,
+    213,
+    7.44,
+    true,
+    3
+   ],
+   [
+    12,
+    "Černý Jaroslav",
+    70,
+    151,
+    5.27,
+    false,
+    8
+   ],
+   [
+    13,
+    "Bílovský Igor Ing.",
+    51,
+    177,
+    6.18,
+    false,
+    9
+   ],
+   [
+    14,
+    "Liptáková Marcela",
+    58,
+    172,
+    6.01,
+    false,
+    10
+   ],
+   [
+    15,
+    "Doležalová Miroslava Mgr.",
+    39,
+    158,
+    5.52,
+    false,
+    11
+   ]
+  ],
+  "2": [
+   [
+    1,
+    "Symon Jan MgA.",
+    50,
+    535,
+    6.9,
+    true,
+    1
+   ],
+   [
+    2,
+    "Vlach Petr Ing.",
+    61,
+    527,
+    6.79,
+    true,
+    2
+   ],
+   [
+    3,
+    "Dobšíková Radka doc. MVDr. Ph.D.",
+    53,
+    553,
+    7.13,
+    true,
+    3
+   ],
+   [
+    4,
+    "Canov Boris Ing. arch.",
+    50,
+    530,
+    6.83,
+    true,
+    4
+   ],
+   [
+    5,
+    "Bečka Viktor",
+    68,
+    565,
+    7.28,
+    true,
+    5
+   ],
+   [
+    6,
+    "Horáková Kristina Mgr.",
+    45,
+    504,
+    6.5,
+    true,
+    6
+   ],
+   [
+    7,
+    "Soukup Jiří",
+    54,
+    501,
+    6.46,
+    true,
+    7
+   ],
+   [
+    8,
+    "Pokorová Lucie Bc.",
+    41,
+    482,
+    6.21,
+    true,
+    8
+   ],
+   [
+    9,
+    "Tomašovič Ondřej",
+    50,
+    539,
+    6.95,
+    true,
+    9
+   ],
+   [
+    10,
+    "Krapka Miroslav",
+    47,
+    500,
+    6.44,
+    true,
+    10
+   ],
+   [
+    11,
+    "Lebeda Kryštof Ing.",
+    28,
+    516,
+    6.65,
+    true,
+    11
+   ],
+   [
+    12,
+    "Vérostová Petra Mgr.",
+    48,
+    495,
+    6.38,
+    false,
+    1
+   ],
+   [
+    13,
+    "Bartoňková Jana",
+    53,
+    526,
+    6.78,
+    false,
+    2
+   ],
+   [
+    14,
+    "Šmídek David Ing.",
+    51,
+    511,
+    6.59,
+    false,
+    3
+   ],
+   [
+    15,
+    "Řehořka Petr Ing. arch.",
+    59,
+    468,
+    6.03,
+    false,
+    4
+   ]
+  ]
+ },
+ "hranice": {
+  "1": 209,
+  "2": 567.6
+ },
+ "podilyHlasu": {
+  "1": [
+   [
+    1,
+    2860
+   ],
+   [
+    2,
+    1430
+   ],
+   [
+    3,
+    953.33
+   ],
+   [
+    4,
+    715
+   ],
+   [
+    5,
+    572
+   ],
+   [
+    6,
+    476.66
+   ],
+   [
+    7,
+    408.57
+   ],
+   [
+    8,
+    357.5
+   ],
+   [
+    9,
+    317.77
+   ],
+   [
+    10,
+    286
+   ],
+   [
+    11,
+    260
+   ],
+   [
+    12,
+    238.33
+   ],
+   [
+    13,
+    220
+   ],
+   [
+    14,
+    204.28
+   ],
+   [
+    15,
+    190.66
+   ]
+  ],
+  "2": [
+   [
+    1,
+    7752
+   ],
+   [
+    2,
+    3876
+   ],
+   [
+    3,
+    2584
+   ],
+   [
+    4,
+    1938
+   ],
+   [
+    5,
+    1550.4
+   ],
+   [
+    6,
+    1292
+   ],
+   [
+    7,
+    1107.42
+   ],
+   [
+    8,
+    969
+   ],
+   [
+    9,
+    861.33
+   ],
+   [
+    10,
+    775.2
+   ],
+   [
+    11,
+    704.72
+   ],
+   [
+    12,
+    646
+   ],
+   [
+    13,
+    596.3
+   ],
+   [
+    14,
+    553.71
+   ],
+   [
+    15,
+    516.8
+   ]
+  ]
+ },
+ "poradiPodiluHlasu": [
+  [
+   1,
+   7752,
+   2,
+   "Společně pro Ostopovice",
+   1
+  ],
+  [
+   2,
+   3876,
+   2,
+   "Společně pro Ostopovice",
+   2
+  ],
+  [
+   3,
+   2860,
+   1,
+   "Pro lidi",
+   1
+  ],
+  [
+   4,
+   2584,
+   2,
+   "Společně pro Ostopovice",
+   3
+  ],
+  [
+   5,
+   1938,
+   2,
+   "Společně pro Ostopovice",
+   4
+  ],
+  [
+   6,
+   1550.4,
+   2,
+   "Společně pro Ostopovice",
+   5
+  ],
+  [
+   7,
+   1430,
+   1,
+   "Pro lidi",
+   2
+  ],
+  [
+   8,
+   1292,
+   2,
+   "Společně pro Ostopovice",
+   6
+  ],
+  [
+   9,
+   1107.42,
+   2,
+   "Společně pro Ostopovice",
+   7
+  ],
+  [
+   10,
+   969,
+   2,
+   "Společně pro Ostopovice",
+   8
+  ],
+  [
+   11,
+   953.33,
+   1,
+   "Pro lidi",
+   3
+  ],
+  [
+   12,
+   861.33,
+   2,
+   "Společně pro Ostopovice",
+   9
+  ],
+  [
+   13,
+   775.2,
+   2,
+   "Společně pro Ostopovice",
+   10
+  ],
+  [
+   14,
+   715,
+   1,
+   "Pro lidi",
+   4
+  ],
+  [
+   15,
+   704.72,
+   2,
+   "Společně pro Ostopovice",
+   11
+  ]
+ ],
+ "poradiPodiluLos": false,
+ "plne_nazvy_stran": [
+  [
+   1,
+   "Pro lidi"
+  ],
+  [
+   2,
+   "Společně pro Ostopovice"
+  ]
+ ],
+ "dalsiTerminy": []
+}

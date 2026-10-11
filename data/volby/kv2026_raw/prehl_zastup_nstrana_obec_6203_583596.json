@@ -1,0 +1,46 @@
+{
+ "id": "20261009/prehl/zastup/nstrana/obec/6203/583596.json",
+ "param": {
+  "typ": "ZAST_NS_ZASTUP",
+  "datumvoleb": 20261009,
+  "kodzastup": 583596,
+  "cobvodu": 1,
+  "okres": 6203,
+  "okres_nuts": 6203
+ },
+ "generovano": "2026-10-11T08:38:04",
+ "popis": "Přehled podle navrhující strany - zastupitelstvo obce",
+ "obecNazev": "Ostopovice",
+ "celkem": [
+  [
+   80,
+   "Nezávislý kandidát",
+   15,
+   100
+  ]
+ ],
+ "strany": {
+  "1": {
+   "stranaNazev": "Pro lidi",
+   "seznam": [
+    [
+     80,
+     "Nezávislý kandidát",
+     4,
+     26.67
+    ]
+   ]
+  },
+  "2": {
+   "stranaNazev": "Společně pro Ostopovice",
+   "seznam": [
+    [
+     80,
+     "Nezávislý kandidát",
+     11,
+     73.33
+    ]
+   ]
+  }
+ }
+}

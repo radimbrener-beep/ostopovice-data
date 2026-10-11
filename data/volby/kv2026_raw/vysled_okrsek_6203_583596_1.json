@@ -1,0 +1,265 @@
+{
+ "id": "20261009/vysled/okrsek/6203/583596_1.json",
+ "param": {
+  "typ": "VYSL_OKRSEK",
+  "datumvoleb": 20261009,
+  "kodzastup": 583596,
+  "okrsek": 1,
+  "okres": 6203,
+  "okres_nuts": 6203
+ },
+ "generovano": "2026-10-10T18:38:45",
+ "popis": "Výsledek za volební okrsek",
+ "obecNazev": "Ostopovice",
+ "dz": 1,
+ "prehled": [
+  1394,
+  758,
+  54.38,
+  1394,
+  758,
+  753,
+  99.34,
+  10612
+ ],
+ "vysledky": [
+  [
+   1,
+   "Pro lidi",
+   2860,
+   26.95
+  ],
+  [
+   2,
+   "Společně pro Ostopovice",
+   7752,
+   73.04
+  ]
+ ],
+ "hlasy": {
+  "1": [
+   [
+    1,
+    "Loupová Michaela Ing.",
+    41,
+    206,
+    7.2
+   ],
+   [
+    2,
+    "Kožik Libor Ing.",
+    40,
+    231,
+    8.07
+   ],
+   [
+    3,
+    "Černý Jaroslav",
+    47,
+    182,
+    6.36
+   ],
+   [
+    4,
+    "Janata Radek",
+    47,
+    213,
+    7.44
+   ],
+   [
+    5,
+    "Kolínek David",
+    46,
+    185,
+    6.46
+   ],
+   [
+    6,
+    "Kukla Martin",
+    25,
+    193,
+    6.74
+   ],
+   [
+    7,
+    "Repková Hana",
+    44,
+    200,
+    6.99
+   ],
+   [
+    8,
+    "Varmuža Jaroslav",
+    36,
+    195,
+    6.81
+   ],
+   [
+    9,
+    "Janatová Karolina Mgr.",
+    46,
+    204,
+    7.13
+   ],
+   [
+    10,
+    "Kraus Lukáš",
+    41,
+    180,
+    6.29
+   ],
+   [
+    11,
+    "Navrátilová Kristina",
+    52,
+    213,
+    7.44
+   ],
+   [
+    12,
+    "Černý Jaroslav",
+    70,
+    151,
+    5.27
+   ],
+   [
+    13,
+    "Bílovský Igor Ing.",
+    51,
+    177,
+    6.18
+   ],
+   [
+    14,
+    "Liptáková Marcela",
+    58,
+    172,
+    6.01
+   ],
+   [
+    15,
+    "Doležalová Miroslava Mgr.",
+    39,
+    158,
+    5.52
+   ]
+  ],
+  "2": [
+   [
+    1,
+    "Symon Jan MgA.",
+    50,
+    535,
+    6.9
+   ],
+   [
+    2,
+    "Vlach Petr Ing.",
+    61,
+    527,
+    6.79
+   ],
+   [
+    3,
+    "Dobšíková Radka doc. MVDr. Ph.D.",
+    53,
+    553,
+    7.13
+   ],
+   [
+    4,
+    "Canov Boris Ing. arch.",
+    50,
+    530,
+    6.83
+   ],
+   [
+    5,
+    "Bečka Viktor",
+    68,
+    565,
+    7.28
+   ],
+   [
+    6,
+    "Horáková Kristina Mgr.",
+    45,
+    504,
+    6.5
+   ],
+   [
+    7,
+    "Soukup Jiří",
+    54,
+    501,
+    6.46
+   ],
+   [
+    8,
+    "Pokorová Lucie Bc.",
+    41,
+    482,
+    6.21
+   ],
+   [
+    9,
+    "Tomašovič Ondřej",
+    50,
+    539,
+    6.95
+   ],
+   [
+    10,
+    "Krapka Miroslav",
+    47,
+    500,
+    6.44
+   ],
+   [
+    11,
+    "Lebeda Kryštof Ing.",
+    28,
+    516,
+    6.65
+   ],
+   [
+    12,
+    "Vérostová Petra Mgr.",
+    48,
+    495,
+    6.38
+   ],
+   [
+    13,
+    "Bartoňková Jana",
+    53,
+    526,
+    6.78
+   ],
+   [
+    14,
+    "Šmídek David Ing.",
+    51,
+    511,
+    6.59
+   ],
+   [
+    15,
+    "Řehořka Petr Ing. arch.",
+    59,
+    468,
+    6.03
+   ]
+  ]
+ },
+ "plne_nazvy_stran": [
+  [
+   1,
+   "Pro lidi"
+  ],
+  [
+   2,
+   "Společně pro Ostopovice"
+  ]
+ ]
+}
