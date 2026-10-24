@@ -21,6 +21,8 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}   # rozesílání upozornění (push/send.php); bez něj se nerozesílají
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -35,8 +37,24 @@ jobs:
           # písma značky (stránky je načítají relativně z fonts/) + favikony a manifest do kořene
           cp -r fonts public/
           cp brand/favicon/* public/
+          # upozornění (Web Push): seznam položek k oznámení, PHP backend a service worker
+          python3 build_push.py
+          cp -r push public/push
+          cp sw.js public/
           echo "Nasazované soubory:"
-          ls -la public/
+          ls -la public/ public/push
+
+      - name: Token pro rozesílání upozornění
+        # bez secretu PUSH_TOKEN se upozornění nerozesílají, nasazení ale proběhne
+        if: env.PUSH_TOKEN != ''
+        run: |
+          python3 - <<'PY'
+          import os
+          t = os.environ["PUSH_TOKEN"]
+          assert len(t) >= 20, "PUSH_TOKEN je kratší než 20 znaků"
+          php = "<?php" + chr(10) + "return ['token' => %r];" % t + chr(10)
+          open("public/push/config.local.php", "w").write(php)
+          PY
 
       - name: Deploy přes FTP na Wedos
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -49,3 +67,12 @@ jobs:
           server-dir: /www/subdom/ostopovice/   # docroot subdomény ostopovice — slouží pro ostopovice.jaksemame.cz i ostopovice.jakzijistrelice.cz
           local-dir: ./public/
           # pozn.: akce dělá inkrementální sync; docroot subdomény vyhraď JEN tomuto webu.
+          # push/data/ (SQLite s odběrateli) vytváří PHP na serveru — sync ho nezná, takže ho nemaže.
+
+      - name: Rozeslání upozornění na nová zasedání
+        if: env.PUSH_TOKEN != ''
+        # web je nasazený i tehdy, když rozeslání selže; chyba je vidět v záznamu
+        continue-on-error: true
+        run: |
+          curl -fsS --max-time 300 -X POST --data "" -H "Authorization: Bearer $PUSH_TOKEN" https://ostopovice.jaksemame.cz/push/send.php
+          echo

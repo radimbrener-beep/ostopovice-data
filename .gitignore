@@ -11,3 +11,7 @@ _*.html
 Thumbs.db
 # souhrn auto-aktualizace (jen pro Issue)
 .update_summary.md
+# upozornění: data odběratelů, token a vygenerovaný seznam položek se do gitu nedávají
+push/data/
+push/config.local.php
+push/feed.json
