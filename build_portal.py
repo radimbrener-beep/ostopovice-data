@@ -133,6 +133,7 @@ body = f'''<header class="hero">
   <div class="sec-h" style="margin:0 0 8px"><h2 style="font-size:16px">Co je nového</h2><span class="hint">poslední zasedání, rozpočet a zakázky</span></div>
   {upd_html}
 </div></section>
+{pc.fb_card()}
 
 <section><div class="tiles">{tile_html}</div></section>
 <section data-push-sec hidden><div class="panel">
