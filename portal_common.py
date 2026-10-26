@@ -93,7 +93,7 @@ NAV_JS = r"""
 """
 
 # stránky mimo hlavní navigaci (kvůli canonical/og:url)
-EXTRA_PAGES = [("hledat.html", "Hledat"), ("metodika.html", "Metodika")]
+EXTRA_PAGES = [("hledat.html", "Hledat"), ("metodika.html", "Metodika"), ("odbery.html", "Odběry")]
 SEARCH_BTN = ('<a class="iconbtn" href="hledat.html" title="Hledat na portálu (usnesení, zakázky, dotace…)" '
               'aria-label="Hledat" style="text-decoration:none">⌕</a>')
 
@@ -124,7 +124,8 @@ def push_box(lead=False):
             '<button type="button" class="pt-latest" hidden>Poslat mi zkušební upozornění</button>'
             '<p class="pt-ios" hidden>Na iPhonu upozornění fungují, když si web přidáte na plochu: v Safari klepněte na Sdílet '
             'a pak na Přidat na plochu. Web potom otevřete z plochy a upozornění zapněte.</p>'
-            '<p class="pt-msg" role="status"></p></div>')
+            '<p class="pt-msg" role="status"></p>'
+            '<p class="pt-stats"><a href="odbery.html">Kolik lidí upozornění odebírá</a></p></div>')
 
 
 PUSH_BTN = (f'<button type="button" class="iconbtn pushbtn" id="pushBtn" title="Upozornění na nová zasedání" '
@@ -152,6 +153,8 @@ NAV_CSS = NAV_CSS + """
 .push-toggle .pt-state,.push-toggle .pt-ios,.push-toggle .pt-msg{margin:0;line-height:1.5}
 .push-toggle .pt-msg{color:var(--muted);font-size:12.5px}
 .push-toggle .pt-msg:empty{display:none}
+.push-toggle .pt-stats{margin:0;font-size:12.5px}
+.push-toggle .pt-stats a{color:var(--muted)}
 .push-toggle button:disabled{opacity:.55;cursor:wait}
 """
 
@@ -497,7 +500,8 @@ def page(active, title, body, head_scripts="", body_scripts=""):
     body = body.replace(OLD_NAME, BRAND)
     head_scripts, body_scripts = inject_chart_font(head_scripts), inject_chart_font(body_scripts)
     footer = ('<footer class="footer">Data aktualizována k <b style="color:var(--muted)">' + UPDATED + '</b>'
-              ' &nbsp;·&nbsp; <a href="metodika.html">Metodika a zdroje dat</a><br>'
+              ' &nbsp;·&nbsp; <a href="metodika.html">Metodika a zdroje dat</a>'
+              ' &nbsp;·&nbsp; <a href="odbery.html">Odběry upozornění</a><br>'
               'Sestavil <b style="color:var(--muted)">Radim Brener</b> ze surových CSV souborů, jednoho terminálu a hluboké víry, že veřejná data jsou vždy konzistentní 🙃 &nbsp;·&nbsp; Python &thinsp;·&thinsp; Chart.js &thinsp;·&thinsp; MONITOR SP &thinsp;·&thinsp; ČSÚ &thinsp;·&thinsp; volby.cz &thinsp;·&thinsp; 2026</footer>')
     return f'''<!DOCTYPE html>
 <html lang="cs" data-theme="dark">
