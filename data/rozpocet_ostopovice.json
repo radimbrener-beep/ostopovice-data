@@ -2359,111 +2359,111 @@
  },
  "aktualni": {
   "rok": 2026,
-  "obdobi": 2608,
-  "mesic": "srpnu",
+  "obdobi": 2609,
+  "mesic": "září",
   "prijmy": {
    "schv": 106159700,
-   "uprav": 106544500,
-   "skut": 64109279
+   "uprav": 106556600,
+   "skut": 67611230
   },
   "vydaje": {
    "schv": 94065000,
-   "uprav": 94449800,
-   "skut": 58049651
+   "uprav": 94461900,
+   "skut": 62532577
   },
   "prijmy_druh": [
    {
     "name": "Daňové příjmy",
     "schv": 41138000,
     "uprav": 41138000,
-    "skut": 28067096
+    "skut": 31404051
    },
    {
     "name": "Nedaňové příjmy",
     "schv": 6030400,
-    "uprav": 6391300,
-    "skut": 3548789
+    "uprav": 6395900,
+    "skut": 3679735
    },
    {
     "name": "Přijaté transfery",
     "schv": 58991300,
-    "uprav": 59015200,
-    "skut": 32493394
+    "uprav": 59022700,
+    "skut": 32527444
    }
   ],
   "vydaje_druh": [
    {
     "name": "Běžné výdaje",
     "schv": 34942000,
-    "uprav": 35691800,
-    "skut": 25814555
+    "uprav": 36756900,
+    "skut": 29455888
    },
    {
     "name": "Kapitálové výdaje",
     "schv": 59123000,
-    "uprav": 58758000,
-    "skut": 32235096
+    "uprav": 57705000,
+    "skut": 33076689
    }
   ],
   "vydaje_oblast": [
    {
     "name": "Vzdělávání a školské služby",
     "schv": 54710000,
-    "uprav": 54729700,
-    "skut": 38908423
+    "uprav": 54734300,
+    "skut": 41418229
    },
    {
     "name": "Ochrana životního prostředí",
     "schv": 9528000,
-    "uprav": 9528000,
-    "skut": 6598879
+    "uprav": 10528000,
+    "skut": 7074710
    },
    {
     "name": "Státní moc, státní správa, územní samospráva a politické strany",
     "schv": 7657000,
-    "uprav": 7661200,
-    "skut": 4498715
+    "uprav": 7668700,
+    "skut": 5011529
    },
    {
     "name": "Bydlení, komunální služby a územní rozvoj",
     "schv": 7995600,
-    "uprav": 8035600,
-    "skut": 2303938
+    "uprav": 8053600,
+    "skut": 2977860
    },
    {
     "name": "Kultura, církve a sdělovací prostředky",
     "schv": 3064000,
-    "uprav": 3334000,
-    "skut": 1821806
+    "uprav": 3349000,
+    "skut": 2053356
    },
    {
     "name": "Doprava",
     "schv": 4550000,
     "uprav": 4175000,
-    "skut": 1337432
+    "skut": 1334212
    },
    {
     "name": "Finanční operace",
     "schv": 1241300,
     "uprav": 1541300,
-    "skut": 1136658
+    "skut": 1137237
    },
    {
     "name": "Spoje",
     "schv": 829000,
     "uprav": 829000,
-    "skut": 507520
+    "skut": 563149
    },
    {
     "name": "Sport a zájmová činnost",
     "schv": 527000,
     "uprav": 642000,
-    "skut": 457117
+    "skut": 483132
    },
    {
     "name": "Vodní hospodářství",
     "schv": 2800000,
-    "uprav": 2810000,
+    "uprav": 1757000,
     "skut": 355849
    },
    {
@@ -2499,7 +2499,7 @@
    {
     "name": "Zemědělství, lesní hospodářství a rybářství",
     "schv": 80000,
-    "uprav": 80000,
+    "uprav": 100000,
     "skut": 0
    },
    {
