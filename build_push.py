@@ -3,8 +3,8 @@
 """Seznam položek pro upozornění → push/feed.json (spouští deploy.yml před nahráním).
 (Převzato z portálu Střelic.)
 
-Položky: zasedání zastupitelstva (z datasetu) a ručně ohlášené novinky portálu
-(data/push_novinky.json). Server (push/send.php) oznámí jen ty, které ještě neoznámil
+Položky: zasedání zastupitelstva (z datasetu), nově vypsané zakázky (XML profilu zadavatele,
+data/profil_rizeni.json) a ručně ohlášené novinky portálu (data/push_novinky.json). Server (push/send.php) oznámí jen ty, které ještě neoznámil
 a jsou novější než stav při zapnutí upozornění — viz push/lib/Send.php.
 
 Novinka portálu = záznam v data/push_novinky.json:
@@ -44,11 +44,33 @@ def meetings():
     return out
 
 
+def tenders():
+    """Nově vypsané zakázky z profilu zadavatele (data/profil_rizeni.json)."""
+    out = []
+    for z in load("data/profil_rizeni.json", {"zakazky": []})["zakazky"][:PER_TOPIC]:
+        if not z.get("datum"):
+            continue
+        info = [z["druh"].capitalize()] if z.get("druh") else []
+        if z.get("predpokladana_hodnota"):
+            info.append(f"předpokládaná hodnota {z['predpokladana_hodnota']:,} Kč".replace(",", " "))
+        prime = z.get("postup") == "přímé zadání"   # bez soutěže: lhůta pro nabídky nedává smysl
+        if z.get("lhuta") and not prime:
+            d, _, t = z["lhuta"].partition("T")
+            y, m, dd = d.split("-")
+            info.append(f"nabídky do {int(dd)}. {int(m)}. {y}" + (f" {t}" if t else ""))
+        out.append({"id": "zakazka-" + z["id"], "topic": "zakazky",
+                    "title": ("Obec zadala napřímo: " if prime else "Nová zakázka obce: ") + z["nazev"],
+                    "body": " · ".join(info) or "Obec vypsala novou zakázku na profilu zadavatele.",
+                    "url": "/zakazky.html#vypsane", "date": z["datum"]})
+    return out
+
+
 def main():
     items = meetings()
     for n in load("data/push_novinky.json", []):
         items.append({"id": "portal-" + n["id"], "topic": "portal", "title": n["title"], "body": n.get("body", ""),
                       "url": n.get("url", "/"), "date": n["date"]})
+    items += tenders()
     items.sort(key=lambda i: i["date"], reverse=True)
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as f:

@@ -28,7 +28,28 @@ total = sum(x["hodnota"] for x in withval)
 biggest = max(withval, key=lambda x: x["hodnota"]) if withval else None
 rows.sort(key=lambda x: (x.get("hodnota") or 0), reverse=True)
 
-DATA = {"rows": rows}
+# výběrová řízení z XML exportu profilu (scripts/fetch_profil_rizeni.py): nabídky, vybraná firma, stav
+try:
+    _pr = json.load(open("data/profil_rizeni.json", encoding="utf-8"))
+except FileNotFoundError:
+    _pr = {"profil": "", "zakazky": []}
+POSTUP = {"výjimka": "zakázka malého rozsahu"}
+# [datum, název, url, stav, druh, dodavatel, cena, předpokl. hodnota, lhůta, nabídky[[firma, cena, vyloučen, vítěz]], postup]
+pz = []
+for z in _pr["zakazky"]:
+    nab = [[n["firma"], n["cena"], 1 if n["vyloucen"] else 0,
+            1 if z["dodavatel_ico"] and n["ico"] == z["dodavatel_ico"] else 0] for n in z["nabidky"]]
+    nab.sort(key=lambda n: (n[1] is None, n[1] or 0))
+    pz.append([z["datum"], z["nazev"], z["url"], z["stav"], z["druh"], z["dodavatel"], z["cena"],
+               z["predpokladana_hodnota"], z["lhuta"], nab, POSTUP.get(z["postup"], z["postup"])])
+pz.sort(key=lambda z: z[0] or "", reverse=True)
+pz_s_nab = sum(1 for z in pz if z[9])
+pz_prime = sum(1 for z in pz if z[10] == "přímé zadání")
+
+PZ_LEAD = (f"Nabídky obec na profilu uvádí u <b>{pz_s_nab}</b> z {len(pz)} řízení; "
+           f"<b>{pz_prime}</b> zakázek zadala přímo, bez soutěže.") if pz else ""
+
+DATA = {"rows": rows, "pz": pz}
 data_json = json.dumps(DATA, ensure_ascii=False, separators=(",", ":"))
 
 body = f'''<header class="hero">
@@ -59,7 +80,19 @@ body = f'''<header class="hero">
       <button class="dlbtn" id="dl" type="button">⬇ Stáhnout CSV</button>
     </div>
     <div style="overflow-x:auto"><table id="tab"><thead><tr><th>Zakázka</th><th>Druh</th><th>Datum</th><th style="text-align:right">Předp. hodnota</th><th></th></tr></thead><tbody></tbody></table></div>
-    <p class="note">Předpokládaná hodnota = odhad zadavatele před soutěží (bez DPH). Vítězný dodavatel a konečná cena nejsou v profilu veřejně dostupné — skutečně zaplacené investice ukazuje sekce <a href="investice.html" style="color:var(--accent)">Investice</a>. <b>Úvěry</b> (výběr banky) jsou v profilu vedené jako zakázky; v tabulce jsou, ale do objemů a grafů se nepočítají, protože jde o zdroj peněz, ne výdaj. Zakázky spjaté se školou (dostavba MŠ a ZŠ) tvoří velkou část objemu — viz <a href="skolstvi.html" style="color:var(--accent)">Školství</a>.</p>
+    <p class="note">Předpokládaná hodnota = odhad zadavatele před soutěží (bez DPH). Kdo zakázku získal a za kolik, je u části zakázek v sekci <a href="#vypsane" style="color:var(--accent)">Výběrová řízení a nabídky</a> níže; skutečně zaplacené investice ukazuje sekce <a href="investice.html" style="color:var(--accent)">Investice</a>. <b>Úvěry</b> (výběr banky) jsou v profilu vedené jako zakázky; v tabulce jsou, ale do objemů a grafů se nepočítají, protože jde o zdroj peněz, ne výdaj. Zakázky spjaté se školou (dostavba MŠ a ZŠ) tvoří velkou část objemu — viz <a href="skolstvi.html" style="color:var(--accent)">Školství</a>.</p>
+  </div>
+</section>
+<div id="pzLive"></div>
+
+<section id="vypsane">
+  <div class="sec-h"><h2>Výběrová řízení a nabídky</h2><span class="hint">profil zadavatele · {len(pz)} řízení</span></div>
+  <div class="panel">
+    <p class="pz-lead">Jak obec zakázky zadávala: druh řízení, kdo podal nabídku, za kolik a kdo vyhrál. {PZ_LEAD}</p>
+    <div class="pz-ctrl"><span class="seg" id="pzSeg"></span><input id="pzQ" type="text" placeholder="hledat zakázku / firmu…"></div>
+    <div style="overflow-x:auto"><table id="pzTbl"><thead><tr><th>Vypsáno</th><th>Zakázka</th><th>Stav</th><th class="r">Nabídky</th><th>Vybraná firma</th><th class="r">Cena bez DPH</th></tr></thead><tbody></tbody></table></div>
+    <div id="pzMore"></div>
+    <p class="note"><b>Klikni na řádek</b> s nabídkami — rozbalí se všechny nabídky s cenami. Ceny jsou bez DPH tak, jak je obec uvedla na profilu; když smluvní cena chybí, je uvedena vítězná nabídka. Stav <i>zadáno</i> = je vybraná firma, nebo obec řízení vede jako dokončené. Nové zakázky se kontrolují denně a lze si na ně zapnout upozornění (zvonek nahoře).</p>
   </div>
 </section>'''
 
@@ -118,6 +151,44 @@ function table(){
     <td><a href="${x.url}" target="_blank" rel="noopener" style="color:var(--accent);font-size:12px">detail ↗</a></td></tr>`).join('');
 }
 let CUR=[];
+// --- výběrová řízení (XML profilu zadavatele) ---
+const PZ=D.pz, PZST={'zadáno':'zad','zrušeno':'zru','probíhá':'pro','bez výsledku':'bez'}, PZP=15;
+let pzStav='vse', pzQ='', pzShown=PZP; const pzOpen=new Set();
+const pkc=v=>v?nf.format(v)+'&nbsp;Kč':'—';
+const fdat=iso=>{if(!iso)return '—';const p=iso.slice(0,10).split('-');return p[2]+'. '+(+p[1])+'. '+p[0];};
+const lhuta=l=>l?fdat(l)+(l.includes('T')?' '+l.split('T')[1]:''):'';
+function pzTable(){
+  const nq=norm(pzQ);
+  let rr=PZ.filter(z=>pzStav==='vse'||z[3]===pzStav);
+  if(nq)rr=rr.filter(z=>norm(z[1]).includes(nq)||z[9].some(n=>norm(n[0]).includes(nq)));
+  document.querySelector('#pzTbl tbody').innerHTML=rr.length?rr.slice(0,pzShown).map(z=>{
+    const id=z[2]+'|'+z[1], open=pzOpen.has(id);
+    const sub=[z[4], z[10], z[7]?'předpokládaná hodnota '+nf.format(z[7])+' Kč':'', z[3]==='probíhá'&&z[8]?'nabídky do '+lhuta(z[8]):''].filter(Boolean).join(' · ');
+    let h=`<tr class="prow${open?' open':''}${z[9].length?'':' nox'}" data-id="${esc(id)}"><td class="dt">${fdat(z[0])}</td>
+      <td class="zn"><span class="car">${z[9].length?'▶':''}</span><span class="pzn">${esc(z[1])}</span><a class="zsrc" href="${z[2]}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Detail na profilu zadavatele">profil&nbsp;&#8599;</a>
+        <div class="pzsub">${esc(sub)}</div></td>
+      <td><span class="pst ${PZST[z[3]]}">${z[3]}</span></td>
+      <td class="r">${z[9].length?z[9].length+'<span class="pzsub" style="display:inline"> nab.</span>':'—'}</td><td>${esc(z[5])||'—'}</td><td class="r"><b>${pkc(z[6])}</b></td></tr>`;
+    if(open)h+=z[9].map(n=>`<tr class="nab${n[3]?' win':''}"><td></td><td class="zn"><span class="${n[2]?'vyl':''}">${esc(n[0])}</span>${n[3]?' ✓ vybrána':''}${n[2]?' <span class="pzsub" style="display:inline">vyloučen / odstoupil</span>':''}</td><td></td><td></td><td></td><td class="r">${pkc(n[1])}</td></tr>`).join('');
+    return h;}).join(''):'<tr><td colspan="6" style="color:var(--faint);text-align:center;padding:22px">Nic nenalezeno.</td></tr>';
+  document.getElementById('pzMore').innerHTML=rr.length>pzShown?`<button class="morebtn" id="pzMoreB">Zobrazit další (${rr.length-pzShown})</button>`:'';
+  const mb=document.getElementById('pzMoreB'); if(mb)mb.onclick=()=>{pzShown+=PZP;pzTable();};
+}
+if(PZ.length){
+  const cnt=s=>PZ.filter(z=>z[3]===s).length;
+  document.getElementById('pzSeg').innerHTML=[['vse','Vše ('+PZ.length+')'],...['probíhá','zadáno','zrušeno','bez výsledku'].filter(cnt).map(s=>[s,s[0].toUpperCase()+s.slice(1)+' ('+cnt(s)+')'])]
+    .map(([k,l])=>`<button data-s="${k}"${k==='vse'?' class="on"':''}>${l}</button>`).join('');
+  document.querySelectorAll('#pzSeg button').forEach(b=>b.onclick=()=>{pzStav=b.dataset.s;pzShown=PZP;
+    document.querySelectorAll('#pzSeg button').forEach(x=>x.classList.toggle('on',x===b));pzTable();});
+  document.getElementById('pzQ').oninput=e=>{pzQ=e.target.value.trim();pzShown=PZP;pzTable();};
+  document.querySelector('#pzTbl tbody').addEventListener('click',e=>{const tr=e.target.closest('tr.prow');
+    if(tr&&!tr.classList.contains('nox')){const id=tr.dataset.id;pzOpen.has(id)?pzOpen.delete(id):pzOpen.add(id);pzTable();}});
+  pzTable();
+  const live=PZ.filter(z=>z[3]==='probíhá');
+  if(live.length)document.getElementById('pzLive').innerHTML=`<div class="pzlive"><b>Právě vypsané zakázky</b>
+    <ul>${live.map(z=>`<li><a href="${z[2]}" target="_blank" rel="noopener" style="color:var(--accent)">${esc(z[1])}</a>${z[8]?' — nabídky do '+lhuta(z[8]):''}</li>`).join('')}</ul>
+    <div class="pzsub">Podrobnosti v sekci <a href="#vypsane" style="color:var(--accent)">Výběrová řízení a nabídky</a>.</div></div>`;
+} else document.getElementById('vypsane').hidden=true;
 function render(){kpis();topChart();yearChart();table();}
 render(); bindTheme(render);
 document.getElementById('q').addEventListener('input',table);
@@ -136,6 +207,45 @@ table{width:100%;border-collapse:collapse;font-size:13px}
 .dlbtn:hover{border-color:var(--accent)}
 select,input[type=text]{font:inherit;font-size:13.5px;padding:7px 11px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text);outline:none}
 select:focus,input[type=text]:focus{border-color:var(--accent)}
+#pzTbl{width:100%;border-collapse:collapse;font-size:13.5px}
+#pzTbl thead th{text-align:left;color:var(--muted);font-weight:600;font-size:11.5px;padding:8px 12px 8px 0;border-bottom:1px solid var(--line)}
+#pzTbl th.r,#pzTbl td.r{text-align:right}
+#pzTbl tbody td{padding:10px 12px 10px 0;border-bottom:1px solid var(--line);vertical-align:top}
+#pzTbl td.r{white-space:nowrap;font-variant-numeric:tabular-nums}
+#pzTbl td.dt{white-space:nowrap;color:var(--muted);font-size:12.5px}
+#pzTbl tr.prow{cursor:pointer;transition:background .12s}
+#pzTbl tr.prow.nox{cursor:default}
+#pzTbl tr.prow:hover{background:var(--inset)}
+#pzTbl tr.prow .car{display:inline-block;width:16px;color:var(--faint);font-size:11px;transition:transform .15s}
+#pzTbl tr.prow.open .car{transform:rotate(90deg)}
+#pzTbl .pzn{font-weight:600;margin-right:6px}
+.pzsub{font-size:11.5px;color:var(--faint);margin-top:2px}
+#pzTbl tr.nab td{background:var(--surface2);font-size:12.5px;padding-top:7px;padding-bottom:7px}
+#pzTbl tr.nab td.zn{padding-left:16px}
+#pzTbl tr.nab.win td{color:var(--text);font-weight:600}
+#pzTbl tr.nab .vyl{color:var(--faint);text-decoration:line-through}
+.zsrc{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:999px;background:var(--inset);color:var(--muted);text-decoration:none;border:1px solid var(--line);white-space:nowrap}
+.zsrc:hover{color:var(--accent);border-color:var(--accent)}
+.pst{display:inline-block;font-size:11px;font-weight:600;padding:2px 9px;border-radius:999px;border:1px solid var(--line);white-space:nowrap}
+.pst.zad{color:var(--c0);background:color-mix(in srgb,var(--c0) 12%,transparent)}
+.pst.zru,.pst.bez{color:var(--muted);background:var(--inset)}
+.pst.pro{color:var(--amber);background:color-mix(in srgb,var(--amber) 14%,transparent);border-color:color-mix(in srgb,var(--amber) 40%,transparent)}
+.pz-lead{margin:0 0 12px;line-height:1.6}
+.pz-ctrl{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:8px}
+#pzQ{min-width:220px;margin-left:auto}
+.morebtn{margin:14px auto 0;display:block;background:var(--inset);border:1px solid var(--line);color:var(--text);font:inherit;font-size:13px;font-weight:500;padding:9px 20px;border-radius:10px;cursor:pointer}
+.morebtn:hover{border-color:var(--accent);color:var(--accent)}
+.pzlive{margin:18px 0;padding:14px 16px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--amber)}
+.pzlive ul{margin:6px 0 0;padding-left:18px;line-height:1.6}
+@media(max-width:640px){
+  #pzTbl thead{display:none}
+  #pzTbl,#pzTbl tbody{display:block}
+  #pzTbl tbody tr{display:block;padding:10px 4px;border-bottom:1px solid var(--line)}
+  #pzTbl tbody td{display:inline-block;padding:2px 10px 2px 0;border:none;text-align:left}
+  #pzTbl tbody td:empty{display:none}
+  #pzTbl tr.prow td.zn{display:block}
+  #pzQ{margin-left:0;min-width:0;flex:1}
+}
 </style>'''
 
 open("zakazky.html", "w", encoding="utf-8").write(

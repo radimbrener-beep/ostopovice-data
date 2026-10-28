@@ -8,5 +8,6 @@ declare(strict_types=1);
 defined('PUSH_SITE') || define('PUSH_SITE', 'Jak se máme, Ostopovice?');
 /** Kontakt pro push služby (VAPID „sub"): adresa webu, žádný e-mail. */
 defined('PUSH_SUBJECT') || define('PUSH_SUBJECT', 'https://ostopovice.jaksemame.cz');
-/** Druhy upozornění: nová zasedání zastupitelstva a ručně ohlášené novinky portálu (rada obce zápisy nezveřejňuje). */
-defined('PUSH_TOPICS') || define('PUSH_TOPICS', ['zastupitelstvo', 'portal']);
+/** Druhy upozornění: nová zasedání zastupitelstva, ručně ohlášené novinky portálu a nově vypsané
+ *  zakázky z profilu zadavatele (rada obce zápisy nezveřejňuje). */
+defined('PUSH_TOPICS') || define('PUSH_TOPICS', ['zastupitelstvo', 'portal', 'zakazky']);
