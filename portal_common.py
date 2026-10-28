@@ -19,6 +19,7 @@ SECTIONS = [
     ("demografie.html", "Demografie"),
     ("volby.html",    "Volby"),
     ("zastupitelstvo.html", "Zastupitelstvo"),
+    ("ai.html",       "Ptejte se AI"),
 ]
 # hlavní menu: položka = (href, název) nebo skupina (název, [(href, název), ...]) → rozbalovací
 NAV = [
@@ -30,6 +31,7 @@ NAV = [
     ("obdobi.html", "Bilance 2022–26"),
     ("Obec", [("skolstvi.html", "Školství"), ("demografie.html", "Demografie"),
               ("volby.html", "Volby")]),
+    ("ai.html", "Ptejte se AI"),
 ]
 # popisky v rozbalovacím menu (krátká vysvětlivka pod názvem)
 NAV_HINT = {"rozpocet.html": "příjmy, výdaje, tok peněz", "srovnani.html": "se sousedními obcemi",
@@ -534,6 +536,7 @@ def page(active, title, body, head_scripts="", body_scripts=""):
     footer = ('<footer class="footer">Data aktualizována k <b style="color:var(--muted)">' + UPDATED + '</b>'
               ' &nbsp;·&nbsp; <a href="metodika.html">Metodika a zdroje dat</a>'
               ' &nbsp;·&nbsp; <a href="aktualizace.html">Jak často se data kontrolují</a>'
+              ' &nbsp;·&nbsp; <a href="ai.html">Ptejte se AI</a>'
               ' &nbsp;·&nbsp; <a href="odbery.html">Odběry upozornění</a>'
               ' &nbsp;·&nbsp; <a href="' + FB_URL + '" rel="noopener">Facebook</a><br>'
               'Sestavil <b style="color:var(--muted)">Radim Brener</b> ze surových CSV souborů, jednoho terminálu a hluboké víry, že veřejná data jsou vždy konzistentní 🙃 &nbsp;·&nbsp; Python &thinsp;·&thinsp; Chart.js &thinsp;·&thinsp; MONITOR SP &thinsp;·&thinsp; ČSÚ &thinsp;·&thinsp; volby.cz &thinsp;·&thinsp; 2026</footer>')

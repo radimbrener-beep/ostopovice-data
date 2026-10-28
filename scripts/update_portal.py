@@ -54,7 +54,7 @@ run("scripts/fetch_profil_rizeni.py", required=False)   # nabídky a vybraná fi
 
 for b in ["build_dotace.py", "build_rozpocet.py", "build_investice.py", "build_zakazky.py",
           "build_zastupitelstvo.py", "build_skolstvi.py", "build_demografie.py", "build_volby.py",
-          "build_srovnani.py", "build_obdobi.py", "build_hledat.py", "build_metodika.py", "build_aktualizace.py", "build_portal.py"]:
+          "build_srovnani.py", "build_obdobi.py", "build_hledat.py", "build_metodika.py", "build_aktualizace.py", "build_ai.py", "build_portal.py"]:
     run(b)
 
 # ---- souhrn ----
