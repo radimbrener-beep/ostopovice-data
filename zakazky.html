@@ -491,7 +491,7 @@ let CUR=[];
 const PZ=D.pz, PZST={'zadáno':'zad','zrušeno':'zru','probíhá':'pro','bez výsledku':'bez'}, PZP=15;
 let pzStav='vse', pzQ='', pzShown=PZP; const pzOpen=new Set();
 const pkc=v=>v?nf.format(v)+'&nbsp;Kč':'—';
-const fdat=iso=>{if(!iso)return '—';const p=iso.slice(0,10).split('-');return p[2]+'. '+(+p[1])+'. '+p[0];};
+const fdat=iso=>{if(!iso)return '—';const p=iso.slice(0,10).split('-');return (+p[2])+'. '+(+p[1])+'. '+p[0];};
 const lhuta=l=>l?fdat(l)+(l.includes('T')?' '+l.split('T')[1]:''):'';
 function pzTable(){
   const nq=norm(pzQ);
