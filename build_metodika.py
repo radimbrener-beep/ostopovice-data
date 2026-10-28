@@ -33,6 +33,7 @@ body = f'''<header class="hero">
       <tr><td><b>Srovnání</b></td><td>ročně — po zveřejnění ročních výkazů a rozvah všech obcí</td></tr>
       <tr><td><b>Školství, Demografie, Volby</b></td><td>ročně, resp. po volbách</td></tr>
     </tbody></table>
+    <p class="note">Podrobně po jednotlivých zdrojích, včetně toho, co se kontroluje automaticky a co ručně: <a href="aktualizace.html" style="color:var(--accent)">Jak často se data kontrolují</a>.</p>
   </div>
 </section>
 
