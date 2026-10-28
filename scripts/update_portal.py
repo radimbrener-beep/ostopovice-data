@@ -50,6 +50,7 @@ else:
 
 run("scripts/fetch_rozpocet.py", required=False)
 run("scripts/fetch_zakazky.py", required=False)
+run("scripts/fetch_profil_rizeni.py", required=False)   # nabídky a vybraná firma (MCP); potřebuje data/zakazky.json
 
 for b in ["build_dotace.py", "build_rozpocet.py", "build_investice.py", "build_zakazky.py",
           "build_zastupitelstvo.py", "build_skolstvi.py", "build_demografie.py", "build_volby.py",

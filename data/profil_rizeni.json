@@ -1,0 +1,474 @@
+{
+ "profil": "https://www.vhodne-uverejneni.cz/profil/obec-ostopovice",
+ "stazeno": [
+  "2018-01-01",
+  "2018-07-01",
+  "2019-01-01",
+  "2019-07-01",
+  "2020-01-01",
+  "2020-07-01",
+  "2021-01-01",
+  "2021-07-01",
+  "2022-01-01",
+  "2022-07-01",
+  "2023-01-01",
+  "2023-07-01",
+  "2024-01-01",
+  "2024-07-01",
+  "2025-01-01"
+ ],
+ "zakazky": [
+  {
+   "id": "P26V00005994",
+   "url": "https://www.vhodne-uverejneni.cz/zakazka/oprava-kanalizace-ul-lipova-ostopovice",
+   "nazev": "Oprava kanalizace ul. Lipová, Ostopovice",
+   "druh": "stavební práce",
+   "postup": "přímé zadání",
+   "datum": "2026-09-21",
+   "lhuta": "2026-09-21T10:22",
+   "predpokladana_hodnota": 3789999,
+   "nabidky": [],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "stav": "zadáno"
+  },
+  {
+   "id": "P26V00004912",
+   "url": "https://www.vhodne-uverejneni.cz/zakazka/vodni-prvek-ostopovice-uprava-okoli-puvodni-vodarny",
+   "nazev": "Vodní prvek Ostopovice + úprava okolí původní vodárny",
+   "druh": "stavební práce",
+   "postup": "přímé zadání",
+   "datum": "2026-07-22",
+   "lhuta": "2026-07-22T14:52",
+   "predpokladana_hodnota": 2527671,
+   "nabidky": [],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "stav": "zadáno"
+  },
+  {
+   "id": "P25V00010240",
+   "url": "https://www.vhodne-uverejneni.cz/zakazka/zsms-ostopovice-vstup",
+   "nazev": "ZŠMŠ OSTOPOVICE - vstup",
+   "druh": "stavební práce",
+   "postup": "přímé zadání",
+   "datum": "2025-12-21",
+   "lhuta": "2025-12-21T22:20",
+   "predpokladana_hodnota": 1409386,
+   "nabidky": [],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "stav": "zadáno"
+  },
+  {
+   "id": "P25V00009185",
+   "url": "https://www.vhodne-uverejneni.cz/zakazka/uver-na-dofinancovani-realizace-projektu-dostavba-ms-a-zs-ostopovice-rozsireni-kapacity-ms-a-rozsireni-kapacity-zs",
+   "nazev": "Úvěr na dofinancování realizace projektu „Dostavba MŠ a ZŠ Ostopovice – rozšíření kapacity MŠ a rozšíření kapacity ZŠ.",
+   "druh": "služby",
+   "postup": "výjimka",
+   "datum": "2025-10-31",
+   "lhuta": "2025-10-31T21:25",
+   "predpokladana_hodnota": 16000000,
+   "nabidky": [],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "stav": "zadáno"
+  },
+  {
+   "id": "P25V00006675",
+   "url": "https://www.vhodne-uverejneni.cz/zakazka/smlouva-o-vykonu-autorskeho-dozoru-dostavba-ms-a-zs-ostopovice",
+   "nazev": "Smlouva o výkonu autorského dozoru - Dostavba MŠ a ZŠ Ostopovice",
+   "druh": "služby",
+   "postup": "přímé zadání",
+   "datum": "2025-09-15",
+   "lhuta": "2025-09-15T22:48",
+   "predpokladana_hodnota": 700000,
+   "nabidky": [],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "stav": "zadáno"
+  },
+  {
+   "id": "P25V00008000",
+   "url": "https://www.vhodne-uverejneni.cz/zakazka/dostavba-ii-etapy-zs-a-ms-ostopovice-dodavka-gastro-technologie",
+   "nazev": "Dostavba II. etapy ZŠ a MŠ Ostopovice – dodávka gastro technologie",
+   "druh": "dodávky",
+   "postup": "přímé zadání",
+   "datum": "2025-09-15",
+   "lhuta": "2025-09-15T22:57",
+   "predpokladana_hodnota": 1966185,
+   "nabidky": [],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "stav": "zadáno"
+  },
+  {
+   "id": "P25V00006674",
+   "url": "https://www.vhodne-uverejneni.cz/zakazka/verejne-osvetleni-ostopovice-ul-uzavrena",
+   "nazev": "Veřejné osvětlení Ostopovice, ul. Uzavřená",
+   "druh": "stavební práce",
+   "postup": "přímé zadání",
+   "datum": "2025-07-18",
+   "lhuta": "2025-07-18T17:51",
+   "predpokladana_hodnota": 772742,
+   "nabidky": [],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "stav": "zadáno"
+  },
+  {
+   "id": "P25V00006006",
+   "url": "https://www.vhodne-uverejneni.cz/zakazka/ostopovice-vymena-odboceni-vodovodnich-pripojek-v-ul-lipova",
+   "nazev": "Ostopovice – výměna odbočení vodovodních přípojek v ul. Lipová",
+   "druh": "stavební práce",
+   "postup": "přímé zadání",
+   "datum": "2025-06-26",
+   "lhuta": "2025-06-26T11:03",
+   "predpokladana_hodnota": 583260,
+   "nabidky": [],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "stav": "zadáno"
+  },
+  {
+   "id": "P25V00005306",
+   "url": "https://www.vhodne-uverejneni.cz/zakazka/dodavka-vybaveni-interieru-pro-dostavbu-ms-a-zs-ostopovice-typove-prvky",
+   "nazev": "Dodávka vybavení interiérů pro dostavbu MŠ a ZŠ Ostopovice – Typové prvky",
+   "druh": "dodávky",
+   "postup": "otevřené řízení",
+   "datum": "2025-06-04",
+   "lhuta": "2025-07-09T23:59",
+   "predpokladana_hodnota": 1622293,
+   "nabidky": [
+    {
+     "firma": "Prosto interiér s.r.o.",
+     "ico": "03171906",
+     "cena": 2508086,
+     "vyloucen": false
+    },
+    {
+     "firma": "INTERDEKOR HP s.r.o.",
+     "ico": "25367498",
+     "cena": 1596816,
+     "vyloucen": false
+    },
+    {
+     "firma": "SANTAL spol. s r. o.",
+     "ico": "42408121",
+     "cena": 2004234,
+     "vyloucen": false
+    },
+    {
+     "firma": "Potrusil s.r.o.",
+     "ico": "25310119",
+     "cena": 1530943,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "Potrusil s.r.o.",
+   "dodavatel_ico": "25310119",
+   "cena": 1530943,
+   "stav": "zadáno"
+  },
+  {
+   "id": "P25V00005311",
+   "url": "https://www.vhodne-uverejneni.cz/zakazka/pobytova-terasa-ms-a-s-ostopovice",
+   "nazev": "Pobytová terasa MŠ a ZŠ Ostopovice",
+   "druh": "stavební práce",
+   "postup": "přímé zadání",
+   "datum": "2025-06-03",
+   "lhuta": "2025-06-03T15:28",
+   "predpokladana_hodnota": 1257590,
+   "nabidky": [],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "stav": "zadáno"
+  },
+  {
+   "id": "P25V00004699",
+   "url": "https://www.vhodne-uverejneni.cz/zakazka/ostopovice-upravy-ulice-na-rybnicku",
+   "nazev": "Ostopovice, úpravy ulice Na Rybníčku",
+   "druh": "stavební práce",
+   "postup": "přímé zadání",
+   "datum": "2025-05-15",
+   "lhuta": "2025-05-15T16:40",
+   "predpokladana_hodnota": 1385435,
+   "nabidky": [],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "stav": "zadáno"
+  },
+  {
+   "id": "P25V00001688/1",
+   "url": "https://www.vhodne-uverejneni.cz/profil/obec-ostopovice",
+   "nazev": "ATYPICKÉ PRVKY",
+   "druh": "dodávky",
+   "postup": "otevřené řízení",
+   "datum": "2025-02-25",
+   "lhuta": "2025-05-06T23:59",
+   "predpokladana_hodnota": null,
+   "nabidky": [
+    {
+     "firma": "Tomáš Dzuruš",
+     "ico": "47701552",
+     "cena": 3400250,
+     "vyloucen": false
+    },
+    {
+     "firma": "Prosto interiér s.r.o.",
+     "ico": "03171906",
+     "cena": 3162583,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "Prosto interiér s.r.o.",
+   "dodavatel_ico": "03171906",
+   "cena": 3162583,
+   "stav": "zadáno"
+  },
+  {
+   "id": "P25V00001688/2",
+   "url": "https://www.vhodne-uverejneni.cz/profil/obec-ostopovice",
+   "nazev": "TYPOVÉ PRVKY",
+   "druh": "dodávky",
+   "postup": "otevřené řízení",
+   "datum": "2025-02-25",
+   "lhuta": "2025-05-06T23:59",
+   "predpokladana_hodnota": null,
+   "nabidky": [
+    {
+     "firma": "Prosto interiér s.r.o.",
+     "ico": "03171906",
+     "cena": 2239375,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "stav": "zrušeno"
+  },
+  {
+   "id": "P25V00000637",
+   "url": "https://www.vhodne-uverejneni.cz/zakazka/rozsireni-chodniku-a-vybudovani-noveho-osvetleni-ostopovice",
+   "nazev": "Rozšíření chodníku a vybudování nového osvětlení Ostopovice",
+   "druh": "stavební práce",
+   "postup": "otevřená výzva",
+   "datum": "2025-01-24",
+   "lhuta": "2025-02-17T11:00",
+   "predpokladana_hodnota": 5346587,
+   "nabidky": [
+    {
+     "firma": "JV Dalistav s.r.o.",
+     "ico": "02758725",
+     "cena": 5212246,
+     "vyloucen": false
+    },
+    {
+     "firma": "EDMA s.r.o.",
+     "ico": "25558391",
+     "cena": 4363465,
+     "vyloucen": false
+    },
+    {
+     "firma": "SIMOST, s.r.o.",
+     "ico": "46995803",
+     "cena": 5011500,
+     "vyloucen": false
+    },
+    {
+     "firma": "Stavby Dufek s.r.o.",
+     "ico": "08150125",
+     "cena": 4996990,
+     "vyloucen": false
+    },
+    {
+     "firma": "Ekostavby Brno, a.s.",
+     "ico": "46974687",
+     "cena": 4435173,
+     "vyloucen": false
+    },
+    {
+     "firma": "PORR a.s.",
+     "ico": "43005560",
+     "cena": 3982681,
+     "vyloucen": false
+    },
+    {
+     "firma": "DW STAVBY BRNO s.r.o",
+     "ico": "09619801",
+     "cena": 3989998,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "PORR a.s.",
+   "dodavatel_ico": "43005560",
+   "cena": 4782144,
+   "stav": "zadáno"
+  },
+  {
+   "id": "P24V00013166",
+   "url": "https://www.vhodne-uverejneni.cz/zakazka/pumptrackova-draha-cyklisticke-centrum-ostopovice",
+   "nazev": "Pumptracková dráha - cyklistické centrum Ostopovice",
+   "druh": "služby",
+   "postup": "přímé zadání",
+   "datum": "2024-12-11",
+   "lhuta": "2024-12-11T14:12",
+   "predpokladana_hodnota": 798512,
+   "nabidky": [],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "stav": "zadáno"
+  },
+  {
+   "id": "P24V00011785",
+   "url": "https://www.vhodne-uverejneni.cz/zakazka/dodavka-zametaciho-stroje-kloubovy-nosic",
+   "nazev": "Dodávka zametacího stroje - kloubový nosič",
+   "druh": "dodávky",
+   "postup": "přímé zadání",
+   "datum": "2024-11-12",
+   "lhuta": "2024-11-12T11:24",
+   "predpokladana_hodnota": 1997100,
+   "nabidky": [],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "stav": "zadáno"
+  },
+  {
+   "id": "P24V00006421",
+   "url": "https://www.vhodne-uverejneni.cz/zakazka/ostopovice-lipova",
+   "nazev": "Ostopovice – Lipová",
+   "druh": "stavební práce",
+   "postup": "zjednodušené podlimitní řízení",
+   "datum": "2024-08-06",
+   "lhuta": "2024-09-17T23:59",
+   "predpokladana_hodnota": 24693109,
+   "nabidky": [
+    {
+     "firma": "M - SILNICE a.s.",
+     "ico": "42196868",
+     "cena": 23718970,
+     "vyloucen": false
+    },
+    {
+     "firma": "EUROVIA CZ a.s.",
+     "ico": "45274924",
+     "cena": 23661914,
+     "vyloucen": false
+    },
+    {
+     "firma": "PORR a.s.",
+     "ico": "43005560",
+     "cena": 18838998,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "PORR a.s.",
+   "dodavatel_ico": "43005560",
+   "cena": 18838998,
+   "stav": "zadáno"
+  },
+  {
+   "id": "P24V00006311",
+   "url": "https://www.vhodne-uverejneni.cz/zakazka/ostopovice-ulice-druzstevni-a-u-drahy-oprava-oploceni-a-stanoviste-kontejneru",
+   "nazev": "Ostopovice, ulice Družstevní a U Dráhy Oprava oplocení a stanoviště kontejnerů",
+   "druh": "stavební práce",
+   "postup": "přímé zadání",
+   "datum": "2024-08-01",
+   "lhuta": "2024-08-01T15:56",
+   "predpokladana_hodnota": 558048,
+   "nabidky": [],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "stav": "zadáno"
+  },
+  {
+   "id": "P24V00004592",
+   "url": "https://www.vhodne-uverejneni.cz/zakazka/zajisteni-tds-dostavba-ms-a-zs-ostopovice-rozsireni-kapacity-zs-a-rozsireni-kapacity-ms",
+   "nazev": "Zajištění TDS - Dostavba MŠ a ZŠ Ostopovice - rozšíření kapacity ZŠ a rozšíření kapacity MŠ",
+   "druh": "služby",
+   "postup": "přímé zadání",
+   "datum": "2024-06-10",
+   "lhuta": "2024-06-10T16:49",
+   "predpokladana_hodnota": 690000,
+   "nabidky": [],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "stav": "zadáno"
+  },
+  {
+   "id": "P24V00003567",
+   "url": "https://www.vhodne-uverejneni.cz/zakazka/dodavka-ramenove-sekacky-a-nuzky-sekacky",
+   "nazev": "Dodávka ramenové sekačky a nůžky sekačky",
+   "druh": "dodávky",
+   "postup": "výjimka",
+   "datum": "2024-05-07",
+   "lhuta": "2024-05-07T16:05",
+   "predpokladana_hodnota": 543000,
+   "nabidky": [],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "stav": "zadáno"
+  },
+  {
+   "id": "P24V00003566",
+   "url": "https://www.vhodne-uverejneni.cz/zakazka/svoz-a-likvidace-komunalniho-a-trideneho-odpadu-z-obce-ostopovice-2",
+   "nazev": "Svoz a likvidace komunálního a tříděného odpadu z obce Ostopovice",
+   "druh": "služby",
+   "postup": "výjimka",
+   "datum": "2024-05-07",
+   "lhuta": "2024-05-07T15:57",
+   "predpokladana_hodnota": 1056000,
+   "nabidky": [],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "stav": "zadáno"
+  },
+  {
+   "id": "P24V00001168",
+   "url": "https://www.vhodne-uverejneni.cz/zakazka/vstupni-objekt-do-arealu-skoly-obec-ostopovice",
+   "nazev": "Vstupní objekt do areálu školy - obec Ostopovice",
+   "druh": "stavební práce",
+   "postup": "přímé zadání",
+   "datum": "2024-02-21",
+   "lhuta": "2024-02-21T13:33",
+   "predpokladana_hodnota": 2690059,
+   "nabidky": [],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "stav": "zadáno"
+  },
+  {
+   "id": "",
+   "url": "https://www.vhodne-uverejneni.cz/zakazka/dostavba-ms-a-zs-ostopovice-rozsireni-kapacity-zs-a-rozsireni-kapacity-ms-1",
+   "nazev": "Dostavba MŠ a ZŠ Ostopovice – rozšíření kapacity ZŠ a rozšíření kapacity MŠ",
+   "druh": "",
+   "postup": "",
+   "datum": "2023-12-28",
+   "lhuta": "",
+   "predpokladana_hodnota": 91878304,
+   "nabidky": [],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "stav": "bez výsledku"
+  }
+ ]
+}

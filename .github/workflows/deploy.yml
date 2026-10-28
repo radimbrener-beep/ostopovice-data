@@ -69,6 +69,25 @@ jobs:
           # pozn.: akce dělá inkrementální sync; docroot subdomény vyhraď JEN tomuto webu.
           # push/data/ (SQLite s odběrateli) vytváří PHP na serveru — sync ho nezná, takže ho nemaže.
 
+      # Data pro MCP server jaksemame.cz/mcp (kód serveru nasazuje repo Střelic s rozcestníkem).
+      # Vlastní složka jen s naším souborem: sync nesmaže data Střelic ve stejné složce.
+      - name: Sestavit data pro MCP server
+        run: |
+          python3 build_mcp.py
+          mkdir -p public_mcp
+          cp mcp/ostopovice.sqlite public_mcp/
+
+      - name: Deploy dat MCP (jaksemame.cz/mcp/data)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server:   ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          server-dir: /www/domains/jaksemame.cz/mcp/data/
+          local-dir: ./public_mcp/
+
       - name: Rozeslání upozornění na nová zasedání
         if: env.PUSH_TOKEN != ''
         # web je nasazený i tehdy, když rozeslání selže; chyba je vidět v záznamu

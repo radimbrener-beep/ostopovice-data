@@ -15,3 +15,6 @@ Thumbs.db
 push/data/
 push/config.local.php
 push/feed.json
+
+# data pro MCP server jaksemame.cz/mcp (build_mcp.py)
+/mcp/
