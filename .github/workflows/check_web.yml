@@ -1,12 +1,14 @@
 name: Automatická aktualizace portálu (nové zápisy ZO, rozpočet, zakázky)
 
-# Každý den v 6:00 UTC; lze spustit ručně (workflow_dispatch).
+# Cíl: kontrola zhruba v 7:00 SEČ (v SELČ o hodinu později). GitHub plánované běhy
+# spouští se zpožděním ~4–6 h (měřeno 10/2026), proto je cron posunutý dřív a mimo
+# celou hodinu. Při změně uprav i texty v build_aktualizace.py. Lze spustit ručně.
 # Push přes GITHUB_TOKEN nespouští jiné workflow, proto se při změně
 # nasazuje rovnou tady (stejný krok jako v deploy.yml).
 
 on:
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '37 2 * * *'
   workflow_dispatch:
 
 concurrency:
