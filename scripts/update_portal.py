@@ -49,7 +49,26 @@ else:
         DS.write_text(json.dumps(old, ensure_ascii=False, indent=1), encoding="utf-8")
 
 run("scripts/fetch_rozpocet.py", required=False)
+
+
+def detail_mesic():
+    """Poslední měsíc v detailu rozpočtu (data/ostopovice_fin_2026.csv) a v souhrnu z API."""
+    import csv
+    try:
+        with open(ROOT / "data" / "ostopovice_fin_2026.csv", encoding="utf-8-sig") as f:
+            det = max(int(r["obdobi"]) for r in csv.DictReader(f, delimiter=";"))
+    except (FileNotFoundError, ValueError):
+        det = 0
+    akt = json.loads((ROOT / "data" / "rozpocet_ostopovice.json").read_text(encoding="utf-8")).get("aktualni") or {}
+    return det, int(str(akt.get("obdobi", "0"))[-2:] or 0)
+
+
+# detail paragraf × položka (~25 MB extrakt MONITORu) jen když API hlásí novější měsíc
+_det, _api = detail_mesic()
+if _api > _det:
+    run("build_fin2026.py", required=False)
 run("scripts/fetch_zakazky.py", required=False)
+run("scripts/fetch_smlouvy.py", required=False)   # registr smluv: získané dotace
 run("scripts/fetch_profil_rizeni.py", required=False)   # nabídky a vybraná firma (MCP); potřebuje data/zakazky.json
 
 for b in ["build_dotace.py", "build_rozpocet.py", "build_investice.py", "build_zakazky.py",

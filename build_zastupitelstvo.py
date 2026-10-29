@@ -29,6 +29,8 @@ parcely_geo = json.load(open(GEO_PATH, encoding="utf-8")) if os.path.exists(GEO_
 DATA = {"obec": "Ostopovice", "zasedani": zo, "roky": roky, "temata": temata, "pgeo": parcely_geo}
 data_json = json.dumps(DATA, ensure_ascii=False, separators=(",", ":"))
 
+MH_USN = pc.mascot_help("Procházení usnesení", "<p>Zasedání rozbalíte kliknutím. U každého usnesení je výsledek hlasování: kolik zastupitelů bylo <b>pro</b>, <b>proti</b> a kolik se <b>zdrželo</b>. Zápisy Ostopovic uvádějí jen počty hlasů, ne jména; kdo co k bodu řekl, bývá přímo v textu zápisu.</p><p>Usnesení můžete hledat (bez ohledu na diakritiku) a filtrovat podle roku a tématu. Zdrojem jsou zápisy zveřejněné obcí.</p>", "05-hlasovani")
+
 body = f'''<header class="hero">
   <h1>Usnesení zastupitelstva</h1>
   <p>Procházejte usnesení Zastupitelstva obce Ostopovice. U každého usnesení najdete výsledek hlasování, téma i případnou částku, a otevřete si originální zápis v PDF.</p>
@@ -38,7 +40,7 @@ body = f'''<header class="hero">
 <div class="cards" id="kpis"></div>
 
 <section>
-  <div class="sec-h"><h2>Procházení usnesení</h2><span class="hint">klikni na zasedání pro rozbalení · hledání ignoruje diakritiku</span></div>
+  <div class="sec-h"><h2>Procházení usnesení</h2>{MH_USN}<span class="hint">klikni na zasedání pro rozbalení · hledání ignoruje diakritiku</span></div>
   <div class="panel">
     <div class="tbar" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:12px">
       <span class="search" style="flex:1;min-width:200px;position:relative">

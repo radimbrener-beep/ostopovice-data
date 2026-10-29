@@ -40,7 +40,7 @@ body = f'''<header class="hero">
 <section>
   <div class="sec-h"><h2>Rozpočet</h2><span class="hint">sekce Rozpočet, Investice, Bilance</span></div>
   <div class="panel">
-    <p><b>Zdroj:</b> <a href="https://monitor.statnipokladna.gov.cz" {A}>MONITOR Státní pokladny</a> (Ministerstvo financí), výkaz <b>FIN 2-12 M</b> — plnění rozpočtu obce, IČO 00282294. Roční stav k&nbsp;31.&nbsp;12. za uzavřené roky, pro letošní rok poslední zveřejněný měsíc.</p>
+    <p><b>Zdroj:</b> <a href="https://monitor.statnipokladna.gov.cz" {A}>MONITOR Státní pokladny</a> (Ministerstvo financí), výkaz <b>FIN 2-12 M</b> — plnění rozpočtu obce, IČO 00282294. Roční stav k&nbsp;31.&nbsp;12. za uzavřené roky, pro letošní rok poslední zveřejněný měsíc. Souhrny a grafy jsou z API MONITORu (od roku 2010); <b>detail po paragrafech a položkách</b> (2013–2026) z jeho otevřených dat. V detailu jsou vynechané převody mezi vlastními účty obce (příjmová položka 4134, výdajový paragraf 6330) — jinak by se tytéž peníze započítaly dvakrát; součty proto sedí se souhrny na korunu.</p>
     <p><b>Tři varianty čísel</b>:</p>
     <table class="mtab"><tbody>
       <tr><td><b>Schválený rozpočet</b></td><td>plán, který zastupitelstvo schválilo na začátku roku</td></tr>
@@ -69,7 +69,15 @@ body = f'''<header class="hero">
       <tr><td><b>Částka je orientační</b></td><td>u usnesení je to cena v okamžiku rozhodnutí, u zakázek předpokládaná hodnota bez DPH z profilu zadavatele — skutečně proplacená částka se může lišit (dodatky, vícepráce, výsledek soutěže)</td></tr>
       <tr><td><b>Úvěry</b></td><td>výběr banky na úvěr je v profilu zadavatele vedený jako zakázka; do objemů zakázek se nepočítá, protože to není výdaj</td></tr>
       <tr><td><b>Úplnost</b></td><td>zakázky malého rozsahu, které obec nemusí zveřejňovat, v přehledu nejsou — souhrnné roční investice v grafech ale úplné jsou</td></tr>
+      <tr><td><b>Mapa investic</b></td><td>poloha se určuje automaticky z čísla parcely (katastr ČÚZK), známého místa (škola, úřad, kostel, pumptrack) nebo názvu ulice (OpenStreetMap), takže je přibližná. Zakázky bez takového údaje (vybavení, služby, akce po celé obci) jsou na mapě čárkovaně u obecního úřadu, nákupy pozemků bez dohledatelné parcely na mapě nejsou.</td></tr>
     </tbody></table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><h2>Získané dotace a smlouvy s obcí</h2></div>
+  <div class="panel">
+    <p><b>Zdroj:</b> <a href="https://smlouvy.gov.cz" {A}>registr smluv</a> — smlouvy, kde je obec Ostopovice (IČO 00282294) protistranou: dotace od státních fondů (SZIF, SFDI, SFŽP), dohody o spolufinancování se správcem silnic a podobně. Jako <i>dotace</i> jsou označené smlouvy o poskytnutí dotace či podpory; spolufinancování a návratná výpomoc dotace nejsou. Hodnota je ta, kterou uvedl zveřejňující (u některých smluv chybí). Sama obec do registru smlouvy nezveřejňuje, takže smlouvy s dodavateli tu nejsou — ty jsou v sekci Zakázky.</p>
   </div>
 </section>
 

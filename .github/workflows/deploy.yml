@@ -36,6 +36,7 @@ jobs:
           cp og-image.png public/ 2>/dev/null || true
           # písma značky (stránky je načítají relativně z fonts/) + favikony a manifest do kořene
           cp -r fonts public/
+          cp -r maskot public/    # robůtek pro nápovědy u grafů
           cp brand/favicon/* public/
           # upozornění (Web Push): seznam položek k oznámení, PHP backend a service worker
           python3 build_push.py

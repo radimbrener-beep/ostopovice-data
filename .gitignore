@@ -18,3 +18,7 @@ push/feed.json
 
 # data pro MCP server jaksemame.cz/mcp (build_mcp.py)
 /mcp/
+
+# surová data MONITORu a číselníky (build_fin.py, build_fin2026.py) — velké, stahují se
+data/raw/
+data/ciselniky/

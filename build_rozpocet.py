@@ -9,6 +9,68 @@ sys.stdout.reconfigure(encoding="utf-8")
 
 CHARTJS = open("data/vendor/chart.umd.js", encoding="utf-8").read()
 D = json.load(open("data/rozpocet_ostopovice.json", encoding="utf-8"))
+
+# --- detail paragraf × položka z otevřených dat MONITORu (build_fin.py, build_fin2026.py) ---
+# Konsolidace jako souhrny MONITORu: bez převodů mezi vlastními účty obce (příjmy pol. 4134,
+# výdaje § 6330) — součty pak sedí na korunu s API (ověřeno 2013–2025).
+import csv
+
+
+def _num(v):
+    v = (v or "").strip()
+    return -float(v[:-1]) if v.endswith("-") else float(v or 0)
+
+
+DET = {"rows": [], "pol": {}, "par": {}, "years": [], "ytd": None}
+_ytd_month = None
+for fn in ("data/ostopovice_finm201_2013_2025.csv", "data/ostopovice_fin_2026.csv"):
+    try:
+        f = open(fn, encoding="utf-8-sig")
+    except FileNotFoundError:
+        continue
+    for r in csv.DictReader(f, delimiter=";"):
+        if r["polozka"] == "4134" or (r["druh"] == "Výdaje" and r["paragraf"] == "6330"):
+            continue
+        if r.get("obdobi"):
+            _ytd_month = int(r["obdobi"])
+        DET["rows"].append([int(r["rok"]), r["paragraf"], r["polozka"], round(_num(r["schvaleny_rozpocet"])),
+                            round(_num(r["upraveny_rozpocet"])), round(_num(r["skutecnost"]))])
+        DET["pol"][r["polozka"]] = {"n": r["polozka_nazev"], "d": r["druh"], "t": r["trida"], "s": r["seskupeni"]}
+        DET["par"][r["paragraf"]] = {"n": r["paragraf_nazev"], "o": r["par_oddil"]}
+DET["years"] = sorted({r[0] for r in DET["rows"]})
+if _ytd_month:
+    DET["ytd"] = [max(DET["years"]), _ytd_month]
+try:
+    SML = json.load(open("data/smlouvy_obec.json", encoding="utf-8"))
+except FileNotFoundError:
+    SML = []
+_sml_dot = [x for x in SML if x["dotace"] and x["hodnota"]]
+
+
+def _sml_row(x):
+    d = x["datum"]
+    dt = f"{int(d[8:10])}. {int(d[5:7])}. {d[:4]}" if d else ""
+    hod = f'{x["hodnota"]:,} Kč'.replace(",", "\u00a0") if x["hodnota"] else "neuvedeno"
+    tag = '<span class="smtag">dotace</span>' if x["dotace"] else ""
+    return (f'<tr><td class="dt">{dt}</td><td>{tag}{x["nazev"]}<div class="sub">{x["partner"]}</div></td>'
+            f'<td class="r">{hod}</td><td><a href="{x["url"]}" target="_blank" rel="noopener">registr&nbsp;&#8599;</a></td></tr>')
+
+
+SMLOUVY_HTML = ""
+if SML:
+    SMLOUVY_HTML = ('''<section id="smlouvy">
+  <div class="sec-h"><h2>Získané dotace a smlouvy s obcí</h2><span class="hint">registr smluv · smlouvy, kde je obec protistranou</span></div>
+  <div class="panel">
+    <p class="note" style="margin:0 0 10px">Smlouvy, které s obcí uzavřely státní fondy, kraj a další instituce a zveřejnily je v registru smluv — hlavně <b>dotace, které obec získala</b>, a dohody o spolufinancování. ''' + (f"Dotace s uvedenou částkou: <b>{len(_sml_dot)}</b> smluv za <b>{sum(x['hodnota'] for x in _sml_dot)/1e6:.1f} mil. Kč</b>.".replace(".", ",", 1) if _sml_dot else "") + ''' Sama obec do registru smlouvy nezveřejňuje, takže tu nejsou smlouvy s dodavateli.</p>
+    <div style="overflow-x:auto"><table class="smtab"><thead><tr><th>Uzavřeno</th><th>Smlouva</th><th class="r">Hodnota</th><th></th></tr></thead><tbody>'''
+        + "".join(_sml_row(x) for x in SML) + '''</tbody></table></div>
+  </div>
+</section>
+
+''')
+SMLOUVY_CSS = ".smtab{width:100%;border-collapse:collapse;font-size:13px}.smtab th,.smtab td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.smtab th{color:var(--muted);font-size:12px;font-weight:600}.smtab .r{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}.smtab .dt{white-space:nowrap;color:var(--muted)}.smtab .sub{font-size:11.5px;color:var(--faint);margin-top:2px}.smtab a{color:var(--accent);font-size:12px;white-space:nowrap}.smtag{display:inline-block;font-size:10.5px;font-weight:600;padding:1px 7px;border-radius:999px;margin-right:6px;color:var(--c0);background:color-mix(in srgb,var(--c0) 12%,transparent)}"
+
+MESICE_2 = ["leden", "únor", "březen", "duben", "květen", "červen", "červenec", "srpen", "září", "říjen", "listopad", "prosinec"]
 data_json = json.dumps(D, ensure_ascii=False, separators=(",", ":"))
 years = D["years"]
 last = years[-1]
@@ -78,7 +140,7 @@ for _y in years:
         _dst.append(("Přebytek (do úspor)", _p - _v))
     SANKEY[_y["rok"]] = {"s": _src, "d": _dst}
 
-SANKEY_HTML = """<section id="tok"><div class="sec-h"><h2>Tok peněz</h2><span class="hint">odkud obec peníze má a kam jdou · skutečnost · najeďte na pás pro detail</span></div>
+SANKEY_HTML = """<section id="tok"><div class="sec-h"><h2>Tok peněz</h2>""" + pc.mascot_help("Tok peněz", "<p>Pásy vedou zleva od zdrojů příjmů doprava k oblastem, kam peníze šly. Čím širší pás, tím víc peněz. Po najetí na pás uvidíte přesnou částku. Graf ukazuje skutečnost za poslední uzavřený rok.</p>", "02-rozpocet") + """<span class="hint">odkud obec peníze má a kam jdou · skutečnost · najeďte na pás pro detail</span></div>
 <div class="panel"><div class="ctrls"><span class="lbl">Rok</span><span class="seg" id="skYear"></span></div>
 <div class="skwrap"><svg id="sankey" viewBox="0 0 900 440" role="img" aria-label="Sankeyův diagram příjmů a výdajů obce"></svg></div>
 <p class="note">Vlevo zdroje příjmů, vpravo oblasti výdajů; šířka pásu odpovídá částce. Když obec utratí víc, než v daném roce vybere, rozdíl kryje z úspor minulých let nebo z úvěru; když méně, přebytek si uloží.</p></div></section>"""
@@ -135,9 +197,17 @@ SANKEY_CSS = """.skwrap{overflow-x:auto;margin-top:8px}
 #skYear{flex-wrap:wrap}"""
 
 
+DET_YTD = (f"Rok {DET['ytd'][0]} je průběžný stav ({MESICE_2[DET['ytd'][1] - 1]}); schválený a upravený rozpočet jsou za celý rok."
+           if DET["ytd"] else "")
+
+MH_TREND = pc.mascot_help("Vývoj příjmů, výdajů a salda", "<p>Graf ukazuje, kolik obec v každém roce vybrala a utratila. Saldo je rozdíl příjmů a výdajů: přebytek znamená, že obec vybrala víc, než utratila, schodek se hradí z úspor z minulých let nebo úvěrem.</p><p>Přepínač nahoře volí <b>skutečnost</b>, <b>schválený</b> rozpočet ze začátku roku, nebo <b>upravený</b> rozpočet po změnách během roku.</p>", "02-rozpocet")
+MH_PRIJMY = pc.mascot_help("Struktura příjmů", "<p>Příjmy obce za poslední uzavřený rok rozdělené podle druhu tak, jak je člení rozpočtová skladba: daně, poplatky a pronájmy, prodej majetku a dotace (transfery).</p>", "02-rozpocet")
+MH_VYDAJE = pc.mascot_help("Kam tečou výdaje", "<p>Výdaje obce podle oblasti, na kterou šly, například školství, doprava nebo bydlení a komunální služby. Jsou to skutečně utracené peníze podle výkazu pro Státní pokladnu.</p>", "02-rozpocet")
+MH_DETAIL = pc.mascot_help("Detail rozpočtu", "<p>Tabulka se všemi položkami rozpočtu. Vyberte rok (nebo souhrn všech let) a stranu výdajů či příjmů. Kliknutím na záhlaví sloupce řadíte, políčkem hledáte položku nebo oblast a kliknutím na řádek oblasti či třídy ji rozbalíte na konkrétní položky.</p>", "02-rozpocet")
+
 body = f'''<header class="hero">
   <h1>Rozpočet obce <span style="font-size:17px;font-weight:500;color:var(--muted)">· jak obec hospodaří</span></h1>
-  <p>Příjmy, výdaje a saldo obce Ostopovice v čase a jejich struktura — podle výkazu FIN 2-12 M ze systému MONITOR Státní pokladny ({years[0]["rok"]}–{LY}).</p>
+  <p>Příjmy, výdaje a saldo obce Ostopovice v čase a jejich struktura — podle výkazu FIN 2-12 M ze systému MONITOR Státní pokladny ({years[0]["rok"]}–{LY}). Dole <a href="#detail" style="color:var(--accent)">detail</a> až na jednotlivé paragrafy a položky.</p>
   <div class="chips"><span class="chip">obec Ostopovice · IČO {D["ic"]}</span><span class="chip">{years[0]["rok"]}–{LY}</span><span class="chip">zdroj: MONITOR Státní pokladny</span></div>
 </header>
 
@@ -146,7 +216,7 @@ body = f'''<header class="hero">
 {KOSTKA}
 
 <section>
-  <div class="sec-h"><h2>Vývoj příjmů, výdajů a salda</h2><span class="hint">{years[0]["rok"]}–{LY} · roční stav</span></div>
+  <div class="sec-h"><h2>Vývoj příjmů, výdajů a salda</h2>{MH_TREND}<span class="hint">{years[0]["rok"]}–{LY} · roční stav</span></div>
   <div class="panel">
     <div class="ctrls"><span class="lbl">Ukazatel</span>
       <span class="seg" id="mSeg"><button class="on" data-m="skut">Skutečnost</button><button data-m="schv">Schválený</button><button data-m="uprav">Upravený</button></span></div>
@@ -161,15 +231,38 @@ body = f'''<header class="hero">
 <section>
   <div class="grid2">
     <div class="panel">
-      <div class="sec-h" style="margin:0 0 8px"><h2 style="font-size:16px">Struktura příjmů {LY}</h2></div>
+      <div class="sec-h" style="margin:0 0 8px"><h2 style="font-size:16px">Struktura příjmů {LY}</h2>{MH_PRIJMY}</div>
       <div class="donutwrap"><div class="chartbox sm" style="max-width:320px"><canvas id="prijmy"></canvas></div>
         <div class="donut-center"><div class="t">příjmy {LY}</div><div class="v">{mil(last["prijmy"]["skut"])}</div></div></div>
       <div class="legend" id="prijmyLeg" style="justify-content:center"></div>
     </div>
     <div class="panel">
-      <div class="sec-h" style="margin:0 0 8px"><h2 style="font-size:16px">Kam tečou výdaje {LY}</h2><span class="hint">podle oblasti</span></div>
+      <div class="sec-h" style="margin:0 0 8px"><h2 style="font-size:16px">Kam tečou výdaje {LY}</h2>{MH_VYDAJE}<span class="hint">podle oblasti</span></div>
       <div class="chartbox sm"><canvas id="vydaje"></canvas></div>
     </div>
+  </div>
+</section>
+
+{SMLOUVY_HTML}<section id="detail">
+  <div class="sec-h"><h2>Detail — rozklikni rozpočet</h2>{MH_DETAIL}<span class="hint">řaď, hledej, rozbaluj · paragrafy a položky</span></div>
+  <div class="panel">
+    <div class="ctrls">
+      <span><span class="lbl">Rok</span><select id="dYear"></select></span>
+      <span class="seg" id="sideSeg"><button class="on" data-s="Výdaje">Výdaje</button><button data-s="Příjmy">Příjmy</button></span>
+      <span><span class="lbl">Seskupit</span>
+        <select id="dGroup">
+          <option value="o">dle oblasti (na co)</option>
+          <option value="t">dle třídy (běžné/kapitál/transfery)</option>
+          <option value="s">dle seskupení položek</option>
+          <option value="pol">dle konkrétní položky</option>
+        </select></span>
+    </div>
+    <div class="tbar">
+      <span class="search"><i>⌕</i><input type="text" id="dSearch" placeholder="hledat položku / oblast…"></span>
+      <button class="dlbtn" id="dlDrill" type="button" title="Stáhnout aktuální pohled tabulky jako CSV">⬇ Stáhnout CSV</button>
+    </div>
+    <div class="tablewrap"><table id="drill"><thead></thead><tbody></tbody></table></div>
+    <p class="note">Klik na řádek (u oblasti nebo třídy) rozbalí konkrétní položky. „% plnění“ = skutečnost ÷ upravený rozpočet. Detail je z otevřených dat výkazu FIN 2-12 M; převody mezi vlastními účty obce jsou vynechané stejně jako v souhrnech výše, takže součty sedí. {DET_YTD}</p>
   </div>
 </section>
 
@@ -235,14 +328,98 @@ function vydajeChart(){
       plugins:{legend:{display:false},tooltip:{callbacks:{title:items=>a[items[0].dataIndex].name,label:c=>milTxt(a[c.dataIndex].skut)}}},
       scales:{x:Object.assign(axis(),{ticks:{color:cssv('--muted'),callback:v=>v+' mil.'}}),y:Object.assign(axis(),{ticks:{color:cssv('--muted'),font:{size:11}}})}}});
 }
+
+/* ---------- detail paragraf × položka ---------- */
+const DT=DETAIL_JSON, DR=DT.rows, DPOL=DT.pol, DPAR=DT.par, DY=DT.years;
+let dSide='Výdaje', dExpand=null, dSort=[3,true], dQ='';
+const dDruh=r=>(DPOL[r[2]]||{}).d||'?';
+function drill(){
+  const yr=document.getElementById('dYear').value, grp=document.getElementById('dGroup').value;
+  const yf=r=>(yr=='*'||r[0]==+yr);
+  const keyName=r=> grp=='o'?((DPAR[r[1]]||{}).o||'(neuvedeno)') : grp=='t'?((DPOL[r[2]]||{}).t||'(neuvedeno)')
+    : grp=='s'?((DPOL[r[2]]||{}).s||'(neuvedeno)') : (r[2]+' — '+((DPOL[r[2]]||{}).n||''));
+  const agg={}, expandable=(grp=='o'||grp=='t')&&!dExpand;
+  const add=(k,r)=>{(agg[k]=agg[k]||[0,0,0])[0]+=r[3];agg[k][1]+=r[4];agg[k][2]+=r[5];};
+  DR.forEach(r=>{if(dDruh(r)!==dSide||!yf(r))return;
+    if(dExpand&&(grp=='o'||grp=='t')){if(keyName(r)===dExpand)add(r[2]+' — '+((DPOL[r[2]]||{}).n||''),r);}
+    else add(keyName(r),r);});
+  let arr=Object.entries(agg).map(([k,v])=>[k,v[0],v[1],v[2],v[1]?v[2]/v[1]*100:0]).filter(r=>r[1]||r[2]||r[3]);
+  if(dQ)arr=arr.filter(r=>r[0].toLowerCase().includes(dQ));
+  const [sc,desc]=dSort; arr.sort((a,b)=>(desc?-1:1)*(typeof a[sc]=='string'?a[sc].localeCompare(b[sc],'cs'):a[sc]-b[sc]));
+  drill._arr=arr;
+  const tot=arr.reduce((a,r)=>[a[0]+r[1],a[1]+r[2],a[2]+r[3]],[0,0,0]);
+  const maxv=Math.max(1,...arr.map(r=>r[3]));
+  const H=['Položka / oblast','Schválený','Upravený','Skutečnost','% plnění','podíl'];
+  const ar=i=>dSort[0]==i?(dSort[1]?' ▼':' ▲'):'';
+  document.querySelector('#drill thead').innerHTML='<tr>'+H.map((h,i)=>`<th data-i="${i==5?3:i}">${h}<span class="ar">${ar(i==5?3:i)}</span></th>`).join('')+'</tr>';
+  document.querySelectorAll('#drill thead th').forEach(th=>th.onclick=()=>{const i=+th.dataset.i;dSort=[i,dSort[0]==i?!dSort[1]:true];drill();});
+  const pcl=p=>p>105?'warn':p<85?'bad':'ok';
+  const esc=t=>String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+  const crumb=dExpand?`<tr class="subrow"><td colspan="6"><span class="back" style="cursor:pointer;color:var(--accent)">← zpět</span> · ${esc(dExpand)}</td></tr>`:'';
+  const tb=document.querySelector('#drill tbody');
+  tb.className='fade';
+  tb.innerHTML=crumb+arr.map(r=>`<tr class="${expandable?'clk':''}" data-k="${esc(r[0])}">
+      <td><span class="nm">${expandable?'<i>▸</i>':''}${esc(r[0])}</span></td>
+      <td>${nf.format(r[1])}</td><td>${nf.format(r[2])}</td><td><b>${nf.format(r[3])}</b></td>
+      <td>${r[2]?`<span class="pill ${pcl(r[4])}">${r[4].toFixed(0)} %</span>`:'–'}</td>
+      <td class="barcell"><span class="b" style="width:${(Math.max(0,r[3])/maxv*96).toFixed(0)}px"></span></td></tr>`).join('')+
+    `<tr class="total"><td>Celkem ${dSide.toLowerCase()}</td><td>${nf.format(tot[0])}</td><td>${nf.format(tot[1])}</td>
+      <td>${nf.format(tot[2])}</td><td>${tot[1]?(tot[2]/tot[1]*100).toFixed(0)+' %':''}</td><td></td></tr>`;
+  const bk=tb.querySelector('.back'); if(bk)bk.onclick=()=>{dExpand=null;drill();};
+  if(expandable)tb.querySelectorAll('tr.clk').forEach(tr=>tr.onclick=()=>{dExpand=tr.dataset.k;drill();});
+}
+if(DR.length){
+  const ys=document.getElementById('dYear');
+  ys.innerHTML='<option value="*">souhrn všech let</option>'+DY.slice().reverse().map(y=>`<option value="${y}">${y}${DT.ytd&&DT.ytd[0]==y?' (průběžně)':''}</option>`).join('');
+  ys.value=DT.ytd&&DY.length>1?DY[DY.length-2]:DY[DY.length-1];
+  ys.onchange=()=>{dExpand=null;drill();};
+  document.getElementById('dGroup').onchange=()=>{dExpand=null;drill();};
+  document.getElementById('dSearch').oninput=e=>{dQ=e.target.value.toLowerCase().trim();drill();};
+  document.querySelectorAll('#sideSeg button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#sideSeg button').forEach(x=>x.classList.remove('on'));b.classList.add('on');dSide=b.dataset.s;dExpand=null;drill();});
+  document.getElementById('dlDrill').onclick=()=>{const y=ys.value;
+    dlCSV('ostopovice_rozpocet_'+dSide.toLowerCase()+'_'+(y=='*'?'vse':y)+'.csv',['polozka_oblast','schvaleny_kc','upraveny_kc','skutecnost_kc','plneni_pct'],
+      (drill._arr||[]).map(r=>[r[0],r[1],r[2],r[3],r[4].toFixed(1)]));};
+  drill();
+} else document.getElementById('detail').hidden=true;
 function render(){kpis();trend();prijmyChart();vydajeChart();}
 render(); bindTheme(render);
 document.querySelectorAll('#mSeg button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#mSeg button').forEach(x=>x.classList.remove('on'));b.classList.add('on');metric=b.dataset.m;trend();});
 window.addEventListener('load',()=>{Object.values(charts).forEach(c=>{try{c.resize();}catch(e){}});});
-</script>'''.replace("DATA_JSON", data_json)
+</script>'''.replace("DATA_JSON", data_json).replace("DETAIL_JSON", json.dumps(DET, ensure_ascii=False, separators=(",", ":")))
+
+DETAIL_CSS = """.lbl{font-size:12.5px;color:var(--muted);font-weight:500;margin-right:2px}
+#detail select,#detail input[type=text]{font:inherit;font-size:13.5px;padding:7px 11px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text);outline:none}
+#detail select:focus,#detail input[type=text]:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+#detail .tbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:10px 0}
+#detail .dlbtn{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:12px;font-weight:500;color:var(--muted);background:var(--inset);border:1px solid var(--line);border-radius:9px;padding:5px 11px;cursor:pointer;white-space:nowrap}
+#detail .dlbtn:hover{color:var(--accent);border-color:var(--accent)}
+#detail .search{flex:1;min-width:180px;position:relative}
+#detail .search i{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--faint);font-size:15px;font-style:normal}
+#detail .search input{width:100%;padding-left:34px}
+#detail .tablewrap{max-height:540px;overflow:auto;border:1px solid var(--line);border-radius:var(--radius-sm)}
+#drill{width:100%;border-collapse:collapse;font-size:13px}
+#drill th,#drill td{padding:9px 12px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--line)}
+#drill th:first-child,#drill td:first-child{text-align:left;white-space:normal}
+#drill thead th{position:sticky;top:0;z-index:2;background:var(--surface2);color:var(--muted);font-weight:600;cursor:pointer;user-select:none;font-size:12px}
+#drill thead th:hover{color:var(--text)}
+#drill thead th .ar{opacity:.5;font-size:10px}
+#drill tbody tr.clk{cursor:pointer}
+#drill tbody tr:hover{background:var(--inset)}
+#drill td .nm{display:flex;align-items:center;gap:7px}
+#drill td .nm i{color:var(--faint);font-size:14px;font-style:normal}
+#drill .barcell{position:relative;min-width:120px}
+#drill .barcell .b{position:absolute;left:12px;top:50%;transform:translateY(-50%);height:7px;border-radius:4px;background:var(--accent);opacity:.85}
+#drill .pill{font-size:11px;padding:2px 9px;border-radius:999px;font-weight:600}
+#drill .pill.ok{background:rgba(16,185,129,.15);color:var(--pos)}
+#drill .pill.warn{background:rgba(249,115,22,.16);color:var(--vydaje)}
+#drill .pill.bad{background:rgba(239,68,68,.15);color:var(--neg)}
+#drill tr.total td{font-weight:680;border-top:2px solid var(--text);background:var(--surface2)}
+#drill tr.subrow td{background:var(--inset);font-size:12.5px}
+#drill .fade{animation:dfade .35s ease}
+@keyframes dfade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}"""
 
 open("rozpocet.html", "w", encoding="utf-8").write(
     pc.page("Rozpočet", "Rozpočet obce — Jak žijí Ostopovice", body,
-            head_scripts="<style>" + SANKEY_CSS + KOSTKA_CSS + "</style>",
+            head_scripts="<style>" + SANKEY_CSS + KOSTKA_CSS + DETAIL_CSS + SMLOUVY_CSS + "</style>",
             body_scripts=scripts + SANKEY_JS.replace("SANKEY_DATA", json.dumps(SANKEY, ensure_ascii=False))))
 print(f"HOTOVO -> rozpocet.html ({years[0]['rok']}-{LY}, {len(years)} let, výdaje {LY} {mil(last['vydaje']['skut'])} mil.)")

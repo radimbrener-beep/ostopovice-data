@@ -4,6 +4,7 @@ kopie ze Střelic — při změně formátu zkopírovat znovu).
 
 Zápisy zastupitelstva jsou úplné (i s rozpravou v textu), už anonymizované parserem.
 Rada obce zápisy nezveřejňuje. Zakázky jsou z profilu zadavatele (bez dodavatele)."""
+import csv
 import json
 import os
 import sys
@@ -41,8 +42,9 @@ def main():
                        "vyberova_rizeni": "Výběrová řízení z XML exportu profilu zadavatele (vhodne-uverejneni.cz). "
                                           "Nabídky a vybranou firmu obec uvádí jen u menší části řízení; většina "
                                           "je přímé zadání bez soutěže. Ceny bez DPH, jak je obec zapsala.",
-                       "rozpocet": "Rozpočet z MONITORu MF (FIN 2-12 M) jen v souhrnech: druhové třídění "
-                                   "a výdaje podle oblastí; rok 2026 je průběžný stav.",
+                       "rozpocet": "Rozpočet z MONITORu MF (výkaz FIN 2-12 M) v detailu paragraf × položka za roky "
+                                   "2013–2026, bez převodů mezi vlastními účty obce (konsolidovaný jako souhrny "
+                                   "MONITORu); rok 2026 je průběžný stav k uvedenému měsíci.",
                    })
 
     shrnuti = json.load(open("data/shrnuti/zo.json", encoding="utf-8")) if os.path.exists("data/shrnuti/zo.json") else {}
@@ -71,6 +73,24 @@ def main():
     a = roz.get("aktualni")
     if a:
         druhy(a["rok"], f'{a["rok"]}-{str(a["obdobi"])[-2:]}', a)
+
+    # plný detail paragraf × položka z otevřených dat (build_fin.py, build_fin2026.py); server ho
+    # upřednostní před souhrny. Bez převodů mezi vlastními účty (příjmy 4134, výdaje § 6330),
+    # jak to dělají souhrny MONITORu — součty pak sedí s API.
+    for fn in ("data/ostopovice_finm201_2013_2025.csv", "data/ostopovice_fin_2026.csv"):
+        if not os.path.exists(fn):
+            continue
+        for r in csv.DictReader(open(fn, encoding="utf-8-sig"), delimiter=";"):
+            if r["polozka"] == "4134" or (r["druh"] == "Výdaje" and r["paragraf"] == "6330"):
+                continue
+            ob = r.get("obdobi") or "12"
+            ex.rozpocet(rok=int(r["rok"]), obdobi=f'{r["rok"]}-{int(ob):02d}', granularita="polozka",
+                        strana="prijmy" if r["druh"] == "Příjmy" else "vydaje", druh=r["trida"],
+                        oblast=r["par_oddil"] if r["druh"] == "Výdaje" else None,
+                        paragraf=r["paragraf"], paragraf_nazev=r["paragraf_nazev"],
+                        polozka=r["polozka"], polozka_nazev=r["polozka_nazev"],
+                        schvaleny=mx.num(r["schvaleny_rozpocet"]), upraveny=mx.num(r["upraveny_rozpocet"]),
+                        skutecnost=mx.num(r["skutecnost"]))
 
     inv = embedded("investice.html")
     for k in inv["kap"]:

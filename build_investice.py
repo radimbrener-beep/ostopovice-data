@@ -8,6 +8,8 @@ import portal_common as pc
 sys.stdout.reconfigure(encoding="utf-8")
 
 CHARTJS = open("data/vendor/chart.umd.js", encoding="utf-8").read()
+LEAFLET_JS = open("data/vendor/leaflet.js", encoding="utf-8").read()
+LEAFLET_CSS = open("data/vendor/leaflet.css", encoding="utf-8").read()
 zak = json.load(open("data/zakazky.json", encoding="utf-8"))
 zo = json.load(open("dataset_ZO.json", encoding="utf-8"))
 ROZ = json.load(open("data/rozpocet_ostopovice.json", encoding="utf-8"))
@@ -66,7 +68,70 @@ for m in zo:
 zo_invest.sort(key=lambda x: -x["castka"])
 objem_poz = sum(p["castka"] for p in zo_invest)
 
-DATA = {"zak": zak, "pozemky": zo_invest, "kap": kap}
+# --- mapa: poloha akce z čísla parcely, známého místa nebo ulice (jako portál Střelic) ---
+# parcely: geocode_parcely.py (ČÚZK); ulice a místa: OpenStreetMap (data/ulice_geo.json, data/mista_geo.json)
+def _geo(path):
+    try:
+        return json.load(open(path, encoding="utf-8"))
+    except FileNotFoundError:
+        return {}
+
+
+PGEO, UGEO, MGEO = _geo("data/parcely_geo.json"), _geo("data/ulice_geo.json"), _geo("data/mista_geo.json")
+PARC_RE = re.compile(r"(?:p\.\s*č\.|parc\.\s*č\.|pozem\w*\s+(?:p\.\s*č\.\s*)?)\s*(\d{1,5}(?:/\d{1,4})?)", re.I)
+MISTA_RE = [(re.compile(r"mateřsk|základní škol|škol|gastro|družin", re.I), "zs"), (re.compile(r"ZŠ|MŠ"), "zs"),
+            (re.compile(r"(?<!\w)ZUŠ(?!\w)|uměleck", re.I), "zus"),
+            (re.compile(r"obecní\w*\s+úřad", re.I), "ou"), (re.compile(r"knihovn", re.I), "knihovna"),
+            (re.compile(r"kostel", re.I), "kostel"), (re.compile(r"pumptrack|cyklistick\w* centr", re.I), "pumptrack"),
+            (re.compile(r"sokol|fotbal|sportovní areál", re.I), "sokol")]
+
+
+def _ulice_rx(nm):
+    # skloňování: Lípová/Lipová -> Lipové/Lipovou, Školní -> Školního…, víceslovné názvy bez skloňování
+    base = re.escape(nm).replace("í", "[íi]", 1) if nm.startswith("L") else re.escape(nm)
+    if nm.endswith("á"):
+        return re.compile(r"(?<!\w)" + base[:-1] + r"(á|é|ou)(?!\w)", re.I)
+    if nm.endswith("í"):
+        return re.compile(r"(?<!\w)" + base + r"(ho|mu|m|ch)?(?!\w)", re.I)
+    return re.compile(r"(?<!\w)" + base + r"(?!\w)", re.I)
+
+
+ULICE_RE = [(_ulice_rx(nm), nm) for nm in sorted(UGEO, key=len, reverse=True)]
+
+
+SIDLO_RE = re.compile(r"(?:se\s+)?sídlem\s+[^,]+(?:,\s*\d{3}\s?\d{2})?", re.I)   # adresy stran smlouvy
+
+
+def poloha(text):
+    """[lat, lon, presne] — presne=False: akce bez místa, zobrazí se čárkovaně u obecního úřadu."""
+    text = SIDLO_RE.sub(" ", text)
+    for m in PARC_RE.finditer(text):
+        if m.group(1) in PGEO:
+            return PGEO[m.group(1)] + [True]
+    for rx, k in MISTA_RE:
+        if rx.search(text) and k in MGEO:
+            return MGEO[k] + [True]
+    for rx, nm in ULICE_RE:
+        if rx.search(text):
+            return UGEO[nm] + [True]
+    return MGEO["ou"] + [False] if "ou" in MGEO else None
+
+
+# [rok, datum, název, částka, kategorie, url, lat, lon, přesně, zdroj]
+mapa = []
+for z in zak:
+    g = poloha(z["nazev"])
+    if g:
+        mapa.append([z["rok"], z["datum"], z["nazev"], z["hodnota"], z["kat"], z["url"], g[0], g[1], g[2], "zakázka"])
+for x in zo_invest:
+    if x["typ"] != "Pozemek / majetek":
+        continue
+    g = poloha(x["text"])
+    if g and g[2]:   # pozemek bez dohledatelné parcely na mapu nedáváme
+        nazev = x["text"] if len(x["text"]) <= 170 else x["text"][:167].rsplit(" ", 1)[0] + "…"
+        mapa.append([x["rok"], "", nazev, x["castka"], "Pozemek / majetek", x["url"], g[0], g[1], True, "ZO " + x["zo"]])
+
+DATA = {"zak": zak, "pozemky": zo_invest, "kap": kap, "mapa": mapa}
 data_json = json.dumps(DATA, ensure_ascii=False, separators=(",", ":"))
 
 body = f'''<header class="hero">
@@ -82,10 +147,20 @@ body = f'''<header class="hero">
 </div>
 
 <section>
-  <div class="sec-h"><h2>Kapitálové výdaje obce</h2><span class="hint">MONITOR Státní pokladny · skutečnost {kap[0]["rok"]}–{kap[-1]["rok"]}</span></div>
+  <div class="sec-h"><h2>Kapitálové výdaje obce</h2>{pc.mascot_help("Kapitálové výdaje", "<p>Investice jsou kapitálové výdaje: peníze na pořízení nebo zhodnocení majetku obce, třeba stavby, rekonstrukce, pozemky a vybavení. Graf ukazuje skutečně utracené částky v každém roce podle výkazu pro Státní pokladnu.</p>", "06-investice")}<span class="hint">MONITOR Státní pokladny · skutečnost {kap[0]["rok"]}–{kap[-1]["rok"]}</span></div>
   <div class="panel">
     <div class="chartbox sm"><canvas id="kapChart"></canvas></div>
     <p class="note">Kapitálové výdaje = skutečně zaplacené investice (stavby, rekonstrukce, nákupy pozemků a budov, stroje) podle účetnictví obce. Rok 2025 je výjimečný — <b>dostavba MŠ a ZŠ</b>, financovaná dotací a úvěrem.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><h2>Mapa investic</h2>{pc.mascot_help("Mapa investic", "<p>Body ukazují, kde obec stavěla, opravovala nebo kupovala pozemky. Velikost bodu odpovídá částce, po kliknutí na bod uvidíte detail. Nahoře vyberete rok.</p><p>Poloha se určuje automaticky z čísla parcely, názvu ulice nebo známého místa (škola, úřad, kostel), takže je přibližná. Zakázky bez takového údaje jsou čárkovaně u obecního úřadu.</p>", "06-investice")}<span class="hint">zakázky a nákupy pozemků · klikni na bod</span></div>
+  <div class="ctrls"><span class="lbl">Rok</span><span class="seg" id="mapYrSeg"></span></div>
+  <div class="panel" style="padding:10px">
+    <div id="map"></div>
+    <div class="legend" id="mapLeg" style="margin:10px 4px 0"></div>
+    <p class="note" id="mapMiss" style="margin:6px 4px 0"></p>
   </div>
 </section>
 
@@ -120,6 +195,7 @@ body = f'''<header class="hero">
 </section>'''
 
 scripts = '<script>' + CHARTJS + '''</script>
+<script>''' + LEAFLET_JS + '''</script>
 <script>
 const D=DATA_JSON, ZAK=D.zak, POZ=D.pozemky, KAP=D.kap;
 const nf=new Intl.NumberFormat('cs-CZ');
@@ -176,12 +252,61 @@ function pozTab(){
     <td style="text-align:right;font-variant-numeric:tabular-nums"><b>${kc(p.castka)}</b></td></tr>`).join('')
     || '<tr><td colspan="4" class="note">Žádné záznamy.</td></tr>';
 }
-function render(){kpis();kapChart();catChart();yearChart();pozTab();}
+
+// ---- mapa investic ----
+const MAPA=D.mapa||[], MCAT={};
+let map=null, mapLayer=null, mapYear='vse';
+function renderMap(){
+  if(typeof L==='undefined'||!document.getElementById('map')||!MAPA.length)return;
+  if(!map){
+    map=L.map('map',{scrollWheelZoom:false});
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; přispěvatelé OpenStreetMap'}).addTo(map);
+    map.setView([49.1605,16.5440],15);
+  }
+  if(mapLayer)mapLayer.remove();
+  mapLayer=L.layerGroup().addTo(map);
+  const cats=[...new Set(MAPA.map(x=>x[4]))].sort(); cats.forEach((c,i)=>{if(!(c in MCAT))MCAT[c]=PAL[i%PAL.length];});
+  const seen={}, pts=[], used=new Set(); let fb=0;
+  const esc=t=>String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+  MAPA.forEach(x=>{
+    if(mapYear!=='vse'&&String(x[0])!==mapYear)return;
+    const key=x[6]+','+x[7], n=(seen[key]=(seen[key]||0)+1);
+    const lat=x[6]+(n>1?Math.cos(n*2.4)*0.00009:0), lon=x[7]+(n>1?Math.sin(n*2.4)*0.00013:0);
+    const clr=cssv(MCAT[x[4]]), r=Math.min(24,5+Math.sqrt(x[3]/1e6)*3.4);
+    if(!x[8])fb++; used.add(x[4]);
+    const pop=`<div class="mpop"><div class="dt">${x[1]||x[0]} · ${esc(x[4])} · ${esc(x[9])}</div><p>${esc(x[2])}</p><div class="amt">${kc(x[3])}</div>`+
+      (x[8]?'':'<div class="dt">bez konkrétního místa — zobrazeno u obecního úřadu</div>')+
+      (x[5]?`<p><a href="${x[5]}" target="_blank" rel="noopener" style="color:var(--accent)">detail ↗</a></p>`:'')+'</div>';
+    L.circleMarker([lat,lon],{radius:r,color:clr,weight:1.6,fillColor:clr,fillOpacity:x[8]?.5:.2,dashArray:x[8]?null:'4 4'}).bindPopup(pop).addTo(mapLayer);
+    pts.push([lat,lon]);
+  });
+  if(pts.length)map.fitBounds(pts,{padding:[28,28],maxZoom:16});
+  document.getElementById('mapLeg').innerHTML=[...used].sort().map(c=>`<span><i class="sw" style="background:${cssv(MCAT[c])}"></i>${c}</span>`).join('');
+  document.getElementById('mapMiss').textContent=fb?`${fb} zakázek bez konkrétního místa (vybavení, služby, akce po celé obci) je zobrazeno čárkovaně u obecního úřadu.`:'';
+}
+(function(){const yrs=[...new Set(MAPA.map(x=>String(x[0])))].sort();
+  const sg=document.getElementById('mapYrSeg'); if(!sg)return;
+  sg.innerHTML='<button class="on" data-y="vse">Vše</button>'+yrs.map(y=>`<button data-y="${y}">${y}</button>`).join('');
+  sg.querySelectorAll('button').forEach(b=>b.onclick=()=>{sg.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));mapYear=b.dataset.y;renderMap();});})();
+function render(){kpis();kapChart();catChart();yearChart();pozTab();renderMap();}
 render(); bindTheme(render);
 window.addEventListener('load',()=>{Object.values(charts).forEach(c=>{try{c.resize();}catch(e){}});});
 </script>'''.replace("DATA_JSON", data_json)
 
-CSS = '''<style>
+CSS = '''<style>''' + LEAFLET_CSS + '''
+#map{height:440px;border-radius:12px;z-index:0}
+.leaflet-tile-pane{filter:grayscale(.92) contrast(.92) brightness(1.04)}
+html[data-theme="dark"] .leaflet-tile-pane{filter:grayscale(.5) brightness(.6) invert(1) contrast(3.2) hue-rotate(200deg) saturate(.1) brightness(.75)}
+html[data-theme="dark"] .leaflet-container{background:#0d1424}
+.leaflet-container{font-family:inherit}
+.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:var(--surface);color:var(--text);box-shadow:var(--shadow-h)}
+.leaflet-popup-content{font-size:12.5px;line-height:1.5;margin:12px 14px;max-width:270px}
+.mpop .dt{font-size:11.5px;color:var(--muted)}
+.mpop p{margin:5px 0}
+.mpop .amt{font-weight:700}
+.legend .sw{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:middle}
+.legend span{margin-right:12px;font-size:12px;color:var(--muted)}
+@media(max-width:640px){#map{height:340px}}
 .callout{background:var(--inset);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:12px;padding:14px 16px;margin:18px 0 6px;font-size:13px;color:var(--muted);line-height:1.6}
 .callout b{color:var(--text)}
 .pill{font-size:11px;font-weight:600;padding:2px 9px;border-radius:999px}
